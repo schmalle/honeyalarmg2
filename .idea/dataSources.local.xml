@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Mysql - honeyalarmdev@localhost" uuid="62ea5347-caaa-428b-a31f-e7454c325aad">
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>honeyalarmdev</user-name>
+    </data-source>
+  </component>
+</project>
