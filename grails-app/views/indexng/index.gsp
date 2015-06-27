@@ -126,7 +126,7 @@
                                 <i class="fa fa-comments fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
+                                <div class="huge"><%=honeypots%></div>
                                 <div>Active honeypots!</div>
                             </div>
                         </div>
@@ -267,7 +267,7 @@
                             </a>
                         </div>
                         <!-- /.list-group -->
-    
+
                     </div>
                     <!-- /.panel-body -->
                 </div>

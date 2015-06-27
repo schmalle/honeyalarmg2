@@ -9,7 +9,8 @@ class UrlMappings {
 
         "/details"(controller: "Details", action: "index")
         "/"(view:"/index")
-        "/ng"(view:"/indexng")
+        "/ng2"(controller: "Indexng", action: "index")
+
         "500"(view:'/error')
 	}
 }

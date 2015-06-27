@@ -14,8 +14,8 @@ environments {
         dataSource {
             dbCreate = "create" // one of 'create', 'create-drop','update'
             url = "jdbc:mysql://localhost/honeyalarmdev?useUnicode=yes&characterEncoding=UTF-8"
-            username = "root"
-            password = ""
+            username = "honeyalarmdev"
+            password = "honeyalarmpw"
         }
         hibernate {
             show_sql = true
@@ -25,16 +25,16 @@ environments {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop','update'
             url = "jdbc:mysql://localhost/honeyalarmdev?useUnicode=yes&characterEncoding=UTF-8"
-            username = "root"
-            password = ""
+            username = "honeyalarmdev"
+            password = "honeyalarmpw"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/honeyalarmprod?useUnicode=yes&characterEncoding=UTF-8"
-            username = "root"
-            password = ""
+            username = "honeyalarmprod"
+            password = "honeyalarmpw"
         }
     }
 }
