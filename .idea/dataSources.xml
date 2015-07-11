@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3710212501">
+  <component name="DataSourceManagerImpl" format="xml" hash="3142924843">
     <data-source source="LOCAL" name="Mysql - honeyalarmdev@localhost" uuid="62ea5347-caaa-428b-a31f-e7454c325aad">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -14,6 +14,24 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
       <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="honeyalarmg2 dev" uuid="03bf5ba0-e14e-4da8-bbb1-39ef5bb2031a">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost/honeyalarmdev?useUnicode=yes&amp;characterEncoding=UTF-8</jdbc-url>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
+      <libraries>
+        <library>
+          <url>file://$PROJECT_DIR$/lib/mysql-connector-java-5.1.35-bin.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

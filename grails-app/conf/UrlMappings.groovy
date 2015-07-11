@@ -7,10 +7,16 @@ class UrlMappings {
             }
         }
 
-        "/details"(controller: "Details", action: "index")
-        "/"(view:"/index")
-        "/ng2"(controller: "Indexng", action: "index")
+        "/"(controller: "Indexng", action: "index")
+
+
+        //
+        // honeypot calls
+        //
+
         "/updateip"(controller: "Honeypot", action: "updateIP")
+        "/reportalarm"(controller: "Honeypot", action: "report")
+        "/config"(controller: "Index", action: "index")
 
         "500"(view:'/error')
 	}
