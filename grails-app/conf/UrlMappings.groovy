@@ -9,7 +9,6 @@ class UrlMappings {
 
         "/"(controller: "Indexng", action: "index")
 
-
         //
         // honeypot calls
         //

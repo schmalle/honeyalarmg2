@@ -112,102 +112,12 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Dashboard</h1>
+                <h1 class="page-header">Alarms</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-comments fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge"><%=honeypots%></div>
-                                <div>Active honeypots!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-support fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">13</div>
-                            <div>New alarms!</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
 
-        <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-tasks fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge"><%=ips%></div>
-                                <div>Overall IPs</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge"><%=alarms%></div>
-                                <div>Total alarms!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
         <!-- /.row -->
         <div class="row">
 
@@ -218,26 +128,30 @@
                         <i class="fa fa-bell fa-fw"></i> Notifications Panel
                     </div>
                     <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <div class="list-group">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Source</th>
+                                <th>Target</th>
+                                <th>Request</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="odd gradeX">
+                                <td>Trident</td>
+                                <td>Internet Explorer 4.0</td>
+                                <td>Win 95+</td>
+                                <td>AttackData</td>
 
-
-                            <g:each var="item" in="${reports}">
-
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> ${item.text}
-                                    <span class="pull-right text-muted small"><em>${item.time}</em>
-                                    </span>
-
-                                </a>
-
-                            </g:each>
-
-
-                         </div>
-                        <!-- /.list-group -->
-
+                                <td class="center"><button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button></td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
+
                     <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->
