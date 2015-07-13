@@ -146,7 +146,7 @@
                                 <td>Win 95+</td>
                                 <td>AttackData</td>
 
-                                <td class="center"><button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button></td>
+                                <td class="center"><button type="button" class="btn btn-success btn-circle"><i class="fa fa-check center"></i></button><button type="button" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-times"></i></button></td>
                             </tr>
                             </tbody>
                         </table>
