@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="honeyalarm">
 
 <head>
 
@@ -40,7 +40,7 @@
 
 </head>
 
-<body>
+<body ng-controller="AlarmController">
 
 <div id="wrapper">
 
@@ -128,23 +128,25 @@
                         <i class="fa fa-bell fa-fw"></i> Notifications Panel
                     </div>
                     <!-- /.panel-heading -->
-                    <div class="dataTable_wrapper">
-                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <div >
+                        <table class="table table-striped table-bordered" id="dataTables-example">
                             <thead>
                             <tr>
                                 <th>Time</th>
                                 <th>Source</th>
-                                <th>Target</th>
+                                <th>Type</th>
                                 <th>Request</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="odd gradeX">
-                                <td>Trident</td>
-                                <td>Internet Explorer 4.0</td>
-                                <td>Win 95+</td>
-                                <td>AttackData</td>
+
+
+                            <tr ng-repeat="alarm in alarms">
+                                <td>{{alarm.time}}</td>
+                                <td>{{alarm.attacker}}</td>
+                                <td>{{alarm.type}}</td>
+                                <td>{{alarm.request}}</td>
 
                                 <td class="center"><button type="button" class="btn btn-success btn-circle"><i class="fa fa-check center"></i></button><button type="button" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-times"></i></button></td>
                             </tr>
@@ -176,6 +178,11 @@
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="${g.resource(dir: 'js', file:'metisMenu.js')}"></script>
+
+<!-- AngularJS -->
+<script src="${g.resource(dir: 'js', file:'angular.min.js')}"></script>
+<script src="${g.resource(dir: 'js', file:'app.js')}"></script>
+
 
 <script src="${g.resource(dir: 'js', file:'raphael-min.js')}"></script>
 <script src="${g.resource(dir: 'js', file:'morris.min.js')}"></script>

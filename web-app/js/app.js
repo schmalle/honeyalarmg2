@@ -7,3 +7,12 @@ app.controller("ReportController", function($scope, $http) {
             $scope.reports = data;
         });
 });
+
+
+app.controller("AlarmController", function($scope, $http) {
+    $http.defaults.headers.common["X-Custom-Header"] = "Angular.js";
+    $http.get('/Report.json').
+        success(function(data, status, headers, config) {
+            $scope.alarms = data;
+        });
+});
