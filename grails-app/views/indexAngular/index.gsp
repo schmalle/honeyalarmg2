@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="honeyalarm">
 
 <head>
 
@@ -40,7 +40,7 @@
 
 </head>
 
-<body>
+<body ng-controller="ReportController">
 
 <div id="wrapper">
 
@@ -89,7 +89,7 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="/honeylalarmg2/ng2"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="/ng2"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
 
                     <li>
@@ -97,7 +97,7 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="/honeyalarmg2/about/index"><i class="fa fa-wrench fa-fw"></i> About<span class="fa arrow"></span></a>
+                        <a href="/about/index"><i class="fa fa-wrench fa-fw"></i> About<span class="fa arrow"></span></a>
                         <!-- /.nav-second-level -->
                     </li>
 
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="/Honeypot">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -140,30 +140,30 @@
                     </a>
                 </div>
             </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-support fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">13</div>
-                            <div>New alarms!</div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-red">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-support fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">13</div>
+                                <div>New alarms!</div>
+                            </div>
                         </div>
                     </div>
+                    <a href="/HandleAlarms">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
                 </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
             </div>
-        </div>
 
-        <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <div class="panel panel-green">
                     <div class="panel-heading">
                         <div class="row">
@@ -176,7 +176,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="/IP">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -222,19 +222,17 @@
                         <div class="list-group">
 
 
-                            <g:each var="item" in="${reports}">
 
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> ${item.text}
-                                    <span class="pull-right text-muted small"><em>${item.time}</em>
-                                    </span>
+                            <a href="#" class="list-group-item" ng-repeat="report in reports">
+                                <i class="fa fa-comment fa-fw"></i> {{report.text}}
+                                <span class="pull-right text-muted small"><em>{{report.time}}</em>
+                                </span>
 
-                                </a>
-
-                            </g:each>
+                            </a>
 
 
-                         </div>
+
+                        </div>
                         <!-- /.list-group -->
 
                     </div>
@@ -258,6 +256,10 @@
 <!-- jQuery -->
 <script src="${g.resource(dir: 'js', file:'jquery-2.1.4.min.js')}"></script>
 <script src="${g.resource(dir: 'js', file:'bootstrap.js')}"></script>
+
+<!-- AngularJS -->
+<script src="${g.resource(dir: 'js', file:'angular.min.js')}"></script>
+<script src="${g.resource(dir: 'js', file:'app.js')}"></script>
 
 
 <!-- Metis Menu Plugin JavaScript -->

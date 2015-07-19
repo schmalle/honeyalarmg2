@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Honeyalarm - Bootstrap Admin Theme</title>
+    <title>Honeyalarm - Admin console</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="${g.resource(dir: 'css', file:'bootstrap.min.css')}" rel="stylesheet">

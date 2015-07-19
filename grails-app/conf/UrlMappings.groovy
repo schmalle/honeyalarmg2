@@ -7,7 +7,7 @@ class UrlMappings {
             }
         }
 
-        "/"(controller: "Indexng", action: "index")
+        "/"(controller: "IndexAngular", action: "index")
 
         //
         // honeypot calls
