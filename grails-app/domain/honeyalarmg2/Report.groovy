@@ -5,6 +5,9 @@ class Report
 
     //
     // A report is the object coming from the user honeypots
+    // confirmed
+    // STATUS = OPEN
+    // STATUS = FALSE_POSTITIVE
     //
 
     String time

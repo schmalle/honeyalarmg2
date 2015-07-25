@@ -148,7 +148,7 @@
                                 <td>{{alarm.type}}</td>
                                 <td>{{alarm.request}}</td>
 
-                                <td class="center"><button type="button" class="btn btn-success btn-circle"><i class="fa fa-check center"></i></button><button type="button" class="btn btn-danger btn-circle" data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-times"></i></button></td>
+                                <td class="center"> <a href="/Report/show/{{alarm.id}}" class="btn btn-primary">View</a> <a href="/Report/confirm/{{alarm.id}}" class="btn btn-primary">Confirm</a> <a href="/Report/delete/{{alarm.id}}" class="btn btn-primary">Delete</a>   </td>
                             </tr>
                             </tbody>
                         </table>

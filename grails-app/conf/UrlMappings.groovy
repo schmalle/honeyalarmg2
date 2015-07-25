@@ -15,8 +15,12 @@ class UrlMappings {
 
         "/updateip"(controller: "Honeypot", action: "updateIP")
         "/reportalarm"(controller: "Honeypot", action: "report")
-        "/config"(controller: "Index", action: "index")
 
-        "500"(view:'/error')
+        "/Report/confirm/$id"(controller: "Report", action: "moveToAlarm")
+
+        "/graph"(controller: "Graph", action:"index")
+
+        "/login/$action?"(controller: "login")
+        "/logout"(controller: "logout")
 	}
 }

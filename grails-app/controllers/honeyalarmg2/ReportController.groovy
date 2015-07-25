@@ -8,7 +8,17 @@ import grails.transaction.Transactional
 class ReportController
 {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [moveToAlarm: "GET", save: "POST", update: "PUT", delete: "DELETE"]
+
+
+    def moveToAlarm()
+    {
+        def myReport = Report.findById(params.id)
+
+        Alarm myAlarm = new Alarm(time: myReport.time, type: myReport.type, request: myReport.request, attacker: myReport.attacker)
+        myAlarm.save()
+
+    }
 
     def index(Integer max)
     {

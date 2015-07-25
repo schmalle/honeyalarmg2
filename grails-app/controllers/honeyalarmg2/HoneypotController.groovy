@@ -46,6 +46,12 @@ class HoneypotController {
         def token = request.XML?.Authentication?.token
         def time = request.XML?.Alert?.CreateTime
         def source = request.XML?.Alert?.Source
+        def target = request.XML?.Alert?.Target
+
+
+
+
+//        def data = request.XML?.Alert?.Request
 
         try
         {
@@ -69,7 +75,7 @@ class HoneypotController {
         Report newReport = new Report(type: "DEMO", time: new Date(), request: "Dummy", status: "OPEN", attacker: "" + source) //request: "request", status: "OPEN", ip: source)
         newReport.save(flush: true)
 
-        UIReport newHoneypotUpdate = new UIReport(type: "ALARM", time: new Date(), text: "Alarm call from honeypot " + username)
+        UIReport newHoneypotUpdate = new UIReport(type: "ALARM", time: "" + time, text: "Alarm call from honeypot " + username)
         newHoneypotUpdate.save(flush: true)
 
         return render("ok")

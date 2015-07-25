@@ -1,5 +1,7 @@
 package honeyalarmg2
 
+import org.springframework.security.access.annotation.Secured
+
 class IndexAngularController
 {
 
@@ -8,7 +10,7 @@ class IndexAngularController
         The index class passes only core information to the clients
 
      */
-
+    @Secured(['IS_AUTHENTICATED_ANONYMOUSLY'])
     def index()
     {
 
