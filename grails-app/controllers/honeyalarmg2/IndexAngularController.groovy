@@ -1,6 +1,6 @@
 package honeyalarmg2
 
-import org.springframework.security.access.annotation.Secured
+//import org.springframework.security.access.annotation.Secured
 
 class IndexAngularController
 {
@@ -10,7 +10,7 @@ class IndexAngularController
         The index class passes only core information to the clients
 
      */
-    @Secured(['IS_AUTHENTICATED_ANONYMOUSLY'])
+//    @Secured(['IS_AUTHENTICATED_ANONYMOUSLY'])
     def index()
     {
 
@@ -20,8 +20,8 @@ class IndexAngularController
         def ips = IP.all.size()
 
         // extract data arrays
-        def reports = UIReport.findAllByTimeIsNotNull()
+        //def reports = UIReport.findAllByTimeIsNotNull()
 
-        [honeypots:honeypots, alarms:alarms, reports: reports, ips: ips]
+        [honeypots:honeypots, alarms:alarms, /*reports: reports,*/ ips: ips]
     }
 }

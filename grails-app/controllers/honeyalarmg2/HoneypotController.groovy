@@ -49,10 +49,6 @@ class HoneypotController {
         def target = request.XML?.Alert?.Target
 
 
-
-
-//        def data = request.XML?.Alert?.Request
-
         try
         {
             def ip = IP.findbyText(source)
