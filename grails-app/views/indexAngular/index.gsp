@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="refresh" content="10">
 
     <title>Honeyalarm - Bootstrap Admin Theme</title>
 
@@ -223,11 +224,10 @@
 
 
 
-                            <a href="#" class="list-group-item" ng-repeat="report in reports">
-                                <i class="fa fa-comment fa-fw"></i> {{report.text}}
-                                <span class="pull-right text-muted small"><em>{{report.time}}</em>
+                            <a href="#" class="list-group-item" ng-repeat="reportAngular in reportsAngular">
+                                <i class="fa fa-comment fa-fw"></i> {{reportAngular.text}}
+                                <span class="pull-right text-muted small"><em>{{reportAngular.time}}</em>
                                 </span>
-
                             </a>
 
 
