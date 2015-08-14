@@ -75,28 +75,6 @@ class HoneypotController {
         newHoneypotUpdate.save(flush: true)
 
         return render("ok")
-/*
-
-       <EWS-SimpleMessage version="2.0">
-    <Authentication>
-        <username>xxx</username>
-        <token>yyy</token>
-    </Authentication>
-    <Alert>
-        <Analyzer id="HOST"/>
-        <CreateTime tz="+0200">TIME</CreateTime>
-        <Source category="ipv4" port="" protocol="tcp">ATTACKER_IP</Source>
-        <Target category="ipv4" port="80" protocol="tcp">MY_IP</Target>
-        <Request type="" text="">ATTACKTYPE</Request>
-        <Request type="raw" text="">RDATA</Request>
-        <Classification origin="vendor-specific" ident="sip-01" text="ModSecurity"/>
-        <AdditionalData type="string" meaning="httpmethod">GET</AdditionalData>
-        <AdditionalData type="string" meaning="host">HOST</AdditionalData>
-    </Alert>
-</EWS-SimpleMessage>
-
-
-         */
 
     }
 
