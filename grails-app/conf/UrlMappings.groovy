@@ -8,6 +8,8 @@ class UrlMappings {
         }
 
         "/"(controller: "IndexAngular", action: "index")
+        "/about"(controller: "About", action: "index")
+
 
         //
         // honeypot calls

@@ -117,11 +117,24 @@
             <!-- /.col-lg-12 -->
         </div>
 
-        Uses great SB-Admin 2 theme (see http://ironsummitmedia.github.io/startbootstrap-sb-admin-2/pages/index.html)<br>
-        Grails 2.5.0<br>
-        Mysql<br><br>
 
-        Coding by Markus "Flake" Schmall
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-success">Uses great SB-Admin 2 theme (see http://ironsummitmedia.github.io/startbootstrap-sb-admin-2/pages/index.html)</li>
+            <li class="list-group-item list-group-item-info">Grails framework</li>
+            <li class="list-group-item list-group-item-warning">Mysql</li>
+            <li class="list-group-item list-group-item-danger">AngularJS</li>
+        </ul>
+
+        <br>
+
+        Coding by Markus "Flake" Schmall using great IntelliJ Idea<br>
+
+        <br>
+        Thanks for various discussions / input to Markus Schroer, Andre Vorbach and Marco Ochse.
+
+        <br><br>
+
+        <a href="/" class="btn btn-primary" role="button">Main</a>
 
 
     </div>
@@ -131,7 +144,6 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="${g.resource(dir: 'js', file:'jquery-2.1.4.min.js')}"></script>
 <script src="${g.resource(dir: 'js', file:'bootstrap.js')}"></script>
 
 
