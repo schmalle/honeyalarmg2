@@ -148,7 +148,7 @@
                                 <td>{{alarm.type}}</td>
                                 <td>{{alarm.request}}</td>
 
-                                <td class="center"> <a href="/Report/show/{{alarm.id}}" class="btn btn-primary">View</a> <a href="/Report/confirm/{{alarm.id}}" class="btn btn-primary">Confirm</a> <a href="/Report/delete/{{alarm.id}}" class="btn btn-primary">Delete</a>   </td>
+                                <td class="center"> <a href="/Report/show/{{alarm.id}}" class="btn btn-primary">View</a> <a href="/Report/confirm/{{alarm.id}}" class="btn btn-success">Confirm</a> <a href="/Report/delete/{{alarm.id}}" class="btn btn-danger">Delete</a>   </td>
                             </tr>
                             </tbody>
                         </table>
@@ -157,6 +157,9 @@
                     <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->
+
+
+                <a href="/" class="btn btn-primary" role="button">Main</a>
 
                 <!-- /.panel -->
 
