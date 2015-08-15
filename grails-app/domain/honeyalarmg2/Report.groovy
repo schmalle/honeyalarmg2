@@ -5,7 +5,8 @@ class Report
 
     //
     // A report is the object coming from the user honeypots
-    // confirmed
+    //
+    // STATUS = CONFIRMED
     // STATUS = OPEN
     // STATUS = FALSE_POSTITIVE
     //

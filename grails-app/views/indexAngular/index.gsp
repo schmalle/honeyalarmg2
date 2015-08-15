@@ -50,6 +50,7 @@
                     setInterval(function() {
                         var url = '/'; //please insert the url of the your current page here, we are assuming the url is 'index.php'
                         $('#div1-wrapper').load(url + ' #reportDiv'); //note: the space before #div1 is very important
+                        $('#div0-wrapper').load(url + ' #alarmDiv'); //note: the space before #div1 is very important
 
                     }, 3000);
                 });
@@ -205,28 +206,22 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge"><%=alarms%></div>
-                                <div>Total alarms!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
+
+
+            <!-- generate number of alarms dynamically every n seconds -->
+
+        <div id="div0-wrapper">
+
+
+            <!-- This div will be reloaded by Jquery every time -->
+            <div id= "alarmDiv">
+
+
+                <g:include controller="headerGenerator" action="index"></g:include>
+
             </div>
+        </div>
+
         </div>
         <!-- /.row -->
         <div class="row">

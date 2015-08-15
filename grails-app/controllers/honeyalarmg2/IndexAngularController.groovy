@@ -15,12 +15,12 @@ class IndexAngularController
 
         // extract pure numbers for display
         def numberOfHoneypots = Honeypot.all.size()
-        def numberOfAlarms = Report.all.size()
+
         def numberOfIps = IP.all.size()
 
         // extract data arrays
         //def reports = UIReport.findAllByTimeIsNotNull()
 
-        [honeypots:numberOfHoneypots, alarms:numberOfAlarms, ips: numberOfIps]
+        [honeypots:numberOfHoneypots, ips: numberOfIps]
     }
 }
