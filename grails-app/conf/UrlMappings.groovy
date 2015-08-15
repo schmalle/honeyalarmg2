@@ -20,7 +20,6 @@ class UrlMappings {
 
         "/graph"(controller: "Graph", action:"index")
 
-        "/login/$action?"(controller: "login")
-        "/logout"(controller: "logout")
+
 	}
 }

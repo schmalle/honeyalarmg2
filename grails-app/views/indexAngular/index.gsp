@@ -9,9 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta http-equiv="refresh" content="10">
+<!--    <meta http-equiv="refresh" content="10"> -->
 
     <title>Honeyalarm - Bootstrap Admin Theme</title>
+
+    <script src="${g.resource(dir: 'js', file:'jquery-2.1.4.min.js')}"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="${g.resource(dir: 'css', file:'bootstrap.min.css')}" rel="stylesheet">
@@ -39,9 +41,26 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+
+    <script>
+
+        $(document).ready(
+                function() {
+                    setInterval(function() {
+                        var url = '/'; //please insert the url of the your current page here, we are assuming the url is 'index.php'
+                        $('#div1-wrapper').load(url + ' #reportDiv'); //note: the space before #div1 is very important
+
+                    }, 3000);
+                });
+
+    </script>
+
+
+
 </head>
 
-<body ng-controller="ReportController">
+<body>
 
 <div id="wrapper">
 
@@ -220,20 +239,19 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <div class="list-group">
+
+                        <div id="div1-wrapper">
 
 
+                            <!-- This div will be reloaded by Jquery every time -->
+                            <div id= "reportDiv" class="list-group">
 
-                            <a href="#" class="list-group-item" ng-repeat="reportAngular in reportsAngular">
-                                <i class="fa fa-comment fa-fw"></i> {{reportAngular.text}}
-                                <span class="pull-right text-muted small"><em>{{reportAngular.time}}</em>
-                                </span>
-                            </a>
+                               <g:include controller="ajaxAlarm" action="index" />
 
-
+                            </div>
+                            <!-- /.list-group -->
 
                         </div>
-                        <!-- /.list-group -->
 
                     </div>
                     <!-- /.panel-body -->
@@ -254,7 +272,6 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="${g.resource(dir: 'js', file:'jquery-2.1.4.min.js')}"></script>
 <script src="${g.resource(dir: 'js', file:'bootstrap.js')}"></script>
 
 <!-- AngularJS -->
