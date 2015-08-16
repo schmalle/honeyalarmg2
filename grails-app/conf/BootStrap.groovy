@@ -2,6 +2,7 @@ import honeyalarmg2.Report
 import honeyalarmg2.Honeypot
 import honeyalarmg2.UIReport
 import honeyalarmg2.User
+import honeyalarmg2.ConfigHG
 
 class BootStrap {
 
@@ -16,7 +17,17 @@ class BootStrap {
         Honeypot honey = new Honeypot(name: "demohoneypot", password: "test", ip: "127.0.0.1", added: new Date(), lastseen: new Date())
         Report newAlarm = new Report(time: new Date(), type: "type", request: "GET /../../", status: "OPEN", attacker: "127.0.0.1")
         User newUser = new User(name: "admin", password: "password", status: "admin", domain: "default")
+        ConfigHG newConfig = new ConfigHG(nameMandant: "default",
+                                                    changedFromIP: "127.0.0.1",
+                                                    added: new Date(),
+                                                    lastChanged: new Date(),
+                                                    useTelegram: false,
+                                                    useTwitter: new Boolean(false),
+                                                    teleGramToken: "Telegram Token",
+                                                    twitterToken: "Twitter Token")
 
+
+        newConfig.save(flush:true)
         honey.save(flush:true)
         ui.save(flush:true)
         newAlarm.save(flush:true)
