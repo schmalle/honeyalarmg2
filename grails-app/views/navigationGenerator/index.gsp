@@ -7,7 +7,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">HoneyAlarm - Admin Console</a>
+        <a class="navbar-brand" href="index.html">HoneyAlarm - Admin Console
+
+ <!--       <img src="${g.resource(dir: 'images', file:'dtag.png')}"></img> -->
+
+        </a>
+
+
     </div>
     <!-- /.navbar-header -->
 

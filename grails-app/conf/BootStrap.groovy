@@ -24,7 +24,8 @@ class BootStrap {
                                                     useTelegram: false,
                                                     useTwitter: new Boolean(false),
                                                     teleGramToken: "Telegram Token",
-                                                    twitterToken: "Twitter Token")
+                                                    twitterToken: "Twitter Token",
+                                                    image: "dtag")
 
 
         newConfig.save(flush:true)

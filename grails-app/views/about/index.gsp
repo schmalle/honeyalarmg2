@@ -61,6 +61,7 @@
             <li class="list-group-item list-group-item-info">Grails framework</li>
             <li class="list-group-item list-group-item-warning">Mysql</li>
             <li class="list-group-item list-group-item-danger">AngularJS</li>
+            <li class="list-group-item list-group-item-danger">Telegram (Bot API)</li>
         </ul>
 
         <br>

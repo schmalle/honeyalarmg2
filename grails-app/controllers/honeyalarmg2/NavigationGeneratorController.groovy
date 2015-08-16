@@ -3,5 +3,9 @@ package honeyalarmg2
 class NavigationGeneratorController
 {
 
-    def index() {}
+    def index()
+    {
+        ConfigHG config = ConfigHG.findByNameMandant("default")
+        [config : config]
+    }
 }

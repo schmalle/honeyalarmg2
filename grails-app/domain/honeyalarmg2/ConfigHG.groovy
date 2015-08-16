@@ -1,15 +1,9 @@
 package honeyalarmg2
 
-class ConfigHG
-{
-
-    /*
-
-
-
-     */
+class ConfigHG  {
 
     String nameMandant
+    String image
     String changedFromIP
     String added
     String lastChanged

@@ -10,6 +10,7 @@ class UrlMappings {
         "/"(controller: "IndexAngular", action: "index")
         "/about"(controller: "About", action: "index")
         "/config"(controller: "Config", action: "index")
+        "/sendmessage"(controller: "Telegram", action: "sendMessage")
 
 
         //
