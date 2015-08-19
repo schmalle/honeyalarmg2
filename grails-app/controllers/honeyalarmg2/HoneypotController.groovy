@@ -14,27 +14,38 @@ class HoneypotController {
     def updateIP()
     {
 
-        def name = request.XML?.login?.name
-        def password = request.XML?.login?.password
-
-        def honeypot = Honeypot.findByName(name)
-
-        if (honeypot.password.toString() == password)
+        try
         {
-            return render("bad username / password combination")
+
+            def name = request.XML?.login?.name
+            def password = request.XML?.login?.password
+
+            def honeypot = Honeypot.findByName(name)
+
+    //        if (honeypot.password.toString() == password)
+    //        {
+    //            return render("bad username / password combination")
+    //        }
+
+            honeypot.delete()
+            honeypot.properties['ip'] = request.remoteAddr
+            honeypot.properties['lastseen'] = new Date()
+            honeypot.save()
+
+
+            //
+            // generate update entry for ui
+            //
+            UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from honeypot " + name)
+            newHoneypotUpdate.save()
+
+            return renderText("ok")
+        }
+        catch (Exception e)
+        {
+            return renderText("not ok, exception caught")
         }
 
-        honeypot.properties['ip'] = params
-        honeypot.properties['lastseen'] = new Date()
-        honeypot.save()
-
-        //
-        // generate update entry for ui
-        //
-        UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from honeypot " + name)
-        newHoneypotUpdate.save()
-
-        return render("ok")
 
     }   // updateIP
 
@@ -42,11 +53,24 @@ class HoneypotController {
     def report()
     {
 
-        def username = request.XML?.Authentication?.username
-        def token = request.XML?.Authentication?.token
-        def time = request.XML?.Alert?.CreateTime
-        def source = request.XML?.Alert?.Source
-        def target = request.XML?.Alert?.Target
+        def username = ""
+        def token = ""
+        def time = ""
+        def source = ""
+        def target = ""
+
+        try
+        {
+            username = request.XML?.Authentication?.username
+            token = request.XML?.Authentication?.token
+            time = request.XML?.Alert?.CreateTime
+            source = request.XML?.Alert?.Source
+            target = request.XML?.Alert?.Target
+        }
+        catch (Exception e)
+        {
+            return render("report:: not ok")
+        }
 
 
         try
@@ -54,7 +78,6 @@ class HoneypotController {
             def ip = IP.findbyText(source)
             ip.lastSeen = new Date()
             ip.save(flush: true)
-
         }
         catch (Exception e)
         {
@@ -74,8 +97,13 @@ class HoneypotController {
         UIReport newHoneypotUpdate = new UIReport(type: "ALARM", time: "" + time, text: "Alarm call from honeypot " + username)
         newHoneypotUpdate.save(flush: true)
 
-        return render("ok")
+        return renderText("ok")
 
+    }
+
+    def renderText(returnText)
+    {
+        return render(text: returnText, contentType: "text/plain", encoding: "UTF-8")
     }
 
 }
