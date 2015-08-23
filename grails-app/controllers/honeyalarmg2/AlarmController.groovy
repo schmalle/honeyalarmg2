@@ -1,6 +1,6 @@
 package honeyalarmg2
 
-class AjaxAlarmController
+class AlarmController
 {
 
     def index()

@@ -6,15 +6,19 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
-@TestFor(IndexAngularController)
-class IndexAngularControllerSpec extends Specification {
+@TestFor(AlarmController)
+class AlarmControllerSpec extends Specification
+{
 
-    def setup() {
+    def setup()
+    {
     }
 
-    def cleanup() {
+    def cleanup()
+    {
     }
 
-    void "test something"() {
+    void "test something"()
+    {
     }
 }

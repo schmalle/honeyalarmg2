@@ -30,7 +30,7 @@ class ConfigController
 
         x.save(flush: true)
 
-        redirect(controller: "IndexAngular", action: "index")
+        redirect(controller: "Index", action: "index")
     }
 
     def index()

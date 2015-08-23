@@ -7,9 +7,9 @@ class UrlMappings {
             }
         }
 
-        "/"(controller: "IndexAngular", action: "index")
-        "/index.html"(controller: "IndexAngular", action: "index")
-        "/index.htm"(controller: "IndexAngular", action: "index")
+        "/"(controller: "Index", action: "index")
+        "/index.html"(controller: "Index", action: "index")
+        "/index.htm"(controller: "Index", action: "index")
 
         "/about"(controller: "About", action: "index")
         "/config"(controller: "Config", action: "index")

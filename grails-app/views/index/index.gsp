@@ -132,7 +132,7 @@
                             <!-- This div will be reloaded by Jquery every time -->
                             <div id= "reportDiv" class="list-group">
 
-                               <g:include controller="ajaxAlarm" action="index" />
+                               <g:include controller="alarm" action="index" />
 
                             </div>
                             <!-- /.list-group -->
