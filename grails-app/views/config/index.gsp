@@ -4,6 +4,15 @@
 
 <head>
 
+    <style>
+
+    .blank_row {
+        height: 10px !important; /* Overwrite any previous rules */
+        background-color: #FFFFFF;
+    }
+
+    </style>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,8 +64,7 @@
         </div>
         <!-- /.row -->
 
-        Created: ${config.added} <br>
-        Last changed: ${config.lastChanged}
+
 
         <!-- /.row -->
         <div class="row">
@@ -69,66 +77,108 @@
 
                     <br>
 
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input type="checkbox" aria-label="...">
-                                </span>
-                                <input type="text" class="form-control" aria-label="..." value="Twitter auth token">
-                            </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
+                    <form action="/saveConfig" method="post">
+
+                        <g:hiddenField name="nameMandant" value="${config.nameMandant}"/>
+                        <g:hiddenField name="added" value="${config.added}"/>
+                        <g:hiddenField name="ip" value="${ip}"/>
+
+
+                        <table>
+
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
 
 
 
-                        <div class="col-lg-6">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input type="checkbox" aria-label="...">
-                                </span>
-                                <input type="text" class="form-control" aria-label="..." value="Telegram auth token">
-                            </div><!-- /input-group -->
+                            <tr><td>Created</td><td>${config.added}</td></tr>
+                            <tr><td>Last changed</td><td>${config.lastChanged}</td></tr>
 
-                        </div><!-- /.col-lg-6 -->
+                            <tr class="blank_row">
+                                <td colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Use custom image</label></td>
+                                <td><g:select id="useImage" name="useImage"
+                                              from="${['no': 'No', 'yes': 'Yes']}"
+                                              optionKey="key" optionValue="value"/></td>
+                                <td><label>Image name</label></td>
+                                <td><g:textField name="image" value="${config.image}"/></td>
+                            </tr>
 
-                        <div class="col-lg-6">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input type="checkbox" aria-label="...">
-                                </span>
-                                <input type="text" class="form-control" aria-label="..." value="Individual image">
-                            </div><!-- /input-group -->
+                            <tr>
+                                <td><label>Use Twitter</label></td>
+                                <td><g:select id="useTwitter" name="useTwitter"
+                                              from="${['no': 'No', 'yes': 'Yes']}"
+                                              optionKey="key" optionValue="value" value="${config.useTwitter}"/></td>
+                                <td><label>Twitter Token</label></td>
+                                <td><g:textField name="twitterToken" value="${config.twitterToken}"/></td>
 
-                        </div><!-- /.col-lg-6 -->
+                            </tr>
 
-                        </div>
+                            <tr class="blank_row">
+                                <td colspan="3"></td>
+                            </tr>
+                            <tr class="blank_row">
+                                <td colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Use Telegram</label></td>
+                                <td><g:select id="useTelegram" name="useTelegram"
+                                              from="${['no': 'No', 'yes': 'Yes']}"
+                                              optionKey="key" optionValue="value" value="${config.useTelegram}"/></td>
 
-                        <br>
-                        <br>
 
-                        <a href="/" class="btn btn-primary " role="button">Submit</a>
+                                <td><label>Telegram Token:</label></td>
+                                <td><g:textField name="telegramToken" value="${config.telegramToken}"/><br/></td>
 
-                        <br>
-                        <br>
+                            </tr>
 
 
-                        <a href="/" class="btn btn-primary" role="button">Main</a>
+                            <g:each in="${telegramID}">
+
+                                <tr>
+                                    <td><label>Use ID ${it} (Telegram)</label></td>
+                                    <td><g:select id="use${it}" name="use${it}"
+                                                  from="${['no': 'No', 'yes': 'Yes']}"
+                                                  optionKey="key" optionValue="value"/>
+                                    </td>
+                                </tr>
+                            </g:each>
+
+                            <tr class="blank_row">
+                                <td colspan="3"></td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="submit" class="btn btn-primary " value="Submit"></td>
+                            </tr>
+
+                        </table>
+                    </form>
+
+                    <br>     <a href="/" class="btn btn-primary" role="button">Main</a>
 
 
-                        <!-- /.panel -->
+                    <!-- /.panel -->
 
-                        <!-- /.panel .chat-panel -->
-                    </div>
-                    <!-- /.col-lg-4 -->
+                    <!-- /.panel .chat-panel -->
+
                 </div>
-                <!-- /.row -->
+                <!-- /.col-lg-4 -->
             </div>
-            <!-- /#page-wrapper -->
-
+            <!-- /.row -->
         </div>
-        <!-- /#wrapper -->
+        <!-- /#page-wrapper -->
 
-        <g:include controller="javascriptGenerator" action="index"></g:include>
+    </div>
+    <!-- /#wrapper -->
+
+    <g:include controller="javascriptGenerator" action="index"></g:include>
 
 </body>
 
