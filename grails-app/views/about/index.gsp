@@ -69,7 +69,7 @@
         Coding by Markus "Flake" Schmall using great IntelliJ Idea<br>
 
         <br>
-        Thanks for various discussions / input to Markus Schroer, Andre Vorbach and Marco Ochse.
+        Thanks for various discussions / input to Markus Schroer, Andre Vorbach, Rainer Schmidt and Marco Ochse.
 
         <br><br>
 
