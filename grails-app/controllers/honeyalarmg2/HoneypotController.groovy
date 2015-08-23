@@ -106,4 +106,10 @@ class HoneypotController {
         return render(text: returnText, contentType: "text/plain", encoding: "UTF-8")
     }
 
+    def index()
+    {
+        def Honeypots = Honeypot.findAll()
+        [Honeypots: Honeypots]
+    }
+
 }

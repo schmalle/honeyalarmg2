@@ -57,6 +57,21 @@ class ConfigController
             println "no telegram"
         }
 
-        [config: config, size:size, telegramID:telegramID, telegramFirstName:telegramFirstName, telegramLastName:telegramLastName, ip: request.getRemoteAddr()  ]
+        List teleGramList = new LinkedList()
+
+        //
+        // ugly Java code
+        //
+        for (int runner = 0; telegramID != null && runner <= telegramID.size() -1; runner++)
+        {
+            String id = telegramID.get(runner)
+            String firstName = telegramFirstName.get(runner)
+            String lastName = telegramLastName.get(runner)
+
+            teleGramList.add(id + ";;" + firstName + ";;" + lastName)
+
+        }
+
+        [telegramList: teleGramList, config: config, size:size, telegramID:telegramID, telegramFirstName:telegramFirstName, telegramLastName:telegramLastName, ip: request.getRemoteAddr()  ]
     }
 }

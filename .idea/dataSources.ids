@@ -446,92 +446,97 @@
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="91" parent="12" name="last_changed">
+      <column id="91" parent="12" name="image">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="92" parent="12" name="name_mandant">
+      <column id="92" parent="12" name="last_changed">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="93" parent="12" name="tele_gram_token">
+      <column id="93" parent="12" name="name_mandant">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="94" parent="12" name="twitter_token">
+      <column id="94" parent="12" name="tele_gram_token">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="95" parent="12" name="use_telegram">
+      <column id="95" parent="12" name="twitter_token">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <comment></comment>
+      </column>
+      <column id="96" parent="12" name="use_telegram">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
         <comment></comment>
       </column>
-      <column id="96" parent="12" name="use_twitter">
+      <column id="97" parent="12" name="use_twitter">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
         <comment></comment>
       </column>
-      <key id="97" parent="12" name="PRIMARY">
+      <key id="98" parent="12" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <column id="98" parent="13" name="id">
+      <column id="99" parent="13" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="99" parent="13" name="version">
+      <column id="100" parent="13" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="100" parent="13" name="added">
+      <column id="101" parent="13" name="added">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="101" parent="13" name="changed_fromip">
+      <column id="102" parent="13" name="changed_fromip">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="102" parent="13" name="last_changed">
+      <column id="103" parent="13" name="last_changed">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="103" parent="13" name="name_mandant">
+      <column id="104" parent="13" name="name_mandant">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="104" parent="13" name="tele_gram_token">
+      <column id="105" parent="13" name="tele_gram_token">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="105" parent="13" name="twitter_token">
+      <column id="106" parent="13" name="twitter_token">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="106" parent="13" name="use_telegram">
+      <column id="107" parent="13" name="use_telegram">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
         <comment></comment>
       </column>
-      <column id="107" parent="13" name="use_twitter">
+      <column id="108" parent="13" name="use_twitter">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
         <comment></comment>
       </column>
-      <key id="108" parent="13" name="PRIMARY">
+      <key id="109" parent="13" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>

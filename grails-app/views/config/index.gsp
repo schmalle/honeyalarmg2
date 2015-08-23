@@ -138,8 +138,9 @@
 
                             </tr>
 
+                            <!-- define needed users  -->
 
-                            <g:each in="${telegramID}">
+                            <g:each in="${telegramList}">
 
                                 <tr>
                                     <td><label>Use ID ${it} (Telegram)</label></td>
@@ -147,6 +148,12 @@
                                                   from="${['no': 'No', 'yes': 'Yes']}"
                                                   optionKey="key" optionValue="value"/>
                                     </td>
+                                    <td><label>Info Messages</label></td>
+                                    <td><g:select id="use${it}" name="info${it}"
+                                                  from="${['no': 'No', 'yes': 'Yes']}"
+                                                  optionKey="key" optionValue="value"/>
+                                    </td>
+
                                 </tr>
                             </g:each>
 
@@ -161,7 +168,7 @@
                         </table>
                     </form>
 
-                    <br>     <a href="/" class="btn btn-primary" role="button">Main</a>
+                    <br>  <br> <br>   <a href="/" class="btn btn-primary" role="button">Main</a>
 
 
                     <!-- /.panel -->

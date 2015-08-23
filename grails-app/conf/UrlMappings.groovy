@@ -14,6 +14,7 @@ class UrlMappings {
         "/about"(controller: "About", action: "index")
         "/config"(controller: "Config", action: "index")
         "/sendmessage"(controller: "Telegram", action: "sendMessage")
+        "/honeypot"(controller: "Honeypot", action: "index")
 
         "/saveConfig"(controller: "Config", action: "saveConfig")
 
