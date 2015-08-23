@@ -1,5 +1,5 @@
 <!-- jQuery -->
-<script src="${g.resource(dir: 'js', file:'bootstrap.js')}"></script>
+<script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
 
 <!-- AngularJS -->
 <script src="${g.resource(dir: 'js', file:'angular.min.js')}"></script>
