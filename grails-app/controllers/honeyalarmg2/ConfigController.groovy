@@ -3,8 +3,22 @@ package honeyalarmg2
 class ConfigController
 {
 
+    /**
+     * save configuration to database
+     * @return
+     */
     def saveConfig()
     {
+        def enu = request.getParameterMap();
+        String msg = "";
+
+        for (def obj : enu) {
+            msg += "\n<br/> Object key: " + obj.key;
+            msg += "\n<br/> Object value: " + obj.value[0]; // [0] seems to remove some problematic square brackets that wrap around the value
+            msg += "\n<br/> ";
+        }
+
+        print msg
 
         ConfigHG x = new ConfigHG(params)
         x.lastChanged = (String)new Date()
