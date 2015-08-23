@@ -15,6 +15,8 @@ class UrlMappings {
         "/config"(controller: "Config", action: "index")
         "/sendmessage"(controller: "Telegram", action: "sendMessage")
 
+        "/saveConfig"(controller: "Config", action: "saveConfig")
+
 
         //
         // honeypot calls

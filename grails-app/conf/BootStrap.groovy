@@ -21,9 +21,10 @@ class BootStrap {
                                                     changedFromIP: "127.0.0.1",
                                                     added: new Date(),
                                                     lastChanged: new Date(),
-                                                    useTelegram: false,
-                                                    useTwitter: new Boolean(false),
-                                                    teleGramToken: "Telegram Token",
+                                                    useTelegram: "no",
+                                                    useTwitter: "no",
+                                                    useImage: "no",
+                                                    telegramToken: "Telegram Token",
                                                     twitterToken: "Twitter Token",
                                                     image: "dtag")
 
