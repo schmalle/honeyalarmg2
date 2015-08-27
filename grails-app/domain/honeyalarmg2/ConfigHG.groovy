@@ -12,7 +12,8 @@ class ConfigHG  {
     String telegramToken
     String useTwitter
     String twitterToken
-
+    String usePushover
+    String pushoverToken
     static constraints = {
 
     }
