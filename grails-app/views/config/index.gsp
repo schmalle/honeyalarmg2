@@ -161,7 +161,20 @@
                                 <td colspan="3"></td>
                             </tr>
 
-                            <tr>
+                        <tr>
+                            <td><label>Use Pushover</label></td>
+                            <td><g:select id="usePushover" name="usePushover"
+                                          from="${['no': 'No', 'yes': 'Yes']}"
+                                          optionKey="key" optionValue="value" value="${config.usePushover}"/></td>
+
+
+                            <td><label>Pushover Token:</label></td>
+                            <td><g:textField name="pushoverToken" value="${config.pushoverToken}"/><br/></td>
+
+                        </tr>
+
+
+                        <tr>
                                 <td><input type="submit" class="btn btn-primary " value="Submit"></td>
                             </tr>
 
