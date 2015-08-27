@@ -26,7 +26,9 @@ class BootStrap {
                                                     useImage: "no",
                                                     telegramToken: "Telegram Token",
                                                     twitterToken: "Twitter Token",
-                                                    image: "dtag")
+                                                    image: "dtag",
+                                                    usePushover: "no",
+                                                    pushoverToken: "Pushover Token")
 
 
         newConfig.save(flush:true)
