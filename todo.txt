@@ -1,0 +1,6 @@
+ToDos
+
+Add Pushover client (idea by Andre)
+Fix JSON parsing for Telegram
+Prepare docker container
+

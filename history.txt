@@ -1,0 +1,3 @@
+29.08.2015:
+
+- added spring security code stuff

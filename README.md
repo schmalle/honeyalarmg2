@@ -12,18 +12,19 @@ Based on
 Bootstrap
 Grails 2.5.0
 great SBADMIN-2 Theme !
+Spring Security Code
+
+Login username / password combination is (me/password)
 
 
-Version 0.1 (19082015)
-
-- bug fixeds
-
+see history.txt and todo for details
 
 
 Thanks to
 
 - Andrea De Pasquale for test/debug help (Telegram)
 - Marco Ochse for Debugging
+- Andre Vorbach for some ideas
 - Rainer Schmidt for some suggestions
 
 

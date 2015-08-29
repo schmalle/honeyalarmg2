@@ -1,12 +1,12 @@
-package org.metams.honeyalarm
+package honeyalarmg2
 
-class SecRole implements Serializable {
+class Role implements Serializable {
 
 	private static final long serialVersionUID = 1
 
 	String authority
 
-	SecRole(String authority) {
+	Role(String authority) {
 		this()
 		this.authority = authority
 	}
@@ -18,7 +18,7 @@ class SecRole implements Serializable {
 
 	@Override
 	boolean equals(other) {
-		is(other) || (other instanceof SecRole && other.authority == authority)
+		is(other) || (other instanceof Role && other.authority == authority)
 	}
 
 	@Override

@@ -119,22 +119,24 @@ log4j.main = {
 }
 
 
-// Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.metams.honeyalarm.SecUser'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.metams.honeyalarm.SecUserSecRole'
-grails.plugin.springsecurity.authority.className = 'org.metams.honeyalarm.SecRole'
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-// 	'/':                ['permitAll'],
-// 	'/index':           ['permitAll'],
-// 	'/index.gsp':       ['permitAll'],
- 	'/assets/**':       ['permitAll'],
- 	'/**/js/**':        ['permitAll'],
-'/**/css/**':       ['permitAll'],
-'/**/fonts/**':       ['permitAll'],
-    '/Report/**':       ['permitAll'],
-    '/Report':          ['permitAll'],
 
- 	'/**/images/**':    ['permitAll'],
-// 	'/**/favicon.ico':  ['permitAll']
- ]
+
+
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'honeyalarmg2.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'honeyalarmg2.UserRole'
+grails.plugin.springsecurity.authority.className = 'honeyalarmg2.Role'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                ['permitAll'],
+    '/about':           ['permitAll'],
+    '/index':           ['permitAll'],
+	'/index.gsp':       ['permitAll'],
+	'/assets/**':       ['permitAll'],
+	'/**/js/**':        ['permitAll'],
+	'/**/css/**':       ['permitAll'],
+	'/**/images/**':    ['permitAll'],
+	'/**/favicon.ico':  ['permitAll']
+]
 

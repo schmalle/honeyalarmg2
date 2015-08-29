@@ -1,5 +1,7 @@
 package honeyalarmg2
 
+import org.springframework.security.access.annotation.Secured
+
 class ConfigController
 {
 
@@ -33,6 +35,7 @@ class ConfigController
         redirect(controller: "Index", action: "index")
     }
 
+    @Secured("ROLE_ADMIN")
     def index()
     {
         ConfigHG config = ConfigHG.findByNameMandant("default")
