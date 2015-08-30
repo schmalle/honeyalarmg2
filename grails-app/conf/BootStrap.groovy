@@ -31,7 +31,8 @@ class BootStrap {
                                                     twitterToken: "Twitter Token",
                                                     image: "dtag",
                                                     usePushover: "no",
-                                                    pushoverToken: "Pushover Token")
+                                                    pushoverToken: "Pushover Token",
+                                                    telegramUsers: new LinkedList())
 
 
         newConfig.save(flush:true)

@@ -9,20 +9,35 @@ class ConfigController
      * save configuration to database
      * @return
      */
+    @Secured("ROLE_ADMIN")
     def saveConfig()
     {
         def enu = request.getParameterMap();
+        List telegramUser = new LinkedList()
+        List infotelegramUser = new LinkedList()
+
         String msg = "";
 
         for (def obj : enu) {
             msg += "\n<br/> Object key: " + obj.key;
             msg += "\n<br/> Object value: " + obj.value[0]; // [0] seems to remove some problematic square brackets that wrap around the value
             msg += "\n<br/> ";
+
+            if (obj.key.startsWith("useTelegram") && obj.value[0].equalsIgnoreCase("yes"))
+            {
+                telegramUser.add(obj.key.substring(11))
+            }
+
+            else if (obj.key.startsWith("infoTelegram") && obj.value[0].equalsIgnoreCase("yes"))
+            {
+                infotelegramUser.add(obj.key)
+            }
         }
 
         print msg
 
         ConfigHG x = new ConfigHG(params)
+        x.telegramUsers = telegramUser
         x.lastChanged = (String)new Date()
         x.changedFromIP = request.getRemoteAddr()
 
@@ -60,7 +75,7 @@ class ConfigController
             println "no telegram"
         }
 
-        List teleGramList = new LinkedList()
+        List teleGramList = config.telegramUsers
 
         //
         // ugly Java code
@@ -71,7 +86,9 @@ class ConfigController
             String firstName = telegramFirstName.get(runner)
             String lastName = telegramLastName.get(runner)
 
-            teleGramList.add(id + ";;" + firstName + ";;" + lastName)
+            // add entry only, if not visible yet
+            if (!teleGramList.contains(id + ";;" + firstName + ";;" + lastName))
+                teleGramList.add(id + ";;" + firstName + ";;" + lastName)
 
         }
 

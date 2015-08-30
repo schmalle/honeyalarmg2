@@ -61,404 +61,515 @@
       <table id="9" parent="1" name="uireport"/>
       <table id="10" parent="1" name="user"/>
       <table id="11" parent="1" name="confighg"/>
-      <column id="12" parent="2" name="id">
+      <table id="12" parent="1" name="role"/>
+      <table id="13" parent="1" name="user_old"/>
+      <table id="14" parent="1" name="user_role"/>
+      <column id="15" parent="2" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="13" parent="2" name="version">
+      <column id="16" parent="2" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="14" parent="2" name="attacker">
+      <column id="17" parent="2" name="attacker">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="15" parent="2" name="request">
+      <column id="18" parent="2" name="request">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="16" parent="2" name="status">
+      <column id="19" parent="2" name="status">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="17" parent="2" name="time">
+      <column id="20" parent="2" name="time">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="18" parent="2" name="type">
+      <column id="21" parent="2" name="type">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <key id="19" parent="2" name="PRIMARY">
+      <key id="22" parent="2" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <column id="20" parent="3" name="id">
+      <column id="23" parent="3" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="21" parent="3" name="version">
+      <column id="24" parent="3" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="22" parent="3" name="added">
+      <column id="25" parent="3" name="added">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="23" parent="3" name="ip">
+      <column id="26" parent="3" name="ip">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="24" parent="3" name="lastseen">
+      <column id="27" parent="3" name="lastseen">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="25" parent="3" name="name">
+      <column id="28" parent="3" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="26" parent="3" name="password">
+      <column id="29" parent="3" name="password">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <key id="27" parent="3" name="PRIMARY">
+      <key id="30" parent="3" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <column id="28" parent="4" name="id">
+      <column id="31" parent="4" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="29" parent="4" name="version">
+      <column id="32" parent="4" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="30" parent="4" name="first_seen">
+      <column id="33" parent="4" name="first_seen">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="31" parent="4" name="last_seen">
+      <column id="34" parent="4" name="last_seen">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="32" parent="4" name="text">
+      <column id="35" parent="4" name="text">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <key id="33" parent="4" name="PRIMARY">
+      <key id="36" parent="4" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <column id="34" parent="5" name="id">
+      <column id="37" parent="5" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="35" parent="5" name="version">
+      <column id="38" parent="5" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="36" parent="5" name="attacker">
+      <column id="39" parent="5" name="attacker">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="37" parent="5" name="request">
+      <column id="40" parent="5" name="request">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="38" parent="5" name="status">
+      <column id="41" parent="5" name="status">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="39" parent="5" name="time">
+      <column id="42" parent="5" name="time">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="40" parent="5" name="type">
+      <column id="43" parent="5" name="type">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <key id="41" parent="5" name="PRIMARY">
+      <key id="44" parent="5" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <column id="42" parent="6" name="id">
+      <column id="45" parent="6" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="43" parent="6" name="version">
+      <column id="46" parent="6" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="44" parent="6" name="authority">
+      <column id="47" parent="6" name="authority">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <index id="45" parent="6" name="UK_oah023x2ltqw09mdue7w0mcxb">
+      <index id="48" parent="6" name="UK_oah023x2ltqw09mdue7w0mcxb">
         <columns>authority</columns>
         <unique>1</unique>
       </index>
-      <key id="46" parent="6" name="PRIMARY">
+      <key id="49" parent="6" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <key id="47" parent="6" name="UK_oah023x2ltqw09mdue7w0mcxb">
+      <key id="50" parent="6" name="UK_oah023x2ltqw09mdue7w0mcxb">
         <columns>authority</columns>
         <underlying-index>UK_oah023x2ltqw09mdue7w0mcxb|authority</underlying-index>
       </key>
-      <column id="48" parent="7" name="id">
+      <column id="51" parent="7" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="49" parent="7" name="version">
+      <column id="52" parent="7" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="50" parent="7" name="account_expired">
+      <column id="53" parent="7" name="account_expired">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
         <comment></comment>
       </column>
-      <column id="51" parent="7" name="account_locked">
+      <column id="54" parent="7" name="account_locked">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
         <comment></comment>
       </column>
-      <column id="52" parent="7" name="enabled">
+      <column id="55" parent="7" name="enabled">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
         <comment></comment>
       </column>
-      <column id="53" parent="7" name="password">
+      <column id="56" parent="7" name="password">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="54" parent="7" name="password_expired">
+      <column id="57" parent="7" name="password_expired">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
         <comment></comment>
       </column>
-      <column id="55" parent="7" name="username">
+      <column id="58" parent="7" name="username">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <index id="56" parent="7" name="UK_5ctbdrlf3eismye20vsdtk8w8">
+      <index id="59" parent="7" name="UK_5ctbdrlf3eismye20vsdtk8w8">
         <columns>username</columns>
         <unique>1</unique>
       </index>
-      <key id="57" parent="7" name="PRIMARY">
+      <key id="60" parent="7" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <key id="58" parent="7" name="UK_5ctbdrlf3eismye20vsdtk8w8">
+      <key id="61" parent="7" name="UK_5ctbdrlf3eismye20vsdtk8w8">
         <columns>username</columns>
         <underlying-index>UK_5ctbdrlf3eismye20vsdtk8w8|username</underlying-index>
       </key>
-      <column id="59" parent="8" name="sec_user_id">
+      <column id="62" parent="8" name="sec_user_id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="60" parent="8" name="sec_role_id">
+      <column id="63" parent="8" name="sec_role_id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <key id="61" parent="8" name="PRIMARY">
+      <key id="64" parent="8" name="PRIMARY">
         <columns>sec_role_id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <foreign-key id="62" parent="8" name="FK_bshvqhdx8h9mb4rrbo1ahnp7q">
+      <foreign-key id="65" parent="8" name="FK_bshvqhdx8h9mb4rrbo1ahnp7q">
         <columns>sec_role_id</columns>
         <ref-key>sec_role.PRIMARY|id</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="63" parent="8" name="FK_f1eew3u65ajs3e50xvacwgron">
+      <foreign-key id="66" parent="8" name="FK_f1eew3u65ajs3e50xvacwgron">
         <columns>sec_user_id</columns>
         <ref-key>sec_user.PRIMARY|id</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="64" parent="9" name="id">
+      <column id="67" parent="9" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="65" parent="9" name="version">
+      <column id="68" parent="9" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="66" parent="9" name="text">
+      <column id="69" parent="9" name="text">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="67" parent="9" name="time">
+      <column id="70" parent="9" name="time">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="68" parent="9" name="type">
+      <column id="71" parent="9" name="type">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <key id="69" parent="9" name="PRIMARY">
+      <key id="72" parent="9" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <column id="70" parent="10" name="id">
+      <column id="73" parent="10" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="71" parent="10" name="version">
+      <column id="74" parent="10" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="72" parent="10" name="domain">
+      <column id="75" parent="10" name="account_expired">
+        <mandatory>1</mandatory>
+        <data-type>bit(1)</data-type>
+        <comment></comment>
+      </column>
+      <column id="76" parent="10" name="account_locked">
+        <mandatory>1</mandatory>
+        <data-type>bit(1)</data-type>
+        <comment></comment>
+      </column>
+      <column id="77" parent="10" name="enabled">
+        <mandatory>1</mandatory>
+        <data-type>bit(1)</data-type>
+        <comment></comment>
+      </column>
+      <column id="78" parent="10" name="password">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="73" parent="10" name="name">
+      <column id="79" parent="10" name="password_expired">
+        <mandatory>1</mandatory>
+        <data-type>bit(1)</data-type>
+        <comment></comment>
+      </column>
+      <column id="80" parent="10" name="username">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="74" parent="10" name="password">
-        <mandatory>1</mandatory>
-        <data-type>varchar(255)</data-type>
-        <comment></comment>
-      </column>
-      <column id="75" parent="10" name="status">
-        <mandatory>1</mandatory>
-        <data-type>varchar(255)</data-type>
-        <comment></comment>
-      </column>
-      <key id="76" parent="10" name="PRIMARY">
+      <index id="81" parent="10" name="UK_sb8bbouer5wak8vyiiy4pf2bx">
+        <columns>username</columns>
+        <unique>1</unique>
+      </index>
+      <key id="82" parent="10" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <column id="77" parent="11" name="id">
+      <key id="83" parent="10" name="UK_sb8bbouer5wak8vyiiy4pf2bx">
+        <columns>username</columns>
+        <underlying-index>UK_sb8bbouer5wak8vyiiy4pf2bx|username</underlying-index>
+      </key>
+      <column id="84" parent="11" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="78" parent="11" name="version">
+      <column id="85" parent="11" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
         <comment></comment>
       </column>
-      <column id="79" parent="11" name="added">
+      <column id="86" parent="11" name="added">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="80" parent="11" name="changed_fromip">
+      <column id="87" parent="11" name="changed_fromip">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="81" parent="11" name="image">
+      <column id="88" parent="11" name="image">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="82" parent="11" name="last_changed">
+      <column id="89" parent="11" name="last_changed">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="83" parent="11" name="name_mandant">
+      <column id="90" parent="11" name="name_mandant">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="84" parent="11" name="pushover_token">
+      <column id="91" parent="11" name="pushover_token">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="85" parent="11" name="telegram_token">
+      <column id="92" parent="11" name="telegram_token">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="86" parent="11" name="twitter_token">
+      <column id="93" parent="11" name="twitter_token">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="87" parent="11" name="use_image">
+      <column id="94" parent="11" name="use_image">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="88" parent="11" name="use_pushover">
+      <column id="95" parent="11" name="use_pushover">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="89" parent="11" name="use_telegram">
+      <column id="96" parent="11" name="use_telegram">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <column id="90" parent="11" name="use_twitter">
+      <column id="97" parent="11" name="use_twitter">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <comment></comment>
       </column>
-      <key id="91" parent="11" name="PRIMARY">
+      <key id="98" parent="11" name="PRIMARY">
         <columns>id</columns>
         <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
+      <column id="99" parent="12" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <comment></comment>
+      </column>
+      <column id="100" parent="12" name="version">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <comment></comment>
+      </column>
+      <column id="101" parent="12" name="authority">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <comment></comment>
+      </column>
+      <index id="102" parent="12" name="UK_irsamgnera6angm0prq1kemt2">
+        <columns>authority</columns>
+        <unique>1</unique>
+      </index>
+      <key id="103" parent="12" name="PRIMARY">
+        <columns>id</columns>
+        <underlying-index></underlying-index>
+        <primary>1</primary>
+      </key>
+      <key id="104" parent="12" name="UK_irsamgnera6angm0prq1kemt2">
+        <columns>authority</columns>
+        <underlying-index>UK_irsamgnera6angm0prq1kemt2|authority</underlying-index>
+      </key>
+      <column id="105" parent="13" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <comment></comment>
+      </column>
+      <column id="106" parent="13" name="version">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <comment></comment>
+      </column>
+      <column id="107" parent="13" name="domain">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <comment></comment>
+      </column>
+      <column id="108" parent="13" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <comment></comment>
+      </column>
+      <column id="109" parent="13" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <comment></comment>
+      </column>
+      <column id="110" parent="13" name="status">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <comment></comment>
+      </column>
+      <key id="111" parent="13" name="PRIMARY">
+        <columns>id</columns>
+        <underlying-index></underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="112" parent="14" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <comment></comment>
+      </column>
+      <column id="113" parent="14" name="role_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <comment></comment>
+      </column>
+      <key id="114" parent="14" name="PRIMARY">
+        <columns>role_id</columns>
+        <underlying-index></underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="115" parent="14" name="FK_apcc8lxk2xnug8377fatvbn04">
+        <columns>user_id</columns>
+        <ref-key>user.PRIMARY|id</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="116" parent="14" name="FK_it77eq964jhfqtu54081ebtio">
+        <columns>role_id</columns>
+        <ref-key>role.PRIMARY|id</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
     </database-model>
   </data-source>
 </component>

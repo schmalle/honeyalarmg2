@@ -144,12 +144,12 @@
 
                                 <tr>
                                     <td><label>Use ID ${it} (Telegram)</label></td>
-                                    <td><g:select id="use${it}" name="use${it}"
+                                    <td><g:select id="useTelegram${it}" name="useTelegram${it}"
                                                   from="${['no': 'No', 'yes': 'Yes']}"
                                                   optionKey="key" optionValue="value"/>
                                     </td>
                                     <td><label>Info Messages</label></td>
-                                    <td><g:select id="use${it}" name="info${it}"
+                                    <td><g:select id="use${it}" name="infoTelegram${it}"
                                                   from="${['no': 'No', 'yes': 'Yes']}"
                                                   optionKey="key" optionValue="value"/>
                                     </td>
