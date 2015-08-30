@@ -23,14 +23,18 @@ class ConfigController
             msg += "\n<br/> Object value: " + obj.value[0]; // [0] seems to remove some problematic square brackets that wrap around the value
             msg += "\n<br/> ";
 
-            if (obj.key.startsWith("useTelegram") && obj.value[0].equalsIgnoreCase("yes"))
+            String key = (String) obj.key
+            String value = (String) obj.value[0]
+
+
+            if (key.startsWith("useTelegram") && value.equalsIgnoreCase("yes"))
             {
-                telegramUser.add(obj.key.substring(11))
+                telegramUser.add(key.substring(11))
             }
 
-            else if (obj.key.startsWith("infoTelegram") && obj.value[0].equalsIgnoreCase("yes"))
+            else if (key.startsWith("infoTelegram") && value.equalsIgnoreCase("yes"))
             {
-                infotelegramUser.add(obj.key)
+                infotelegramUser.add(key)
             }
         }
 
