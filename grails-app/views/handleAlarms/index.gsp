@@ -79,14 +79,20 @@
                             <tbody>
 
 
-                            <tr ng-repeat="alarm in alarms">
-                                <td>{{alarm.time}}</td>
-                                <td>{{alarm.attacker}}</td>
-                                <td>{{alarm.type}}</td>
-                                <td>{{alarm.request}}</td>
+                            <g:each in="${reports}" var="alarm">
 
-                                <td class="center"> <a href="/Report/show/{{alarm.id}}" class="btn btn-primary">View</a> <a href="/Report/confirm/{{alarm.id}}" class="btn btn-success">Confirm</a> <a href="/Report/delete/{{alarm.id}}" class="btn btn-danger">Delete</a>   </td>
+                                <tr>
+
+                                <td>${alarm.time}</td>
+                                <td>${alarm.attacker}</td>
+                                <td>${alarm.type}</td>
+                                <td>${alarm.request}</td>
+
+                                <td class="center"> <a href="/Report/show/${alarm.id}" class="btn btn-primary">View</a> <a href="/Report/confirm/${alarm.id}" class="btn btn-success">Confirm</a> <a href="/Report/delete/${alarm.id}" class="btn btn-danger">Delete</a>   </td>
                             </tr>
+
+                            </g:each>
+
                             </tbody>
                         </table>
                     </div>
