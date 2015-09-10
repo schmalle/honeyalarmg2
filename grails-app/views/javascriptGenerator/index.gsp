@@ -1,11 +1,6 @@
 <!-- jQuery -->
 <script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
 
-<!-- AngularJS -->
-<script src="${g.resource(dir: 'js', file:'angular.min.js')}"></script>
-<script src="${g.resource(dir: 'js', file:'app.js')}"></script>
-
-
 <!-- Metis Menu Plugin JavaScript -->
 <script src="${g.resource(dir: 'js', file:'metisMenu.js')}"></script>
 
