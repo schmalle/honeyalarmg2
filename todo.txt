@@ -1,6 +1,7 @@
 ToDos
 
 Add Pushover client (idea by Andre)
+Optimize Twitter client
 Fix JSON parsing for Telegram
 Prepare docker container
 

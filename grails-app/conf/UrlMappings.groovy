@@ -30,6 +30,8 @@ class UrlMappings {
 
         "/graph"(controller: "Graph", action:"index")
 
+        "/tweet"(controller: "Twitter", action: "index")
+
 
 	}
 }

@@ -11,7 +11,7 @@
     <meta name="author" content="">
 <!--    <meta http-equiv="refresh" content="10"> -->
 
-    <title>Honeyalarm - Bootstrap Admin Theme</title>
+    <title>Honeyalarm - Admin panel</title>
 
     <script src="${g.resource(dir: 'js', file:'jquery-2.1.4.min.js')}"></script>
 

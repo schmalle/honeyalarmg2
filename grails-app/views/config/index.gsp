@@ -117,8 +117,49 @@
                                               optionKey="key" optionValue="value" value="${config.useTwitter}"/></td>
                                 <td><label>Twitter Token</label></td>
                                 <td><g:textField name="twitterToken" value="${config.twitterToken}"/></td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td><label> </label></td>
+                                <td><label> </label></td>
+
+                                <td><label>OAuthConsumerKey</label></td>
+                                <td><g:textField name="twitterOAuthConsumerKey" value="${config.twitterOAuthConsumerKey}"/><td>
 
                             </tr>
+
+                        <tr>
+                            <td><label> </label></td>
+                            <td><label> </label></td>
+
+                            <td><label>OAuthConsumerSecret</label></td>
+                            <td><g:textField name="twitterOAuthConsumerSecret" value="${config.twitterOAuthConsumerSecret}"/><td>
+
+                            </tr>
+
+
+                        <tr>
+                            <td><label> </label></td>
+                            <td><label> </label></td>
+
+                            <td><label>twitterOAuthAccessToken</label></td>
+                            <td><g:textField name="twitterOAuthAccessToken" value="${config.twitterOAuthAccessToken}"/><td>
+
+                        </tr>
+
+                        <tr>
+                            <td><label> </label></td>
+                            <td><label> </label></td>
+
+                            <td><label>twitterOAuthAccessTokenSecret</label></td>
+                            <td><g:textField name="twitterOAuthAccessTokenSecret" value="${config.twitterOAuthAccessTokenSecret}"/><td>
+
+                        </tr>
+
+                    </tr>
+
 
                             <tr class="blank_row">
                                 <td colspan="3"></td>
