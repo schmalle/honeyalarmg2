@@ -6,10 +6,29 @@ import org.springframework.security.access.annotation.Secured
 class HoneypotController {
 
     //
-    // for the moment only scaffoling for index action
+    // saves a new honeypot instance if not already existing
     //
-    def scaffold = true;
+    def saveHoneypot() {
 
+        String name = params.name
+
+        def honeypot = Honeypot.findByName(name)
+        if (honeypot != null)
+        {
+            Console.println("Info: Honeypot already existing")
+            redirect  (controller: "Index" , action:"index", params: [alertText: "Honeypot name already existing"])
+        }
+        else
+        {
+            honeypot = new Honeypot(params)
+
+            // fill necessary dummy data
+            honeypot.ip = "new"
+            honeypot.lastseen = "new"
+            honeypot.save(flush: true)
+            redirect  (controller: "Honeypot" , action:"index")
+        }
+    }
 
     /*
         handle the periodical update request from the honeypots
@@ -24,6 +43,12 @@ class HoneypotController {
             def password = request.XML?.login?.password
 
             def honeypot = Honeypot.findByName(name)
+            if (!honeypot)
+            {
+                UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from unknown honeypot " + name)
+                newHoneypotUpdate.save()
+                return renderPlainText("not ok")
+            }
 
     //        if (honeypot.password.toString() == password)
     //        {
@@ -42,14 +67,13 @@ class HoneypotController {
             UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from honeypot " + name)
             newHoneypotUpdate.save()
 
-            return renderText("ok")
+            return renderPlainText("ok")
         }
         catch (Exception e)
         {
-            return renderText("not ok, exception caught")
+            return renderPlainText("not ok, exception caught")
         }
-
-
+        
     }   // updateIP
 
 
@@ -100,19 +124,21 @@ class HoneypotController {
         UIReport newHoneypotUpdate = new UIReport(type: "ALARM", time: "" + time, text: "Alarm call from honeypot " + username)
         newHoneypotUpdate.save(flush: true)
 
-        return renderText("ok")
+        return renderPlainText("ok")
 
     }
 
-    def renderText(returnText)
+    def renderPlainText(returnText)
     {
         return render(text: returnText, contentType: "text/plain", encoding: "UTF-8")
     }
 
+    
     def index()
     {
         def Honeypots = Honeypot.findAll()
-        [Honeypots: Honeypots]
+        def dateAdded = new Date()
+        [Honeypots: Honeypots, dateAdded: dateAdded]
     }
 
 }

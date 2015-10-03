@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<%@ page import="java.util.Date" %>
+
 <head>
 
     <meta charset="utf-8">
@@ -88,7 +90,7 @@
                                 <td>${honeypot.added}</td>
                                 <td>${honeypot.lastseen}</td>
 
-                                <td class="center"> <a href="/Honeypot/show/${honeypot.id}" class="btn btn-primary">View</a> <a href="/Honeypot/confirm/{{honeypot.id}}" class="btn btn-success">Confirm</a> <a href="/Honeypot/delete/{{honeypot.id}}" class="btn btn-danger">Delete</a>   </td>
+                                <td class="center">   <a href="/Honeypot/delete/{{honeypot.id}}" class="btn btn-danger">Delete</a>   </td>
                             </tr>
                                 </g:each>
                             </tbody>
@@ -102,7 +104,50 @@
 
                 <a href="/" class="btn btn-primary" role="button">Main</a>
 
-                <!-- /.panel -->
+                <br><br>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Add new honeypot</h2>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+        <div >
+            <form action="/saveHoneypot" method="post">
+
+                <g:hiddenField name="added" value="${dateAdded}"/>
+            <table class="table table-striped table-bordered" id="add">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Password</th>
+
+
+
+                </tr>
+                </thead>
+                <tbody>
+
+
+                    <tr>
+                        <td><g:textField name="name" value=""/></td>
+                        <td><g:textField name="password" value=""/></td>
+                    </tr>
+                </tbody>
+            </table>
+
+                <input type="submit" class="btn btn-danger" value="Submit">
+            </form>
+        </div>
+
+
+
+
+
+
+
+        <!-- /.panel -->
 
                 <!-- /.panel .chat-panel -->
             </div>

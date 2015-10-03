@@ -8,16 +8,17 @@ class User implements Serializable {
 
 	String username
 	String password
+	String twitterName
 	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
 
-	User(String username, String password) {
-		this()
-		this.username = username
-		this.password = password
-	}
+//	User(String username, String password) {
+//		this()
+//		this.username = username
+//		this.password = password
+//	}
 
 	@Override
 	int hashCode() {

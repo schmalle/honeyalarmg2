@@ -5,6 +5,7 @@
 <script src="${g.resource(dir: 'js', file:'metisMenu.js')}"></script>
 
 <script src="${g.resource(dir: 'js', file:'raphael-min.js')}"></script>
+
 <script src="${g.resource(dir: 'js', file:'morris.min.js')}"></script>
 <script src="${g.resource(dir: 'js', file:'morris-data.js')}"></script>
 

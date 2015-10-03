@@ -15,6 +15,8 @@ class IndexController
     def index()
     {
 
+        def alertText = params.alertText;
+
         // extract pure numbers for display
         def numberOfHoneypots = Honeypot.all.size()
 
@@ -23,6 +25,6 @@ class IndexController
         // extract data arrays
         //def reports = UIReport.findAllByTimeIsNotNull()
 
-        [honeypots:numberOfHoneypots, ips: numberOfIps]
+        [honeypots:numberOfHoneypots, ips: numberOfIps, alertText: alertText]
     }
 }

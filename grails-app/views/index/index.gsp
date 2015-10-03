@@ -14,6 +14,8 @@
     <title>Honeyalarm - Admin panel</title>
 
     <script src="${g.resource(dir: 'js', file:'jquery-2.1.4.min.js')}"></script>
+    <script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
+    <script src="${g.resource(dir: 'js', file:'bootbox.min.js')}"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="${g.resource(dir: 'css', file:'bootstrap.min.css')}" rel="stylesheet">
@@ -63,10 +65,16 @@
 
 <body>
 
+<script>
+    bootbox.alert("${alertText}")
+</script>
+
 <div id="wrapper">
 
     <!-- Navigation -->
     <g:include controller="navigationGenerator" action="index"></g:include>
+
+
 
     <div id="page-wrapper">
         <div class="row">

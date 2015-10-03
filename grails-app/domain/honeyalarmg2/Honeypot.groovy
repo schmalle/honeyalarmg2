@@ -11,8 +11,6 @@ class Honeypot {
     static constraints = {
         name(nullable: false)
         password(nullable: false)
-        ip(nullable: false)
         added(nullable: false)
-        lastseen(nullable: false)
     }
 }

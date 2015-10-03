@@ -15,6 +15,7 @@ class UrlMappings {
         "/config"(controller: "Config", action: "index")
         "/sendmessage"(controller: "Telegram", action: "sendMessage")
         "/honeypot"(controller: "Honeypot", action: "index")
+            "/saveHoneypot"(controller: "Honeypot", action: "saveHoneypot")
 
         "/saveConfig"(controller: "Config", action: "saveConfig")
 
@@ -31,6 +32,7 @@ class UrlMappings {
         "/graph"(controller: "Graph", action:"index")
 
         "/tweet"(controller: "Twitter", action: "index")
+            "/User"(controller: "User", action: "index")
 
 
 	}
