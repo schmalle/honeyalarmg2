@@ -10,4 +10,14 @@ class UserController {
     def index() {
 
     }
+
+    def add()
+    {
+
+    }
+
+    def del()
+    {
+
+    }
 }

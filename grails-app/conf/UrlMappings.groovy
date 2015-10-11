@@ -20,7 +20,14 @@ class UrlMappings {
         "/saveConfig"(controller: "Config", action: "saveConfig")
         "/login_"(controller: "LoginFake", action: "index")
 
-        //
+            "/graph"(controller: "Graph", action:"index")
+
+            "/tweet"(controller: "Twitter", action: "index")
+            "/User"(controller: "User", action: "index")
+            "/addUser"(controller: "User", action: "add")
+            "/delUser"(controller: "User", action: "del")
+
+            //
         // honeypot calls
         //
 
@@ -29,10 +36,7 @@ class UrlMappings {
 
         "/Report/confirm/$id"(controller: "Report", action: "moveToAlarm")
 
-        "/graph"(controller: "Graph", action:"index")
 
-        "/tweet"(controller: "Twitter", action: "index")
-        "/User"(controller: "User", action: "index")
 
 
 	}
