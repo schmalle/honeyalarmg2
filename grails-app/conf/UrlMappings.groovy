@@ -18,7 +18,7 @@ class UrlMappings {
             "/saveHoneypot"(controller: "Honeypot", action: "saveHoneypot")
 
         "/saveConfig"(controller: "Config", action: "saveConfig")
-
+        "/login_"(controller: "LoginFake", action: "index")
 
         //
         // honeypot calls
@@ -32,7 +32,7 @@ class UrlMappings {
         "/graph"(controller: "Graph", action:"index")
 
         "/tweet"(controller: "Twitter", action: "index")
-            "/User"(controller: "User", action: "index")
+        "/User"(controller: "User", action: "index")
 
 
 	}

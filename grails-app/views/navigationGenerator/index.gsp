@@ -18,8 +18,10 @@
     <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
-
-
+    <br>
+    <g:if test="${role == 'ROLE_ANONYMOUS'}">
+        <a href="/login_">_Login_
+        </a>    </g:if>
         <!-- /.dropdown -->
     </ul>
     <!-- /.navbar-top-links -->
@@ -37,10 +39,13 @@
                     <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
 
-                <li>
-                    <a href="config.html"><i class="fa fa-wrench fa-fw"></i> Config<span class="fa arrow"></span></a>
-                    <!-- /.nav-second-level -->
-                </li>
+                <g:if test="${role == 'ROLE_ADMIN'}">
+                    <li>
+                        <a href="config.html"><i class="fa fa-wrench fa-fw"></i> Config<span class="fa arrow"></span></a>
+                        <!-- /.nav-second-level -->
+                    </li>
+                </g:if>
+
                 <li>
                     <a href="/about"><i class="fa fa-wrench fa-fw"></i> About<span class="fa arrow"></span></a>
                     <!-- /.nav-second-level -->

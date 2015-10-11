@@ -34,7 +34,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/honeyalarmprod?useUnicode=yes&characterEncoding=UTF-8"
             username = "honeyalarmprod"
-            password = "honeyalarmpw"
+            password = "honeyalarmppw"
         }
     }
 }

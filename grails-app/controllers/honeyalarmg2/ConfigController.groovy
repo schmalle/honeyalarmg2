@@ -5,6 +5,8 @@ import org.springframework.security.access.annotation.Secured
 class ConfigController
 {
 
+    def springSecurityService
+
     /**
      * save configuration to database
      * @return
@@ -96,6 +98,12 @@ class ConfigController
 
         }
 
-        [telegramList: teleGramList, config: config, size:size, telegramID:telegramID, telegramFirstName:telegramFirstName, telegramLastName:telegramLastName, ip: request.getRemoteAddr()  ]
+        String role = "ROLE_ANONYMOUS"
+        String[] roles = springSecurityService.getPrincipal().getAuthorities()
+
+        if (roles.length == 1)
+            role = roles[0]
+
+        [role: role, telegramList: teleGramList, config: config, size:size, telegramID:telegramID, telegramFirstName:telegramFirstName, telegramLastName:telegramLastName, ip: request.getRemoteAddr()  ]
     }
 }
