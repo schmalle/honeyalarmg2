@@ -5,6 +5,9 @@ import org.springframework.security.access.annotation.Secured
 @Secured(["ROLE_ADMIN", "ROLE_USER", "ROLE_ANONYMOUS"])
 class HoneypotController {
 
+    def springSecurityService
+
+
     //
     // saves a new honeypot instance if not already existing
     //
