@@ -51,7 +51,7 @@
 	<div id="page-wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Honeypots</h1>
+				<h1 class="page-header">Users</h1>
 			</div>
 			<!-- /.col-lg-12 -->
 		</div>
@@ -64,7 +64,7 @@
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<i class="fa fa-bell fa-fw"></i> Honeypots
+						<i class="fa fa-bell fa-fw"></i> Users
 					</div>
 					<!-- /.panel-heading -->
 					<div >
@@ -108,7 +108,7 @@
 
 				<div class="row">
 					<div class="col-lg-12">
-						<h2 class="page-header">Add new honeypot</h2>
+						<h2 class="page-header">Add new user</h2>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
