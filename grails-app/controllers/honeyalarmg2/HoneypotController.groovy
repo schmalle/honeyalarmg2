@@ -138,7 +138,15 @@ class HoneypotController {
     {
         def Honeypots = Honeypot.findAll()
         def dateAdded = new Date()
-        [Honeypots: Honeypots, dateAdded: dateAdded]
+
+        String role = "ROLE_ANONYMOUS"
+        String[] roles = springSecurityService.getPrincipal().getAuthorities()
+
+        if (roles.length == 1)
+            role = roles[0]
+
+
+        [role: role, Honeypots: Honeypots, dateAdded: dateAdded]
     }
 
 }
