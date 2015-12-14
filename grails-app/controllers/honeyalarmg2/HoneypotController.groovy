@@ -8,6 +8,23 @@ class HoneypotController {
     def springSecurityService
 
 
+    def delete() {
+
+        def honeypot = Honeypot.findById(params.id)
+        if (honeypot != null)
+        {
+            Console.println("Info: Honeypot already existing")
+            honeypot.delete(flush: true)
+            redirect  (controller: "Index" , action:"index", params: [alertText: "Honeypot " + params.id + " deleted"])
+        }
+        else
+        {
+            redirect  (controller: "Index" , action:"index", params: [alertText: "Honeypot " + params.id + " not found"])
+
+        }
+
+    }
+
     //
     // saves a new honeypot instance if not already existing
     //

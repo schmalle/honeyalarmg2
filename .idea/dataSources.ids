@@ -44,12 +44,12 @@
     </table>
   </data-source>
   <data-source name="honeyalarmg2 dev" uuid="03bf5ba0-e14e-4da8-bbb1-39ef5bb2031a">
-    <database-info product="MySQL" version="5.6.26" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+    <database-info product="MySQL" version="5.7.9" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
-    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.1">
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
       <schema id="1" name="honeyalarmdev"/>
       <table id="2" parent="1" name="alarm"/>
       <table id="3" parent="1" name="confighg"/>
@@ -94,7 +94,6 @@
       </column>
       <key id="22" parent="2" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
       <column id="23" parent="3" name="id">
@@ -174,7 +173,6 @@
       </column>
       <key id="42" parent="3" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
       <column id="43" parent="4" name="id">
@@ -207,7 +205,6 @@
       </column>
       <key id="50" parent="4" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
       <column id="51" parent="5" name="id">
@@ -232,7 +229,6 @@
       </column>
       <key id="56" parent="5" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
       <column id="57" parent="6" name="id">
@@ -265,7 +261,6 @@
       </column>
       <key id="64" parent="6" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
       <column id="65" parent="7" name="id">
@@ -282,16 +277,16 @@
       </column>
       <index id="68" parent="7" name="UK_irsamgnera6angm0prq1kemt2">
         <columns>authority</columns>
+        <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
       <key id="69" parent="7" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
       <key id="70" parent="7" name="UK_irsamgnera6angm0prq1kemt2">
         <columns>authority</columns>
-        <underlying-index>UK_irsamgnera6angm0prq1kemt2|authority</underlying-index>
+        <underlying-index>UK_irsamgnera6angm0prq1kemt2</underlying-index>
       </key>
       <column id="71" parent="8" name="id">
         <mandatory>1</mandatory>
@@ -307,16 +302,16 @@
       </column>
       <index id="74" parent="8" name="UK_oah023x2ltqw09mdue7w0mcxb">
         <columns>authority</columns>
+        <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
       <key id="75" parent="8" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
       <key id="76" parent="8" name="UK_oah023x2ltqw09mdue7w0mcxb">
         <columns>authority</columns>
-        <underlying-index>UK_oah023x2ltqw09mdue7w0mcxb|authority</underlying-index>
+        <underlying-index>UK_oah023x2ltqw09mdue7w0mcxb</underlying-index>
       </key>
       <column id="77" parent="9" name="id">
         <mandatory>1</mandatory>
@@ -352,16 +347,16 @@
       </column>
       <index id="85" parent="9" name="UK_5ctbdrlf3eismye20vsdtk8w8">
         <columns>username</columns>
+        <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
       <key id="86" parent="9" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
       <key id="87" parent="9" name="UK_5ctbdrlf3eismye20vsdtk8w8">
         <columns>username</columns>
-        <underlying-index>UK_5ctbdrlf3eismye20vsdtk8w8|username</underlying-index>
+        <underlying-index>UK_5ctbdrlf3eismye20vsdtk8w8</underlying-index>
       </key>
       <column id="88" parent="10" name="sec_user_id">
         <mandatory>1</mandatory>
@@ -371,150 +366,154 @@
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <key id="90" parent="10" name="PRIMARY">
+      <index id="90" parent="10" name="FK_bshvqhdx8h9mb4rrbo1ahnp7q">
+        <columns>sec_role_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="91" parent="10" name="PRIMARY">
         <columns>sec_user_id
 sec_role_id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <foreign-key id="91" parent="10" name="FK_bshvqhdx8h9mb4rrbo1ahnp7q">
+      <foreign-key id="92" parent="10" name="FK_bshvqhdx8h9mb4rrbo1ahnp7q">
         <columns>sec_role_id</columns>
-        <ref-key>sec_role.PRIMARY|id</ref-key>
+        <ref-key>~.sec_role.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="92" parent="10" name="FK_f1eew3u65ajs3e50xvacwgron">
+      <foreign-key id="93" parent="10" name="FK_f1eew3u65ajs3e50xvacwgron">
         <columns>sec_user_id</columns>
-        <ref-key>sec_user.PRIMARY|id</ref-key>
+        <ref-key>~.sec_user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="93" parent="11" name="id">
+      <column id="94" parent="11" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="94" parent="11" name="version">
+      <column id="95" parent="11" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="95" parent="11" name="text">
+      <column id="96" parent="11" name="text">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="96" parent="11" name="time">
+      <column id="97" parent="11" name="time">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="97" parent="11" name="type">
+      <column id="98" parent="11" name="type">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <key id="98" parent="11" name="PRIMARY">
+      <key id="99" parent="11" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <column id="99" parent="12" name="id">
+      <column id="100" parent="12" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="100" parent="12" name="version">
+      <column id="101" parent="12" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="101" parent="12" name="account_expired">
+      <column id="102" parent="12" name="account_expired">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
       </column>
-      <column id="102" parent="12" name="account_locked">
+      <column id="103" parent="12" name="account_locked">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
       </column>
-      <column id="103" parent="12" name="enabled">
+      <column id="104" parent="12" name="enabled">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
       </column>
-      <column id="104" parent="12" name="password">
+      <column id="105" parent="12" name="password">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="105" parent="12" name="password_expired">
+      <column id="106" parent="12" name="password_expired">
         <mandatory>1</mandatory>
         <data-type>bit(1)</data-type>
       </column>
-      <column id="106" parent="12" name="twitter_name">
+      <column id="107" parent="12" name="twitter_name">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="107" parent="12" name="username">
+      <column id="108" parent="12" name="username">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <index id="108" parent="12" name="UK_sb8bbouer5wak8vyiiy4pf2bx">
+      <index id="109" parent="12" name="UK_sb8bbouer5wak8vyiiy4pf2bx">
         <columns>username</columns>
+        <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="109" parent="12" name="PRIMARY">
+      <key id="110" parent="12" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <key id="110" parent="12" name="UK_sb8bbouer5wak8vyiiy4pf2bx">
+      <key id="111" parent="12" name="UK_sb8bbouer5wak8vyiiy4pf2bx">
         <columns>username</columns>
-        <underlying-index>UK_sb8bbouer5wak8vyiiy4pf2bx|username</underlying-index>
+        <underlying-index>UK_sb8bbouer5wak8vyiiy4pf2bx</underlying-index>
       </key>
-      <column id="111" parent="13" name="id">
+      <column id="112" parent="13" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="112" parent="13" name="version">
+      <column id="113" parent="13" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="113" parent="13" name="domain">
+      <column id="114" parent="13" name="domain">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="114" parent="13" name="name">
+      <column id="115" parent="13" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="115" parent="13" name="password">
+      <column id="116" parent="13" name="password">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="116" parent="13" name="status">
+      <column id="117" parent="13" name="status">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <key id="117" parent="13" name="PRIMARY">
+      <key id="118" parent="13" name="PRIMARY">
         <columns>id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <column id="118" parent="14" name="user_id">
+      <column id="119" parent="14" name="user_id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="119" parent="14" name="role_id">
+      <column id="120" parent="14" name="role_id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <key id="120" parent="14" name="PRIMARY">
+      <index id="121" parent="14" name="FK_it77eq964jhfqtu54081ebtio">
+        <columns>role_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="122" parent="14" name="PRIMARY">
         <columns>user_id
 role_id</columns>
-        <underlying-index></underlying-index>
         <primary>1</primary>
       </key>
-      <foreign-key id="121" parent="14" name="FK_apcc8lxk2xnug8377fatvbn04">
+      <foreign-key id="123" parent="14" name="FK_apcc8lxk2xnug8377fatvbn04">
         <columns>user_id</columns>
-        <ref-key>user.PRIMARY|id</ref-key>
+        <ref-key>~.user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="122" parent="14" name="FK_it77eq964jhfqtu54081ebtio">
+      <foreign-key id="124" parent="14" name="FK_it77eq964jhfqtu54081ebtio">
         <columns>role_id</columns>
-        <ref-key>role.PRIMARY|id</ref-key>
+        <ref-key>~.role.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>

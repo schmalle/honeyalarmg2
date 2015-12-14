@@ -117,6 +117,8 @@
           <root url="jar://$MAVEN_REPOSITORY$/org/grails/grails-datastore-gorm-hibernate-core/3.1.5.RELEASE/grails-datastore-gorm-hibernate-core-3.1.5.RELEASE.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/grails/grails-datastore-gorm-hibernate4/3.1.5.RELEASE/grails-datastore-gorm-hibernate4-3.1.5.RELEASE.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.10.Final/hibernate-core-4.3.10.Final.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.2.7.RELEASE/spring-security-web-3.2.7.RELEASE.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.7.RELEASE/spring-security-core-3.2.7.RELEASE.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -126,5 +128,6 @@
     <orderEntry type="module" module-name="honeyalarmg2-grailsPlugins" />
     <orderEntry type="library" name="c3p0-0.9.1.1" level="project" />
     <orderEntry type="library" name="grails-2.5.1" level="application" />
+    <orderEntry type="library" name="grails-2.5.2" level="application" />
   </component>
 </module>

@@ -15,6 +15,7 @@ class UrlMappings {
         "/config"(controller: "Config", action: "index")
         "/sendmessage"(controller: "Telegram", action: "sendMessage")
         "/honeypot"(controller: "Honeypot", action: "index")
+        "/honeypot/delete/$id"(controller: "Honeypot", action: "delete")
             "/saveHoneypot"(controller: "Honeypot", action: "saveHoneypot")
 
         "/saveConfig"(controller: "Config", action: "saveConfig")

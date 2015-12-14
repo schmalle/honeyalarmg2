@@ -90,7 +90,7 @@
                                 <td>${honeypot.added}</td>
                                 <td>${honeypot.lastseen}</td>
 
-                                <td class="center">   <a href="/Honeypot/delete/{{honeypot.id}}" class="btn btn-danger">Delete</a>   </td>
+                                <td class="center">   <a href="/Honeypot/delete/${honeypot.id}" class="btn btn-danger">Delete</a>   </td>
                             </tr>
                                 </g:each>
                             </tbody>
