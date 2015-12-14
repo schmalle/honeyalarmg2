@@ -88,7 +88,7 @@
                                 <td>${alarm.type}</td>
                                 <td>${alarm.request}</td>
 
-                                <td class="center"> <a href="/Report/show/${alarm.id}" class="btn btn-primary">View</a> <a href="/Report/confirm/${alarm.id}" class="btn btn-success">Confirm</a> <a href="/Report/delete/${alarm.id}" class="btn btn-danger">Delete</a>   </td>
+                                <td class="center"> <a href="/Report/show/${alarm.id}" class="btn btn-primary">View</a> <a href="/Report/confirm/${alarm.id}" class="btn btn-success">Confirm</a> <a href="/Report/delete/${alarm.id}" class="btn btn-danger">Delete</a> <a href="/Report/ignore/${alarm.id}" class="btn btn-success">Ignore</a>  </td>
                             </tr>
 
                             </g:each>
