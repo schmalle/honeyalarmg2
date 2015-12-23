@@ -97,28 +97,8 @@ class HoneypotController {
     }   // updateIP
 
 
-    def report()
-    {
 
-        def username = ""
-        def token = ""
-        def time = ""
-        def source = ""
-        def target = ""
-
-        try
-        {
-            username = request.XML?.Authentication?.username
-            token = request.XML?.Authentication?.token
-            time = request.XML?.Alert?.CreateTime
-            source = request.XML?.Alert?.Source
-            target = request.XML?.Alert?.Target
-        }
-        catch (Exception e)
-        {
-            return render("report:: not ok")
-        }
-
+    def ipUpdate(source) {
 
         try
         {
@@ -131,20 +111,72 @@ class HoneypotController {
             def ip = new IP(text: "" + source, firstSeen: new Date(), lastSeen: new Date())
             ip.save(flush: true)
         }
+    }
+
+    def report()
+    {
+
+        def username = ""
+        def token = ""
+        def source = ""
 
 
-        def honeypot = Honeypot.findByNameAndPassword(username, token)
+            def contract = new XmlSlurper().parseText(request.reader.text)
 
-        //
-        // generate update entry for ui
-        //
-        Report newReport = new Report(type: "DEMO", time: new Date(), request: "Dummy", status: "OPEN", attacker: "" + source) //request: "request", status: "OPEN", changedFromIP: source)
-        newReport.save(flush: true)
+            contract.Alert.each(){
+                println "ID: "  + it.Analyzer.@'id'
+                println "Time:" + it.CreateTime
+                println "Source:" + it.Source
+                println "Target:" + it.Target
 
-        UIReport newHoneypotUpdate = new UIReport(type: "ALARM", time: "" + time, text: "Alarm call from honeypot " + username)
-        newHoneypotUpdate.save(flush: true)
+                ipUpdate(source)
 
-        return renderPlainText("ok")
+
+                it.Request.each() {
+                    println "   Request Type: " + it.@'type' + " Content: " + it
+                }
+
+/*
+
+
+                    <Alert>
+        <Analyzer id="4711"/>
+        <CreateTime tz="+0200">2015-09-09 16:39:21</CreateTime>
+        <Source category="ipv4" port="" protocol="tcp">1111</Source>
+        <Target category="ipv4" port="80" protocol="tcp">1.2.3.4</Target>
+        <Request type="url">/cgi-bin/.br/style.css</Request>
+        <Request type="raw">R0VUIC9jZ2ktYmluLy5ici9zdHlsZS5jc3MgSFRUUC8xLjENCkFjY2VwdDogdGV4dC9jc3MsKi8q
+            O3E9MC4xLCovKg0KQWNjZXB0LUVuY29kaW5nOiBnemlwLGRlZmxhdGUNCkNvbm5lY3Rpb246IEtl
+            ZXAtYWxpdmUNCkZyb206IGdvb2dsZWJvdChhdClnb29nbGVib3QuY29tDQpIb3N0OiB3d3cud2Vi
+            bWFpbGhvdXNlLmRlDQpSZWZlcmVyOiBodHRwOi8vd3d3LndlYm1haWxob3VzZS5kZS9jZ2ktYmlu
+            Ly5ici9wYXRoLnBocA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKGNvbXBhdGlibGU7IEdvb2ds
+            ZWJvdC8yLjE7ICtodHRwOi8vd3d3Lmdvb2dsZS5jb20vYm90Lmh0bWwp
+        </Request>
+        <Request type="description">WebHoneypot : Glastopf v3.1</Request>
+        <AdditionalData meaning="host" type="string">www.webe.de</AdditionalData>
+        <AdditionalData meaning="sqliteid" type="integer">3688</AdditionalData>
+    </Alert>
+
+                 */
+
+
+
+                def honeypot = Honeypot.findByNameAndPassword(username, token)
+
+                //
+                // generate update entry for ui
+                //
+                Report newReport = new Report(type: "DEMO", time: new Date(), request: "Dummy", status: "OPEN", attacker: "" + source) //request: "request", status: "OPEN", changedFromIP: source)
+                newReport.save(flush: true)
+
+                UIReport newHoneypotUpdate = new UIReport(type: "ALARM", time: "" + it.CreateTime, text: "Alarm call from honeypot " + it.Analyzer.@'id')
+                newHoneypotUpdate.save(flush: true)
+
+
+            }
+
+
+        return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>OK</StatusCode><Text></Text></Result>")
 
     }
 

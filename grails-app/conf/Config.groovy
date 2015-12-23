@@ -93,7 +93,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        // serverURL = "https://10.32.125.13"
     }
 }
 
