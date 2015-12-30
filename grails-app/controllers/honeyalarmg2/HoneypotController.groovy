@@ -1,12 +1,22 @@
 package honeyalarmg2
 
 import org.springframework.security.access.annotation.Secured
+import honeyalarm.Helpers;
 
 @Secured(["ROLE_ADMIN", "ROLE_USER", "ROLE_ANONYMOUS"])
 class HoneypotController {
 
     def springSecurityService
 
+
+/*
+    def compareString(String first, String second)  {
+
+        return first.toString().contains(second.toString())
+
+    }
+
+    */
 
     def delete() {
 
@@ -115,6 +125,7 @@ class HoneypotController {
 
     def report()
     {
+        def javaHelper = new Helpers()
 
         def username = ""
         def token = ""
@@ -124,16 +135,27 @@ class HoneypotController {
             def contract = new XmlSlurper().parseText(request.reader.text)
 
             contract.Alert.each(){
-                println "ID: "  + it.Analyzer.@'id'
-                println "Time:" + it.CreateTime
                 println "Source:" + it.Source
                 println "Target:" + it.Target
 
+                def requestURL = ""
+
                 ipUpdate(source)
 
-
                 it.Request.each() {
-                    println "   Request Type: " + it.@'type' + " Content: " + it
+
+                    def type = it.@'type'.text()
+                    def url = 'url'
+
+                    println "   Request Type: " + type + " Content: " + it
+
+                    def test = type == url //Helpers.compare(type, url)
+
+                    if (test) {
+                        requestURL = it
+                        print "Found URL Type : " + type
+                    }
+
                 }
 
 /*
