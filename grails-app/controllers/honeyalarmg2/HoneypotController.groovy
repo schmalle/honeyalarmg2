@@ -35,6 +35,24 @@ class HoneypotController {
 
     }
 
+
+    def updateUIReport(report)
+    {
+        def reports = UIReport.findAll()
+        if (reports.size() < 8)
+            report.save()
+        else {
+
+            UIReport rep0 = reports.get(0)
+            rep0.delete(flush: true)
+            report.save(flush: true)
+
+
+        }
+
+
+    }
+
     //
     // saves a new honeypot instance if not already existing
     //
@@ -95,7 +113,8 @@ class HoneypotController {
             // generate update entry for ui
             //
             UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from honeypot " + name)
-            newHoneypotUpdate.save()
+            //newHoneypotUpdate.save()
+            updateUIReport(newHoneypotUpdate)
 
             return renderPlainText("ok")
         }
@@ -158,37 +177,13 @@ class HoneypotController {
 
                 }
 
-/*
-
-
-                    <Alert>
-        <Analyzer id="4711"/>
-        <CreateTime tz="+0200">2015-09-09 16:39:21</CreateTime>
-        <Source category="ipv4" port="" protocol="tcp">1111</Source>
-        <Target category="ipv4" port="80" protocol="tcp">1.2.3.4</Target>
-        <Request type="url">/cgi-bin/.br/style.css</Request>
-        <Request type="raw">R0VUIC9jZ2ktYmluLy5ici9zdHlsZS5jc3MgSFRUUC8xLjENCkFjY2VwdDogdGV4dC9jc3MsKi8q
-            O3E9MC4xLCovKg0KQWNjZXB0LUVuY29kaW5nOiBnemlwLGRlZmxhdGUNCkNvbm5lY3Rpb246IEtl
-            ZXAtYWxpdmUNCkZyb206IGdvb2dsZWJvdChhdClnb29nbGVib3QuY29tDQpIb3N0OiB3d3cud2Vi
-            bWFpbGhvdXNlLmRlDQpSZWZlcmVyOiBodHRwOi8vd3d3LndlYm1haWxob3VzZS5kZS9jZ2ktYmlu
-            Ly5ici9wYXRoLnBocA0KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKGNvbXBhdGlibGU7IEdvb2ds
-            ZWJvdC8yLjE7ICtodHRwOi8vd3d3Lmdvb2dsZS5jb20vYm90Lmh0bWwp
-        </Request>
-        <Request type="description">WebHoneypot : Glastopf v3.1</Request>
-        <AdditionalData meaning="host" type="string">www.webe.de</AdditionalData>
-        <AdditionalData meaning="sqliteid" type="integer">3688</AdditionalData>
-    </Alert>
-
-                 */
-
-
 
                 def honeypot = Honeypot.findByNameAndPassword(username, token)
 
                 //
                 // generate update entry for ui
                 //
-                Report newReport = new Report(type: "DEMO", time: new Date(), request: "Dummy", status: "OPEN", attacker: "" + source) //request: "request", status: "OPEN", changedFromIP: source)
+                Report newReport = new Report(type: "OPEN", time: new Date(), request: "" + requestURL, status: "OPEN", attacker: "" + it.Source) //request: "request", status: "OPEN", changedFromIP: source)
                 newReport.save(flush: true)
 
                 UIReport newHoneypotUpdate = new UIReport(type: "ALARM", time: "" + it.CreateTime, text: "Alarm call from honeypot " + it.Analyzer.@'id')

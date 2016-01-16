@@ -44,7 +44,7 @@
     </table>
   </data-source>
   <data-source name="honeyalarmg2 dev" uuid="03bf5ba0-e14e-4da8-bbb1-39ef5bb2031a">
-    <database-info product="MySQL" version="5.7.9" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+    <database-info product="MySQL" version="5.7.10" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>

@@ -11,8 +11,16 @@ class AlarmController
         //
         // maximal 6 reports
         //
-        def reports = UIReport.findAllByTimeIsNotNull([max: 6, sort: "id", order: "desc"])
-        def config = ConfigHG.findByNameMandant("default")
+       // def reports = UIReport.findAll([max: 6, sort: "time", order: "desc"])
+
+
+       // def reports = UIReport.findAll()
+
+
+        def reports = UIReport.findAll("from UIReport as b order by b.time",
+                [max: 8, offset: 0])
+
+            def config = ConfigHG.findByNameMandant("default")
 
         [reports: reports, config:config]
 

@@ -19,7 +19,6 @@ class BootStrap {
         UIReport ui = new UIReport(time: new Date(), type:"INFO", text:'UI started')
         Honeypot honey = new Honeypot(name: "demohoneypot", password: "test", ip: "127.0.0.1", added: new Date(), lastseen: new Date())
         Report newAlarm = new Report(time: new Date(), type: "type", request: "GET /../../", status: "OPEN", attacker: "127.0.0.1")
-        //UserOld newUser = new UserOld(name: "admin", password: "password", status: "admin", domain: "default")
         ConfigHG newConfig = new ConfigHG(nameMandant: "default",
                                                     changedFromIP: "127.0.0.1",
                                                     added: new Date(),
