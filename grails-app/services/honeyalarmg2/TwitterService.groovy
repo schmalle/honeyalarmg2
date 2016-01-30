@@ -44,7 +44,7 @@ class TwitterService
         if (config)
         {
 
-            TwitterFactory tf = new TwitterFactory(cb.build());
+            TwitterFactory tf = new TwitterFactory(config.build());
             Twitter twitter = tf.getInstance();
 
             // The factory instance is re-useable and thread safe.
