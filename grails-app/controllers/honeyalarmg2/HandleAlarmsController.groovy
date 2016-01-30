@@ -11,8 +11,7 @@ class HandleAlarmsController
     def index()
     {
 
-        // extract data arrays
-        def reports = Report.findByStatus('OPEN')
+        def reports = Report.findAll("from Report as b where b.status='OPEN'")
 
         [reports: reports]
     }

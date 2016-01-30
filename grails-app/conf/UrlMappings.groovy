@@ -16,19 +16,19 @@ class UrlMappings {
         "/sendmessage"(controller: "Telegram", action: "sendMessage")
         "/honeypot"(controller: "Honeypot", action: "index")
         "/honeypot/delete/$id"(controller: "Honeypot", action: "delete")
-            "/saveHoneypot"(controller: "Honeypot", action: "saveHoneypot")
+        "/saveHoneypot"(controller: "Honeypot", action: "saveHoneypot")
 
         "/saveConfig"(controller: "Config", action: "saveConfig")
         "/login_"(controller: "LoginFake", action: "index")
 
-            "/graph"(controller: "Graph", action:"index")
+        "/graph"(controller: "Graph", action:"index")
 
-            "/tweet"(controller: "Twitter", action: "index")
-            "/User"(controller: "User", action: "index")
-            "/addUser"(controller: "User", action: "add")
-            "/delUser"(controller: "User", action: "del")
+        "/tweet"(controller: "Twitter", action: "index")
+        "/User"(controller: "User", action: "index")
+        "/addUser"(controller: "User", action: "add")
+        "/delUser"(controller: "User", action: "del")
 
-            //
+        //
         // honeypot calls
         //
 

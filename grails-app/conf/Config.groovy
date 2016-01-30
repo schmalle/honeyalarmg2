@@ -120,10 +120,6 @@ log4j.main = {
 
 
 
-
-
-
-
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'honeyalarmg2.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'honeyalarmg2.UserRole'
@@ -136,6 +132,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/assets/**':       ['permitAll'],
 	'/**/js/**':        ['permitAll'],
     '/twitter/**':      ['permitAll'],
+    '/graph/**':      ['permitAll'],
     '/User':            ['permitAll'],
     '/saveHoneypot':    ['permitAll'],
     '/**/css/**':       ['permitAll'],
@@ -144,3 +141,4 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':  ['permitAll']
 ]
 
+grails.config.locations = [ "file:/etc/honeyalarmg2.properties"]

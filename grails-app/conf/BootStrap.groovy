@@ -9,7 +9,27 @@ import honeyalarmg2.User
 
 class BootStrap {
 
+    def grailsApplication
+
     def init = { servletContext ->
+
+
+        def useTwitter = "no"
+        def twitterOAuthConsumerKey = "..."
+        def twitterOAuthConsumerSecret = "..."
+        def twitterOAuthAccessToken = "..."
+        def twitterOAuthAccessTokenSecret = "..."
+
+        if (grailsApplication.config.useTwitter) {
+            useTwitter = grailsApplication.config.useTwitter
+            twitterOAuthConsumerKey = grailsApplication.config.twitterOAuthConsumerKey
+            twitterOAuthConsumerSecret = grailsApplication.config.twitterOAuthConsumerSecret
+            twitterOAuthAccessToken = grailsApplication.config.twitterOAuthAccessToken
+            twitterOAuthAccessTokenSecret = grailsApplication.config.twitterOAuthAccessTokenSecret
+
+
+        }
+
 
 
         //
@@ -24,7 +44,7 @@ class BootStrap {
                                                     added: new Date(),
                                                     lastChanged: new Date(),
                                                     useTelegram: "no",
-                                                    useTwitter: "no",
+                                                    useTwitter: useTwitter,
                                                     useImage: "no",
                                                     telegramToken: "Telegram Token",
                                                     twitterToken: "Twitter Token",
@@ -32,10 +52,10 @@ class BootStrap {
                                                     usePushover: "no",
                                                     pushoverToken: "Pushover Token",
                                                     telegramUsers: new LinkedList(),
-                                                    twitterOAuthConsumerKey: "...",
-                                                    twitterOAuthConsumerSecret: "...",
-                                                    twitterOAuthAccessToken: "...",
-                                                    twitterOAuthAccessTokenSecret: "...")
+                                                    twitterOAuthConsumerKey: twitterOAuthConsumerKey,
+                                                    twitterOAuthConsumerSecret: twitterOAuthConsumerSecret,
+                                                    twitterOAuthAccessToken: twitterOAuthAccessToken,
+                                                    twitterOAuthAccessTokenSecret: twitterOAuthAccessTokenSecret)
 
 
         newConfig.save(flush:true)

@@ -9,15 +9,6 @@ class HoneypotController {
     def springSecurityService
 
 
-/*
-    def compareString(String first, String second)  {
-
-        return first.toString().contains(second.toString())
-
-    }
-
-    */
-
     def delete() {
 
         def honeypot = Honeypot.findById(params.id)
@@ -94,7 +85,8 @@ class HoneypotController {
             if (!honeypot)
             {
                 UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from unknown honeypot " + name)
-                newHoneypotUpdate.save()
+                updateUIReport(newHoneypotUpdate)
+
                 return renderPlainText("not ok")
             }
 
@@ -113,7 +105,6 @@ class HoneypotController {
             // generate update entry for ui
             //
             UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from honeypot " + name)
-            //newHoneypotUpdate.save()
             updateUIReport(newHoneypotUpdate)
 
             return renderPlainText("ok")
@@ -126,71 +117,73 @@ class HoneypotController {
     }   // updateIP
 
 
+    def ipUpdate(source)
+    {
+        def ip
 
-    def ipUpdate(source) {
+        def reports = IP.findAll("from IP as b where b.text='" + source + "'")
+        if (reports.size() == 0)
+            ip = new IP(text: "" + source, firstSeen: new Date(), lastSeen: new Date())
+        else
+            ip = reports.get(0)
 
-        try
-        {
-            def ip = IP.findbyText(source)
-            ip.lastSeen = new Date()
-            ip.save(flush: true)
-        }
-        catch (Exception e)
-        {
-            def ip = new IP(text: "" + source, firstSeen: new Date(), lastSeen: new Date())
-            ip.save(flush: true)
-        }
+        ip.lastSeen = new Date()
+
+        ip.save(flush: true)
+
+
     }
 
     def report()
     {
-        def javaHelper = new Helpers()
 
         def username = ""
         def token = ""
-        def source = ""
+        def source
+
+        def contract = new XmlSlurper().parseText(request.reader.text)
+
+        contract.Alert.each() {
+            source = it.Source
+
+            def requestURL = "<UNDEFINED>"
+            def alertType = "BINARY"
 
 
-            def contract = new XmlSlurper().parseText(request.reader.text)
+            it.Request.each() {
 
-            contract.Alert.each(){
-                println "Source:" + it.Source
-                println "Target:" + it.Target
+                def type = it.@'type'.text()
+                def url = 'url'
 
-                def requestURL = ""
+                println "   Request Type: " + type + " Content: " + it
 
-                ipUpdate(source)
+                def test = type == url
 
-                it.Request.each() {
-
-                    def type = it.@'type'.text()
-                    def url = 'url'
-
-                    println "   Request Type: " + type + " Content: " + it
-
-                    def test = type == url //Helpers.compare(type, url)
-
-                    if (test) {
-                        requestURL = it
-                        print "Found URL Type : " + type
-                    }
-
+                if (test)
+                {
+                    requestURL = it
+                    print "Found URL Type : " + type
+                    alertType = "WEB"
                 }
 
-
-                def honeypot = Honeypot.findByNameAndPassword(username, token)
-
-                //
-                // generate update entry for ui
-                //
-                Report newReport = new Report(type: "OPEN", time: new Date(), request: "" + requestURL, status: "OPEN", attacker: "" + it.Source) //request: "request", status: "OPEN", changedFromIP: source)
-                newReport.save(flush: true)
-
-                UIReport newHoneypotUpdate = new UIReport(type: "ALARM", time: "" + it.CreateTime, text: "Alarm call from honeypot " + it.Analyzer.@'id')
-                newHoneypotUpdate.save(flush: true)
-
-
             }
+
+            def honeypot = Honeypot.findByNameAndPassword(username, token)
+
+            //
+            // generate update entry for ui
+            //
+            Report newReport = new Report(type: alertType, time: new Date(), request: "" + requestURL, status: "OPEN", attacker: "" + it.Source)
+            //request: "request", status: "OPEN", changedFromIP: source)
+            newReport.save(flush: true)
+
+            UIReport newHoneypotUpdate = new UIReport(type: "ALARM", time: "" + it.CreateTime, text: "Alarm call from honeypot " + it.Analyzer.@'id')
+            updateUIReport(newHoneypotUpdate)
+
+            ipUpdate(source)
+
+
+        }
 
 
         return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>OK</StatusCode><Text></Text></Result>")

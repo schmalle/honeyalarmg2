@@ -19,6 +19,14 @@ Login username / password combination is (me/password)
 
 see history.txt and todo for details
 
+Configfile (/etc/honeyalarmg2.properties)
+
+            useTwitter=yes
+            twitterOAuthConsumerKey= 
+            twitterOAuthConsumerSecret= 
+            twitterOAuthAccessToken= 
+            twitterOAuthAccessTokenSecret= 
+
 
 Thanks to
 
