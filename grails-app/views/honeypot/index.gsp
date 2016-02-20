@@ -106,40 +106,7 @@
 
                 <br><br>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Add new honeypot</h2>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
 
-        <div >
-            <form action="/saveHoneypot" method="post">
-
-                <g:hiddenField name="added" value="${dateAdded}"/>
-            <table class="table table-striped table-bordered" id="add">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Password</th>
-
-
-
-                </tr>
-                </thead>
-                <tbody>
-
-
-                    <tr>
-                        <td><g:textField name="name" value=""/></td>
-                        <td><g:textField name="password" value=""/></td>
-                    </tr>
-                </tbody>
-            </table>
-
-                <input type="submit" class="btn btn-danger" value="Submit">
-            </form>
-        </div>
 
 
 
