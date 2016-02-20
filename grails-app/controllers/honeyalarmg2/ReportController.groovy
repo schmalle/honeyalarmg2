@@ -1,24 +1,52 @@
 package honeyalarmg2
 
+import org.springframework.security.access.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
+@Transactional()
 class ReportController
 {
 
     static allowedMethods = [moveToAlarm: "GET", save: "POST", update: "PUT", delete: "DELETE"]
 
-
+    @Secured(["ROLE_ADMIN", "ROLE_USER"])
     def moveToAlarm()
     {
         def myReport = Report.findById(params.id)
 
         Alarm myAlarm = new Alarm(time: myReport.time, type: myReport.type, request: myReport.request, attacker: myReport.attacker)
         myAlarm.save()
+        myReport.delete()
+
+        redirect(controller: "Index", action: "index")
 
     }
+
+    @Secured(["ROLE_ADMIN", "ROLE_USER"])
+    def ignore()
+    {
+        def myReport = Report.findById(params.id)
+
+        String checksum = org.apache.commons.codec.digest.DigestUtils.sha256Hex(myReport.request)
+
+        def myIgnore = new IgnoredRequests(request: myReport.request, checksum: checksum)
+        myIgnore.save()
+        myReport.delete()
+
+        redirect(controller: "Index", action: "index")
+
+    }
+
+    @Secured(["ROLE_ADMIN", "ROLE_USER"])
+    def remove()
+    {
+        def myReport = Report.findById(params.id)
+        myReport.delete()
+        redirect(controller: "Index", action: "index")
+    }
+
 
     def index(Integer max)
     {
@@ -36,92 +64,6 @@ class ReportController
         respond new Report(params)
     }
 
-    @Transactional
-    def save(Report reportInstance)
-    {
-        if (reportInstance == null)
-        {
-            notFound()
-            return
-        }
 
-        if (reportInstance.hasErrors())
-        {
-            respond reportInstance.errors, view: 'create'
-            return
-        }
 
-        reportInstance.save flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'report.label', default: 'Report'), reportInstance.id])
-                redirect reportInstance
-            }
-            '*' { respond reportInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(Report reportInstance)
-    {
-        respond reportInstance
-    }
-
-    @Transactional
-    def update(Report reportInstance)
-    {
-        if (reportInstance == null)
-        {
-            notFound()
-            return
-        }
-
-        if (reportInstance.hasErrors())
-        {
-            respond reportInstance.errors, view: 'edit'
-            return
-        }
-
-        reportInstance.save flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Report.label', default: 'Report'), reportInstance.id])
-                redirect reportInstance
-            }
-            '*' { respond reportInstance, [status: OK] }
-        }
-    }
-
-    @Transactional
-    def delete(Report reportInstance)
-    {
-
-        if (reportInstance == null)
-        {
-            notFound()
-            return
-        }
-
-        reportInstance.delete flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Report.label', default: 'Report'), reportInstance.id])
-                redirect action: "index", method: "GET"
-            }
-            '*' { render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound()
-    {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'report.label', default: 'Report'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*' { render status: NOT_FOUND }
-        }
-    }
 }
