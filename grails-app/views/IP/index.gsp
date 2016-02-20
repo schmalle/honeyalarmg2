@@ -1,54 +1,120 @@
-
-<%@ page import="honeyalarmg2.IP" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'IP.label', default: 'IP')}" />
-		<title><g:message code="default.list.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#list-IP" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="list-IP" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<table>
-			<thead>
-					<tr>
-					
-						<g:sortableColumn property="text" title="${message(code: 'IP.text.label', default: 'Text')}" />
-					
-						<g:sortableColumn property="firstSeen" title="${message(code: 'IP.firstSeen.label', default: 'First Seen')}" />
-					
-						<g:sortableColumn property="lastSeen" title="${message(code: 'IP.lastSeen.label', default: 'Last Seen')}" />
-					
-					</tr>
-				</thead>
-				<tbody>
-				<g:each in="${IPInstanceList}" status="i" var="IPInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${IPInstance.id}">${fieldValue(bean: IPInstance, field: "text")}</g:link></td>
-					
-						<td>${fieldValue(bean: IPInstance, field: "firstSeen")}</td>
-					
-						<td>${fieldValue(bean: IPInstance, field: "lastSeen")}</td>
-					
-					</tr>
-				</g:each>
-				</tbody>
-			</table>
-			<div class="pagination">
-				<g:paginate total="${IPInstanceCount ?: 0}" />
+<html lang="en" ng-app="honeyalarm">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Honeyalarm - Admin console</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="${g.resource(dir: 'css', file:'bootstrap.min.css')}" rel="stylesheet">
+
+	<!-- MetisMenu CSS -->
+	<link href="${g.resource(dir: 'css', file:'metisMenu.css')}" rel="stylesheet">
+
+
+	<!-- Timeline CSS -->
+	<link href="${g.resource(dir: 'css', file:'timeline.css')}" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="${g.resource(dir: 'css', file:'sb-admin-2.css')}" rel="stylesheet">
+
+	<!-- Morris Charts CSS -->
+	<link href="${g.resource(dir: 'css', file:'morris.css')}" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+	<link href="${g.resource(dir: 'css', file:'font-awesome.min.css')}" rel="stylesheet" type="text/css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-controller="AlarmController">
+
+<div id="wrapper">
+
+	<g:include controller="navigationGenerator" action="index"></g:include>
+
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">IP address overview</h1>
 			</div>
+			<!-- /.col-lg-12 -->
 		</div>
-	</body>
+		<!-- /.row -->
+
+		<!-- /.row -->
+		<div class="row">
+
+			<!-- /.col-lg-8 -->
+			<div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<i class="fa fa-bell fa-fw"></i> Details
+					</div>
+					<!-- /.panel-heading -->
+					<div >
+						<table class="table table-striped table-bordered" id="dataTables-example">
+							<thead>
+							<tr>
+								<th>IP</th>
+								<th>First seen</th>
+								<th>Last seen</th>
+							</tr>
+							</thead>
+							<tbody>
+
+
+							<g:each in="${ips}" var="ip">
+
+								<tr>
+
+									<td>${ip.text}</td>
+									<td>${ip.firstSeen}</td>
+									<td>${ip.lastSeen}</td>
+
+								</tr>
+
+							</g:each>
+
+							</tbody>
+						</table>
+					</div>
+
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+
+
+				<a href="/" class="btn btn-primary" role="button">Main</a>
+
+				<!-- /.panel -->
+
+				<!-- /.panel .chat-panel -->
+			</div>
+			<!-- /.col-lg-4 -->
+		</div>
+		<!-- /.row -->
+	</div>
+	<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<g:include controller="javascriptGenerator" action="index"></g:include>
+
+</body>
+
 </html>
