@@ -18,6 +18,12 @@ class ConfigHG  {
     String twitterOAuthAccessTokenSecret
     String usePushover
     String pushoverToken
+
+    String userNameTSecRadar
+    String passwordTSecRadar
+    String serverTSecRadar
+
+
     LinkedList telegramUsers
 
     static constraints = {

@@ -1,5 +1,8 @@
 package honeyalarmg2
 
+import java.nio.charset.StandardCharsets
+import java.security.MessageDigest
+
 class User implements Serializable {
 
 	private static final long serialVersionUID = 1
@@ -8,17 +11,14 @@ class User implements Serializable {
 
 	String username
 	String password
+	String pwbackup
 	String twitterName
 	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
 
-//	User(String username, String password) {
-//		this()
-//		this.username = username
-//		this.password = password
-//	}
+
 
 	@Override
 	int hashCode() {
@@ -39,7 +39,12 @@ class User implements Serializable {
 		UserRole.findAllByUser(this)*.role
 	}
 
+
+
 	def beforeInsert() {
+
+		pwbackup = org.apache.commons.codec.digest.DigestUtils.sha256Hex(password);
+
 		encodePassword()
 	}
 
@@ -50,6 +55,7 @@ class User implements Serializable {
 	}
 
 	protected void encodePassword() {
+
 		password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
 	}
 
@@ -57,6 +63,7 @@ class User implements Serializable {
 
 	static constraints = {
 		username blank: false, unique: true
+		pwbackup blank: false
 		password blank: false
 	}
 
