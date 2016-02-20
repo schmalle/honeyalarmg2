@@ -37,6 +37,8 @@ class UrlMappings {
         "/ews-0.1/alert/postSimpleMessage"(controller: "Honeypot", action: "report")
 
         "/Report/confirm/$id"(controller: "Report", action: "moveToAlarm")
+        "/Report/delete/$id"(controller: "Report", action: "remove")
+        "/Report/ignore/$id"(controller: "Report", action: "ignore")
 
 
 
