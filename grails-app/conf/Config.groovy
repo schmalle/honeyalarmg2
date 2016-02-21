@@ -135,6 +135,13 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/graph/**':      ['permitAll'],
     '/User':            ['permitAll'],
     '/saveHoneypot':    ['permitAll'],
+    '/ShowAlarms':      ['permitAll'],
+    '/Report/confirm/**': ['permitAll'],
+    '/Report/delete/**': ['permitAll'],
+    '/Report/ignore/**': ['permitAll'],
+
+
+
     '/**/css/**':       ['permitAll'],
     '/**/fonts/**':     ['permitAll'],
 	'/**/images/**':    ['permitAll'],

@@ -9,7 +9,7 @@ class ConfigHG  {
     String lastChanged
 
     String useTwitter
-    String twitterToken
+    String twitterUser
     String twitterOAuthConsumerKey
     String twitterOAuthConsumerSecret
     String twitterOAuthAccessToken
@@ -20,7 +20,6 @@ class ConfigHG  {
     String userNameTSecRadar
     String passwordTSecRadar
     String serverTSecRadar
-
 
     static constraints = {
 

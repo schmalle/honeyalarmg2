@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
-@TestFor(HandleAlarmsController)
-class HandleAlarmsControllerSpec extends Specification {
+@TestFor(HandleReportsController)
+class HandleReportsControllerSpec extends Specification {
 
     def setup() {
     }

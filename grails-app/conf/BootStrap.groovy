@@ -14,22 +14,6 @@ class BootStrap {
     def init = { servletContext ->
 
 
-        def useTwitter = "no"
-        def twitterOAuthConsumerKey = "..."
-        def twitterOAuthConsumerSecret = "..."
-        def twitterOAuthAccessToken = "..."
-        def twitterOAuthAccessTokenSecret = "..."
-
-        if (grailsApplication.config.useTwitter) {
-            useTwitter = grailsApplication.config.useTwitter
-            twitterOAuthConsumerKey = grailsApplication.config.twitterOAuthConsumerKey
-            twitterOAuthConsumerSecret = grailsApplication.config.twitterOAuthConsumerSecret
-            twitterOAuthAccessToken = grailsApplication.config.twitterOAuthAccessToken
-            twitterOAuthAccessTokenSecret = grailsApplication.config.twitterOAuthAccessTokenSecret
-
-
-        }
-
 
 
         //
@@ -37,39 +21,35 @@ class BootStrap {
         //
 
         UIReport ui = new UIReport(time: new Date(), type:"INFO", text:'UI started')
-        Honeypot honey = new Honeypot(name: "demohoneypot", password: "test", ip: "127.0.0.1", added: new Date(), lastseen: new Date())
-        Report newAlarm = new Report(time: new Date(), type: "WEB", request: "GET /../../", status: "OPEN", attacker: "127.0.0.1")
-        ConfigHG newConfig = new ConfigHG(nameMandant: "default",
-                                                    changedFromIP: "127.0.0.1",
+        ConfigHG newConfig = new ConfigHG(
+                                                    changedFromIP: "<System>",
                                                     added: new Date(),
                                                     lastChanged: new Date(),
-                                                    useTelegram: "no",
-                                                    useTwitter: useTwitter,
+                                                    useTwitter: grailsApplication.config.useTwitter,
                                                     useImage: "no",
-                                                    telegramToken: "Telegram Token",
-                                                    twitterToken: "Twitter Token",
                                                     image: "dtag",
-                                                    usePushover: "no",
-                                                    pushoverToken: "Pushover Token",
-                                                    telegramUsers: new LinkedList(),
-                                                    twitterOAuthConsumerKey: twitterOAuthConsumerKey,
-                                                    twitterOAuthConsumerSecret: twitterOAuthConsumerSecret,
-                                                    twitterOAuthAccessToken: twitterOAuthAccessToken,
-                                                    twitterOAuthAccessTokenSecret: twitterOAuthAccessTokenSecret)
+                                                    twitterUser: grailsApplication.config.twitterUser,
+                                                    twitterOAuthConsumerKey: grailsApplication.config.twitterOAuthConsumerKey,
+                                                    twitterOAuthConsumerSecret: grailsApplication.config.twitterOAuthConsumerSecret,
+                                                    twitterOAuthAccessToken: grailsApplication.config.twitterOAuthAccessToken,
+                                                    twitterOAuthAccessTokenSecret: grailsApplication.config.twitterOAuthAccessTokenSecret,
+
+                                                    useSicherheitstacho: grailsApplication.config.useSicherheitstacho,
+                                                    userNameTSecRadar: grailsApplication.config.userNameTSecRadar,
+                                                    passwordTSecRadar: grailsApplication.config.passwordTSecRadar,
+                                                    serverTSecRadar: grailsApplication.config.serverTSecRadar
+
+        )
 
 
         newConfig.save(flush:true)
-        honey.save(flush:true)
         ui.save(flush:true)
-        newAlarm.save(flush:true)
-
-
 
         def adminRole = new Role('ROLE_ADMIN').save()
         def userRole = new Role('ROLE_USER').save()
 
-        def testUser = new User(username: 'me', password:  'password', twitterName: "none").save()
-        def testNormalUser = new User(username: 'meNormal', password:  'password', twitterName: "none").save()
+        def testUser = new User(username: 'me', password:  'password', pwbackup: "blah", twitterName: "none").save(flush: true)
+        def testNormalUser = new User(username: 'meNormal', password:  'password', pwbackup: "blah", twitterName: "none").save(flush: true)
 
 
         UserRole.create testUser, adminRole, true
@@ -82,3 +62,4 @@ class BootStrap {
     def destroy = {
     }
 }
+

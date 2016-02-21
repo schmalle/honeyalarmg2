@@ -79,10 +79,13 @@
 
                     <form action="/saveConfig" method="post">
 
-                        <g:hiddenField name="nameMandant" value="${config.nameMandant}"/>
                         <g:hiddenField name="added" value="${config.added}"/>
                         <g:hiddenField name="ip" value="${ip}"/>
 
+                        <g:hiddenField name="useSicherheitstacho" value="${config.useSicherheitstacho}"/>
+                        <g:hiddenField name="userNameTSecRadar" value="${config.userNameTSecRadar}"/>
+                        <g:hiddenField name="passwordTSecRadar" value="${config.passwordTSecRadar}"/>
+                        <g:hiddenField name="serverTSecRadar" value="${config.serverTSecRadar}"/>
 
                         <table>
 
@@ -115,8 +118,8 @@
                                 <td><g:select id="useTwitter" name="useTwitter"
                                               from="${['no': 'No', 'yes': 'Yes']}"
                                               optionKey="key" optionValue="value" value="${config.useTwitter}"/></td>
-                                <td><label>Twitter Token</label></td>
-                                <td><g:textField name="twitterToken" value="${config.twitterToken}"/></td>
+                                <td><label>Twitter User</label></td>
+                                <td><g:textField name="twitterUser" value="${config.twitterUser}"/></td>
                             </tr>
 
 
@@ -161,58 +164,6 @@
                     </tr>
 
 
-                            <tr class="blank_row">
-                                <td colspan="3"></td>
-                            </tr>
-                            <tr class="blank_row">
-                                <td colspan="3"></td>
-                            </tr>
-                            <tr>
-                                <td><label>Use Telegram</label></td>
-                                <td><g:select id="useTelegram" name="useTelegram"
-                                              from="${['no': 'No', 'yes': 'Yes']}"
-                                              optionKey="key" optionValue="value" value="${config.useTelegram}"/></td>
-
-
-                                <td><label>Telegram Token:</label></td>
-                                <td><g:textField name="telegramToken" value="${config.telegramToken}"/><br/></td>
-
-                            </tr>
-
-                            <!-- define needed users  -->
-
-                            <g:each in="${telegramList}">
-
-                                <tr>
-                                    <td><label>Use ID ${it} (Telegram)</label></td>
-                                    <td><g:select id="useTelegram${it}" name="useTelegram${it}"
-                                                  from="${['no': 'No', 'yes': 'Yes']}"
-                                                  optionKey="key" optionValue="value"/>
-                                    </td>
-                                    <td><label>Info Messages</label></td>
-                                    <td><g:select id="use${it}" name="infoTelegram${it}"
-                                                  from="${['no': 'No', 'yes': 'Yes']}"
-                                                  optionKey="key" optionValue="value"/>
-                                    </td>
-
-                                </tr>
-                            </g:each>
-
-                            <tr class="blank_row">
-                                <td colspan="3"></td>
-                            </tr>
-
-                        <tr>
-                            <td><label>Use Pushover</label></td>
-                            <td><g:select id="usePushover" name="usePushover"
-                                          from="${['no': 'No', 'yes': 'Yes']}"
-                                          optionKey="key" optionValue="value" value="${config.usePushover}"/></td>
-
-
-                            <td><label>Pushover Token:</label></td>
-                            <td><g:textField name="pushoverToken" value="${config.pushoverToken}"/><br/></td>
-
-                        </tr>
 
 
                         <tr>

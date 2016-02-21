@@ -1,7 +1,7 @@
 <EWS-SimpleMessage version="2.0">
     <Authentication>
-        <username>schmalle</username>
-        <token>6372683287</token>
+        <username>me</username>
+        <token>password</token>
     </Authentication>
 
     <Alert>

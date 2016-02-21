@@ -12,22 +12,20 @@ import twitter4j.conf.ConfigurationBuilder
 class TwitterService
 {
 
-    def grailsApplication
-
     def createConfigurationBuilder()
     {
 
-        String useTwitter = grailsApplication.config.useTwitter
+        ConfigHG config = ConfigHG.findAll().get(0)
 
-        if (useTwitter == "yes")
+        if (config.useTwitter == "yes")
         {
 
             ConfigurationBuilder cb = new ConfigurationBuilder();
             cb.setDebugEnabled(true)
-                    .setOAuthConsumerKey(grailsApplication.config.twitterOAuthConsumerKey)
-                    .setOAuthConsumerSecret(grailsApplication.config.twitterOAuthConsumerSecret)
-                    .setOAuthAccessToken(grailsApplication.config.twitterOAuthAccessToken)
-                    .setOAuthAccessTokenSecret(grailsApplication.config.twitterOAuthAccessTokenSecret);
+                    .setOAuthConsumerKey(config.twitterOAuthConsumerKey)
+                    .setOAuthConsumerSecret(config.twitterOAuthConsumerSecret)
+                    .setOAuthAccessToken(config.twitterOAuthAccessToken)
+                    .setOAuthAccessTokenSecret(config.twitterOAuthAccessTokenSecret);
 
             return cb
 

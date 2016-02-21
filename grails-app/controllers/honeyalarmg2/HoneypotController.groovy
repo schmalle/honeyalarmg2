@@ -9,6 +9,7 @@ import org.codehaus.groovy.grails.validation.routines.InetAddressValidator
 class HoneypotController {
 
     transient springSecurityService
+    transient twitterService
 
     @Secured(["ROLE_ADMIN"])
     def delete() {
@@ -208,6 +209,11 @@ class HoneypotController {
             //
             if (InetAddressValidator.getInstance().isValid(source) && notIgnored(requestURL))
             {
+
+                ConfigHG config = ConfigHG.findAll().get(0)
+                if (config.useTwitter == "yes")
+                    twitterService.directMessage(config.twitterUser, "New alarm from Hp reporting UI")
+
 
                 //
                 // generate update entry for ui

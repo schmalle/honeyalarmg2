@@ -5,8 +5,6 @@ IN DEVELOPMENT, NOT PRODUCTION, TEST OR WHATEVER READY
 Simplified UI for showing honeypot alarms
 
 
-
-
 Based on
 
 Bootstrap
@@ -14,10 +12,12 @@ Grails 2.5.3
 great SBADMIN-2 Theme !
 Spring Security Code
 
+
+
 Login username / password combination is (me/password)
 
 
-see history.txt and todo for details
+see history.txt and todo.txt for details
 
 Configfile (/etc/honeyalarmg2.properties)
 

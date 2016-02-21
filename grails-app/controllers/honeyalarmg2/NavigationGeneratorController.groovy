@@ -16,7 +16,9 @@ class NavigationGeneratorController
             role = roles[0]
 
 
-        ConfigHG config = ConfigHG.findById(1)
+        def configList = ConfigHG.findAll()
+        ConfigHG config = configList.get(0)
+
         [config : config, role: role]
     }
 }

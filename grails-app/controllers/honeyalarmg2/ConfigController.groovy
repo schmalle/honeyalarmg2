@@ -15,16 +15,17 @@ class ConfigController
     def saveConfig()
     {
 
+        def configList = ConfigHG.findAll()
+        ConfigHG config = configList.get(0)
+        config.delete(flush: true)
 
-        ConfigHG x = new ConfigHG(params)
-        x.lastChanged = (String)new Date()
-        x.changedFromIP = request.getRemoteAddr()
 
         // find old database entry
-        ConfigHG update = ConfigHG.findById(1)
-        update.delete()
-
-        x.save(flush: true)
+        ConfigHG update = new ConfigHG(params)
+        update.id = 1
+        update.lastChanged = (String)new Date()
+        update.changedFromIP = request.getRemoteAddr()
+        update.save()
 
         redirect(controller: "Index", action: "index")
     }
@@ -32,7 +33,9 @@ class ConfigController
     @Secured("ROLE_ADMIN")
     def index()
     {
-        ConfigHG config = ConfigHG.findById(1)
+
+        def configList = ConfigHG.findAll()
+        ConfigHG config = configList.get(0)
 
         if (config == null)
         {
