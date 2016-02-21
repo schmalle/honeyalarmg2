@@ -21,7 +21,7 @@ class ConfigController
         x.changedFromIP = request.getRemoteAddr()
 
         // find old database entry
-        ConfigHG update = ConfigHG.findByNameMandant(x.nameMandant)
+        ConfigHG update = ConfigHG.findById(1)
         update.delete()
 
         x.save(flush: true)
@@ -32,14 +32,13 @@ class ConfigController
     @Secured("ROLE_ADMIN")
     def index()
     {
-        ConfigHG config = ConfigHG.find()
+        ConfigHG config = ConfigHG.findById(1)
 
         if (config == null)
         {
             redirect  (controller: "Index" , action:"index", params: [alertText: "No config was found"])
             return
         }
-
 
         String role = "ROLE_ANONYMOUS"
         String[] roles = springSecurityService.getPrincipal().getAuthorities()
