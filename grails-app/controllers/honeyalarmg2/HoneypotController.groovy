@@ -10,6 +10,7 @@ class HoneypotController {
 
     transient springSecurityService
     transient twitterService
+    transient eWSService
 
     @Secured(["ROLE_ADMIN"])
     def delete() {
@@ -213,6 +214,10 @@ class HoneypotController {
                 ConfigHG config = ConfigHG.findAll().get(0)
                 if (config.useTwitter == "yes")
                     twitterService.directMessage(config.twitterUser, "New alarm from Hp reporting UI")
+
+                if (config.useSicherheitstacho == "yes")
+                    eWSService.sendAlarm(new Date(), it.Source, requestURL, analyzerID)
+
 
 
                 //
