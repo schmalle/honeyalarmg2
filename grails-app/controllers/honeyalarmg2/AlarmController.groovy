@@ -12,9 +12,7 @@ class AlarmController
         def reports = UIReport.findAll("from UIReport as b order by b.time",
                 [max: 8, offset: 0])
 
-        def config = ConfigHG.findByNameMandant("default")
-
-        [reports: reports, config:config]
+        [reports: reports]
 
     }
 }
