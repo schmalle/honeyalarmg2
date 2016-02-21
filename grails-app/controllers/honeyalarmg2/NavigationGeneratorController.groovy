@@ -3,9 +3,20 @@ package honeyalarmg2
 class NavigationGeneratorController
 {
 
+    def springSecurityService
+
+
     def index()
     {
-        ConfigHG config = ConfigHG.findByNameMandant("default")
-        [config : config]
+
+        String role = "ROLE_ANONYMOUS"
+        String[] roles = springSecurityService.getPrincipal().getAuthorities()
+
+        if (roles.length == 1)
+            role = roles[0]
+
+
+        ConfigHG config = ConfigHG.findById(1)
+        [config : config, role: role]
     }
 }
