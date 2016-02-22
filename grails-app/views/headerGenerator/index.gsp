@@ -7,7 +7,7 @@
                     <i class="fa fa-support fa-5x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <div class="huge">${numberOfOpenAlarms}</div>
+                    <div class="huge">${numberOfReports}</div>
                     <div>New alarms!</div>
                 </div>
             </div>

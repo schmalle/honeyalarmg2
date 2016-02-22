@@ -32,8 +32,6 @@ class IndexController
         if (roles.length == 1)
             role = roles[0]
 
-        // extract data arrays
-        //def reports = UIReport.findAllByTimeIsNotNull()
 
         [honeypots:numberOfHoneypots, ips: numberOfIps, alertText: alertText, role:role]
     }

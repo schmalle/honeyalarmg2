@@ -5,9 +5,10 @@ class HeaderGeneratorController
 
     def index() {
 
-        def numberOfAlarms = Report.all.size()
+        def numberOfReports = Report.all.size()
+        def numberOfAlarms = Alarm.all.size()
         def numberOfOpenAlarms = Report.findAllByStatus("OPEN").size()
 
-        [numberOfAlarms : numberOfAlarms, numberOfOpenAlarms : numberOfOpenAlarms]
+        [numberOfAlarms : numberOfAlarms, numberOfReports : numberOfReports]
     }
 }
