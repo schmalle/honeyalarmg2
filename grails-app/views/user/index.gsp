@@ -12,7 +12,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Honeyalarm - User overview</title>
+	<title>Honeyalarm - Honeypot overview</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="${g.resource(dir: 'css', file:'bootstrap.min.css')}" rel="stylesheet">
@@ -72,25 +72,20 @@
 							<thead>
 							<tr>
 								<th>Name</th>
-								<th>IP</th>
-								<th>Added</th>
-								<th>Last seen</th>
+								<th>TwitterName</th>
+								<th>Role</th>
 								<th>Action</th>
-
-
 							</tr>
 							</thead>
 							<tbody>
 
-							<g:each in="${Honeypots}" var="honeypot">
+							<g:each in="${users}" var="user">
 
 								<tr>
-									<td>${honeypot.name}</td>
-									<td>${honeypot.ip}</td>
-									<td>${honeypot.added}</td>
-									<td>${honeypot.lastseen}</td>
-
-									<td class="center">   <a href="/Honeypot/delete/{{honeypot.id}}" class="btn btn-danger">Delete</a>   </td>
+									<td>${user.name}</td>
+									<td>${user.twitterName}</td>
+									<td>${user.role}</td>
+									<td class="center">   <a href="/User/delete/${user.id}" class="btn btn-danger">Delete</a>   </td>
 								</tr>
 							</g:each>
 							</tbody>
@@ -102,44 +97,54 @@
 				<!-- /.panel -->
 
 
+		<div class="col-lg-12">
+			<h1 class="page-header">Add new User</h1>
+		</div>
+
+				<form method="GET" action="/newUser">
+
+
+					<table class="table table-striped table-bordered" id="dataTables-example">
+						<thead>
+						<tr>
+							<th>Name</th>
+							<th>Password</th>
+
+							<th>TwitterName</th>
+							<th>Role</th>
+						</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<input type="text" class="form-control" id="username">
+								</td>
+								<td>
+										<input type="text" class="form-control" id="password">
+								</td>
+								<td>
+										<input type="text" class="form-control" id="twitterName">
+								</td>
+								<td>
+										<input type="text" class="form-control" id="role">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+
+					<input type="submit" class="btn btn-info" value="Submit">
+
+				</form>
+
+				<br>
+
 				<a href="/" class="btn btn-primary" role="button">Main</a>
 
 				<br><br>
 
-				<div class="row">
-					<div class="col-lg-12">
-						<h2 class="page-header">Add new user</h2>
-					</div>
-					<!-- /.col-lg-12 -->
-				</div>
 
-				<div >
-					<form action="/saveHoneypot" method="post">
-
-						<g:hiddenField name="added" value="${dateAdded}"/>
-						<table class="table table-striped table-bordered" id="add">
-							<thead>
-							<tr>
-								<th>Name</th>
-								<th>Password</th>
-
-
-
-							</tr>
-							</thead>
-							<tbody>
-
-
-							<tr>
-								<td><g:textField name="name" value=""/></td>
-								<td><g:textField name="password" value=""/></td>
-							</tr>
-							</tbody>
-						</table>
-
-						<input type="submit" class="btn btn-danger" value="Submit">
-					</form>
-				</div>
 
 
 

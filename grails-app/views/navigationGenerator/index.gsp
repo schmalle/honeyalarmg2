@@ -41,10 +41,13 @@
 
                 <g:if test="${role == 'ROLE_ADMIN'}">
                     <li>
-                        <a href="config.html"><i class="fa fa-wrench fa-fw"></i> Config<span class="fa arrow"></span></a>
+                        <a href="config.html"><i class="fa fa-wrench fa-fw"></i> Config::General<span class="fa arrow"></span></a>
                         <!-- /.nav-second-level -->
                     </li>
-                </g:if>
+                    <li>
+                        <a href="/User"><i class="fa fa-wrench fa-fw"></i> Config::User<span class="fa arrow"></span></a>
+                        <!-- /.nav-second-level -->
+                    </li>               </g:if>
 
                 <li>
                     <a href="/about"><i class="fa fa-wrench fa-fw"></i> About<span class="fa arrow"></span></a>

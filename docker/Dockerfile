@@ -1,22 +1,40 @@
-FROM java:openjdk-8
+FROM ubuntu:14.04.4
 
 #
 # expose the grails default port
 #
 
-EXPOSE 8080 22
+EXPOSE 8080
 
-RUN ln -snf /bin/bash /bin/sh && apt-get update && apt-get install -y redis-server supervisor git openssh-server && mkdir /data
+RUN apt-get -y upgrade && apt-get -y update && apt-get -y install python-software-properties && apt-get -y install software-properties-common
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN ln -snf /bin/bash /bin/sh && apt-get update && apt-get install -y supervisor git openssh-server && mkdir /data
+
+# COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 WORKDIR "/data/"
 
-RUN git clone https://github.com/schmalle/ElasticPot.git
+RUN git clone https://github.com/schmalle/honeyalarmg2.git
 
-WORKDIR "/data/ElasticPot"
+WORKDIR "/data/honeyalarmg2"
 
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+#ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+
+# Install Java.
+RUN \
+  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+  add-apt-repository -y ppa:webupd8team/java && \
+  apt-get update && \
+  apt-get install -y oracle-java8-installer && \
+  rm -rf /var/lib/apt/lists/* && \
+  rm -rf /var/cache/oracle-jdk8-installer
+
+
+# Define working directory.
+WORKDIR /data
+
+# Define commonly used JAVA_HOME variable
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 #
 # this is only needed to download all needed libraries for grails 2.5.1
@@ -24,7 +42,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 RUN ./grailsw war
 
-CMD ["/usr/bin/supervisord"]
+# CMD ["/usr/bin/supervisord"]
 
 
 

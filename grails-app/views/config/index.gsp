@@ -164,8 +164,44 @@
 
                             </tr>
 
+
+
                         </tr>
 
+<tr><td><label></label></td></tr>
+
+                        <tr>
+                            <td><label>Use DTAG Early Warning</label></td>
+                            <td><g:select id="useTwitter" name="useSicherheitstacho"
+                                          from="${['no': 'No', 'yes': 'Yes']}"
+                                          optionKey="key" optionValue="value" value="${config.useSicherheitstacho}"/></td>
+
+                            <td><label>DTAG Honeypotserver</label></td>
+                            <td><g:textField name="serverTSecRadar"
+                                             value="${config.serverTSecRadar}"/><td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td><label></label></td>
+                            <td><label></label></td>
+
+                            <td><label>DTAG Honeypotserver Username</label></td>
+                            <td><g:textField name="userNameTSecRadar"
+                                             value="${config.userNameTSecRadar}"/><td>
+
+                        </tr>
+
+                        <tr>
+                            <td><label></label></td>
+                            <td><label></label></td>
+
+                            <td><label>DTAG Honeypotserver Password</label></td>
+                            <td><g:textField name="passwordTSecRadar"
+                                             value="${config.passwordTSecRadar}"/><td>
+
+                        </tr>
 
                             <tr>
                                 <td><input type="submit" class="btn btn-primary " value="Submit"></td>
