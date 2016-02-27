@@ -23,6 +23,8 @@ class UserController {
     }
 
     def index() {
+        List users = User.findAll()
+        [users: users]
 
     }
 

@@ -12,7 +12,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Honeyalarm - Honeypot overview</title>
+	<title>Honeyalarm - User overview</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="${g.resource(dir: 'css', file:'bootstrap.min.css')}" rel="stylesheet">
@@ -79,7 +79,7 @@
 							<g:each in="${users}" var="user">
 
 								<tr>
-									<td>${user.name}</td>
+									<td>${user.username}</td>
 									<td>${user.twitterName}</td>
 									<td>${user.role}</td>
 									<td class="center">   <a href="/User/delete/${user.id}" class="btn btn-danger">Delete</a>   </td>
@@ -114,16 +114,16 @@
 						<tbody>
 							<tr>
 								<td>
-									<input type="text" class="form-control" id="username">
+									<input type="text" class="form-control" id="username" name="username">
 								</td>
 								<td>
-										<input type="text" class="form-control" id="password">
+										<input type="text" class="form-control" id="password" name="password">
 								</td>
 								<td>
-										<input type="text" class="form-control" id="twitterName">
+										<input type="text" class="form-control" id="twitterName" name="twitterName">
 								</td>
 								<td>
-										<input type="text" class="form-control" id="role">
+										<input type="text" class="form-control" id="role" name="role">
 								</td>
 							</tr>
 						</tbody>

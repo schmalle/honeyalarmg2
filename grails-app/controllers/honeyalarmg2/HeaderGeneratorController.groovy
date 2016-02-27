@@ -8,7 +8,9 @@ class HeaderGeneratorController
         def numberOfReports = Report.all.size()
         def numberOfAlarms = Alarm.all.size()
         def numberOfOpenAlarms = Report.findAllByStatus("OPEN").size()
+        // extract pure numbers for display
+        def numberOfHoneypots = Honeypot.all.size()
 
-        [numberOfAlarms : numberOfAlarms, numberOfReports : numberOfReports]
+        [honeypots:numberOfHoneypots, numberOfAlarms : numberOfAlarms, numberOfReports : numberOfReports]
     }
 }
