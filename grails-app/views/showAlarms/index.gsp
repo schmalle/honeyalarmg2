@@ -25,8 +25,6 @@
     <!-- Custom CSS -->
     <link href="${g.resource(dir: 'css', file:'sb-admin-2.css')}" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="${g.resource(dir: 'css', file:'morris.css')}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="${g.resource(dir: 'css', file:'font-awesome.min.css')}" rel="stylesheet" type="text/css">
