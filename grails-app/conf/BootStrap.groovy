@@ -28,7 +28,6 @@ class BootStrap {
                                                     useTwitter: grailsApplication.config.useTwitter,
                                                     useImage: "no",
                                                     image: "dtag",
-                                                    twitterUser: grailsApplication.config.twitterUser,
                                                     twitterOAuthConsumerKey: grailsApplication.config.twitterOAuthConsumerKey,
                                                     twitterOAuthConsumerSecret: grailsApplication.config.twitterOAuthConsumerSecret,
                                                     twitterOAuthAccessToken: grailsApplication.config.twitterOAuthAccessToken,
@@ -48,8 +47,8 @@ class BootStrap {
         def adminRole = new Role('ROLE_ADMIN').save()
         def userRole = new Role('ROLE_USER').save()
 
-        def testUser = new User(username: 'me', password:  'password', pwbackup: "blah", twitterName: "none", role: "Admin").save(flush: true)
-        def testNormalUser = new User(username: 'meNormal', password:  'password', pwbackup: "blah", twitterName: "none", role: "User").save(flush: true)
+        def testUser = new User(username: 'me', password:  'password', pwbackup: "blah", twitterName: "<none>", role: "Admin").save(flush: true)
+        def testNormalUser = new User(username: 'meNormal', password:  'password', pwbackup: "blah", twitterName: "<none>", role: "User").save(flush: true)
 
         UserRole.create testUser, adminRole, true
         UserRole.create testNormalUser, userRole, true

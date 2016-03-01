@@ -97,7 +97,7 @@ class EWSService {
             ewsRequest = ewsRequest.replace("TIME", time); // URLEncoder.encode(time, "UTF-8"));
 
 
-            return ewsRequest;
+            return ewsRequest
 
         }
         catch (Exception e)

@@ -429,101 +429,105 @@ sec_role_id</columns>
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="105" parent="12" name="twitter_name">
+      <column id="105" parent="12" name="role">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="106" parent="12" name="username">
+      <column id="106" parent="12" name="twitter_name">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <index id="107" parent="12" name="UK_sb8bbouer5wak8vyiiy4pf2bx">
+      <column id="107" parent="12" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="108" parent="12" name="UK_sb8bbouer5wak8vyiiy4pf2bx">
         <columns>username</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="108" parent="12" name="PRIMARY">
+      <key id="109" parent="12" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="109" parent="12" name="UK_sb8bbouer5wak8vyiiy4pf2bx">
+      <key id="110" parent="12" name="UK_sb8bbouer5wak8vyiiy4pf2bx">
         <columns>username</columns>
         <underlying-index>UK_sb8bbouer5wak8vyiiy4pf2bx</underlying-index>
       </key>
-      <column id="110" parent="13" name="id">
+      <column id="111" parent="13" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="111" parent="13" name="version">
+      <column id="112" parent="13" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="112" parent="13" name="domain">
+      <column id="113" parent="13" name="domain">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="113" parent="13" name="name">
+      <column id="114" parent="13" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="114" parent="13" name="password">
+      <column id="115" parent="13" name="password">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="115" parent="13" name="status">
+      <column id="116" parent="13" name="status">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <key id="116" parent="13" name="PRIMARY">
+      <key id="117" parent="13" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="117" parent="14" name="user_id">
+      <column id="118" parent="14" name="user_id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="118" parent="14" name="role_id">
+      <column id="119" parent="14" name="role_id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <index id="119" parent="14" name="FK_it77eq964jhfqtu54081ebtio">
+      <index id="120" parent="14" name="FK_it77eq964jhfqtu54081ebtio">
         <columns>role_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="120" parent="14" name="PRIMARY">
+      <key id="121" parent="14" name="PRIMARY">
         <columns>user_id
 role_id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="121" parent="14" name="FK_apcc8lxk2xnug8377fatvbn04">
+      <foreign-key id="122" parent="14" name="FK_apcc8lxk2xnug8377fatvbn04">
         <columns>user_id</columns>
         <ref-key>~.user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="122" parent="14" name="FK_it77eq964jhfqtu54081ebtio">
+      <foreign-key id="123" parent="14" name="FK_it77eq964jhfqtu54081ebtio">
         <columns>role_id</columns>
         <ref-key>~.role.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="123" parent="15" name="id">
+      <column id="124" parent="15" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="124" parent="15" name="version">
+      <column id="125" parent="15" name="version">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="125" parent="15" name="checksum">
+      <column id="126" parent="15" name="checksum">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="126" parent="15" name="request">
+      <column id="127" parent="15" name="request">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <key id="127" parent="15" name="PRIMARY">
+      <key id="128" parent="15" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>

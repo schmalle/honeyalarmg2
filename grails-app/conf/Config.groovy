@@ -134,6 +134,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/twitter/**':      ['permitAll'],
     '/graph/**':      ['permitAll'],
     '/User':            ['permitAll'],
+    '/mio':            ['permitAll'],
+
     '/saveHoneypot':    ['permitAll'],
     '/ShowAlarms':      ['permitAll'],
     '/Report/confirm/**': ['permitAll'],

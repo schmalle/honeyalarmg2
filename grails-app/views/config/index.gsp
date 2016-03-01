@@ -115,8 +115,7 @@
                                 <td><g:select id="useTwitter" name="useTwitter"
                                               from="${['no': 'No', 'yes': 'Yes']}"
                                               optionKey="key" optionValue="value" value="${config.useTwitter}"/></td>
-                                <td><label>Twitter User</label></td>
-                                <td><g:textField name="twitterUser" value="${config.twitterUser}"/></td>
+
                             </tr>
 
 

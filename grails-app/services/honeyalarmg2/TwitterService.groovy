@@ -52,6 +52,28 @@ class TwitterService
         }
     }
 
+
+
+    def directMessageList(List<User> recipients, String text)
+    {
+
+        for(user in recipients){
+
+
+                if (user.twitterName.contains("<none>")) {
+                }
+                else
+                {
+                    directMessage(user.twitterName, text)
+
+                }
+
+        }
+
+
+    }
+
+
     def directMessage(String recipient, String text)
     {
 

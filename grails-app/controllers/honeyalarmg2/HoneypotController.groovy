@@ -212,8 +212,10 @@ class HoneypotController {
             {
 
                 ConfigHG config = ConfigHG.findAll().get(0)
+                List<User> userList = User.findAll()
+
                 if (config.useTwitter == "yes")
-                    twitterService.directMessage(config.twitterUser, "New alarm from Hp reporting UI")
+                    twitterService.directMessageList(userList, "New alarm from Hp reporting UI")
 
                 if (config.useSicherheitstacho == "yes")
                     eWSService.sendAlarm(new Date(), it.Source, requestURL, analyzerID)

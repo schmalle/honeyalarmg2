@@ -9,7 +9,6 @@ class ConfigHG  {
     String lastChanged
 
     String useTwitter
-    String twitterUser
     String twitterOAuthConsumerKey
     String twitterOAuthConsumerSecret
     String twitterOAuthAccessToken
