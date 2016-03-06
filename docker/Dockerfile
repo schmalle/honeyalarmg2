@@ -34,7 +34,7 @@ RUN \
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 #
-# this is only needed to download all needed libraries for grails 2.5.1
+# this is only needed to download all needed libraries for grails 2.5.4
 #
 
 RUN ./grailsw war
