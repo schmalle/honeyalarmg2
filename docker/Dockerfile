@@ -6,7 +6,7 @@ FROM ubuntu:14.04.4
 
 EXPOSE 8080
 
-RUN apt-get -y upgrade && apt-get -y update && apt-get -y install python-software-properties && apt-get -y install software-properties-common
+RUN apt-get -y upgrade && apt-get -y update && apt-get -y install python-software-properties && apt-get -y install software-properties-common mysql-server
 
 RUN ln -snf /bin/bash /bin/sh && apt-get update && apt-get install -y supervisor git openssh-server && mkdir /data
 
