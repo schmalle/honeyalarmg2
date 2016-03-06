@@ -225,11 +225,10 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/twitter4j_TwitterFactory_4254.bytes" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/twitter4j_conf_ConfigurationBase_21320.bytes" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/c3p0_0_9_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/c3p0_0_9_1_1.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wrapper/grails-wrapper-runtime-2.5.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wrapper/springloaded-1.2.3.RELEASE.jar" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/Dockerfile" afterPath="$PROJECT_DIR$/docker/Dockerfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/readme.txt" afterPath="$PROJECT_DIR$/docker/readme.txt" />
     </list>
     <ignored path="honeyalarmg2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -318,16 +317,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReportController.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/controllers/honeyalarmg2/ReportController.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.73913">
-              <caret line="69" column="0" selection-start-line="59" selection-start-column="1" selection-end-line="69" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="HandleReportsController.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/honeyalarmg2/HandleReportsController.groovy">
           <provider selected="true" editor-type-id="text-editor">
@@ -340,41 +329,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docker/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60674155">
+            <state vertical-scroll-proportion="0.0">
               <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/handleReports/index.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.787234">
-              <caret line="31" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/handleReports/show.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.744681">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UrlMappings.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy">
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/readme.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grails-wrapper.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wrapper/grails-wrapper.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grailsw" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grailsw">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="11" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -408,7 +397,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/controllers/honeyalarmg2/TwitterController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/honeyalarmg2/SHA256EncoderService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/honeyalarmg2/Honeypot.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/honeyalarmg2/ShowAlarmsController.groovy" />
@@ -423,7 +411,6 @@
         <option value="$PROJECT_DIR$/src/java/honeyalarm/EWSHelper.java" />
         <option value="$PROJECT_DIR$/grails-app/controllers/honeyalarmg2/IndexController.groovy" />
         <option value="$PROJECT_DIR$/docker/supervisord.conf" />
-        <option value="$PROJECT_DIR$/docker/readme.txt" />
         <option value="$PROJECT_DIR$/grails-app/views/navigationGenerator/index.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/login/index.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/honeypot/index.gsp" />
@@ -459,6 +446,8 @@
         <option value="$PROJECT_DIR$/grails-app/views/handleReports/show.gsp" />
         <option value="$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy" />
         <option value="$PROJECT_DIR$/docker/Dockerfile" />
+        <option value="$PROJECT_DIR$/docker/readme.txt" />
+        <option value="$PROJECT_DIR$/wrapper/grails-wrapper.properties" />
       </list>
     </option>
   </component>
@@ -667,11 +656,11 @@
       <recent name="honeyalarm" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/wrapper" />
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/web-app/js" />
       <recent name="$PROJECT_DIR$/docker" />
-      <recent name="$PROJECT_DIR$/web-app/css" />
-      <recent name="$PROJECT_DIR$/web-app" />
     </key>
   </component>
   <component name="RunManager" selected="Grails.honeyalarn">
@@ -1481,25 +1470,7 @@
       <workItem from="1457072493954" duration="583000" />
       <workItem from="1457073350346" duration="10026000" />
       <workItem from="1457249879532" duration="101000" />
-      <workItem from="1457250013468" duration="7748000" />
-    </task>
-    <task id="LOCAL-00053" summary="removed AngularJS dependency">
-      <created>1441907285166</created>
-      <option name="number" value="00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1441907285166</updated>
-    </task>
-    <task id="LOCAL-00054" summary="removed AngularJS dependency">
-      <created>1441908699297</created>
-      <option name="number" value="00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1441908699297</updated>
-    </task>
-    <task id="LOCAL-00055" summary="added Twitter client">
-      <created>1443682649305</created>
-      <option name="number" value="00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1443682649307</updated>
+      <workItem from="1457250013468" duration="8458000" />
     </task>
     <task id="LOCAL-00056" summary="added better handling of new honeypots&#10;simplified some codes">
       <created>1443853454677</created>
@@ -1777,11 +1748,29 @@
       <option name="project" value="LOCAL" />
       <updated>1457277897271</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="numerous fixes, Xmlslurper code was broken, db interface buggy">
+      <created>1457277942373</created>
+      <option name="number" value="00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1457277942373</updated>
+    </task>
+    <task id="LOCAL-00103" summary="bump to 2.5.4">
+      <created>1457278596961</created>
+      <option name="number" value="00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1457278596961</updated>
+    </task>
+    <task id="LOCAL-00104" summary="bump to 2.5.4">
+      <created>1457278610939</created>
+      <option name="number" value="00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1457278610939</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="447153000" />
+    <option name="totallyTimeSpent" value="447863000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1878,7 +1867,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed string compare bug" />
     <MESSAGE value="fixed various smaller bugs" />
     <MESSAGE value="corrected initial bootstrap type" />
     <MESSAGE value="initial commit&#10;" />
@@ -1903,7 +1891,8 @@
     <MESSAGE value="bumpted to grails 2.5.4" />
     <MESSAGE value="small stuff" />
     <MESSAGE value="numerous fixes, Xmlslurper code was broken, db interface buggy" />
-    <option name="LAST_COMMIT_MESSAGE" value="numerous fixes, Xmlslurper code was broken, db interface buggy" />
+    <MESSAGE value="bump to 2.5.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="bump to 2.5.4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2030,38 +2019,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docker/readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/honeyalarmg2/HeaderGeneratorController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/honeyalarmg2/ConfigController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.956522">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/honeyalarmg2/ConfigHG.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1730769">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/config/index.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-37.340427">
@@ -2403,14 +2360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/honeyalarmg2-grailsPlugins.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2429,8 +2378,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60674155">
+        <state vertical-scroll-proportion="0.0">
           <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grailsw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="11" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wrapper/grails-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
