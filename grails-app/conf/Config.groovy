@@ -141,6 +141,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/Report/confirm/**': ['permitAll'],
     '/Report/delete/**': ['permitAll'],
     '/Report/ignore/**': ['permitAll'],
+    '/Report/show/**': ['permitAll'],
 
 
 

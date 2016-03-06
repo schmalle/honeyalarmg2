@@ -7,12 +7,27 @@ import org.springframework.security.access.annotation.Secured
 class HandleReportsController
 {
 
-
     def index()
     {
 
         def reports = Report.findAll("from Report as b where b.status='OPEN'")
+        def alertText = params.alertText
 
-        [reports: reports]
+        [reports: reports, alertText: alertText]
     }
+
+
+    def show()
+    {
+        def myReport = Report.findById(params.id)
+        byte[] encoded = myReport.encoded
+        String alertText =  encoded.decodeBase64().toString()
+        def reports = Report.findAll("from Report as b where b.status='OPEN'")
+
+
+        [reports: reports, alertText: alertText]
+
+    }
+
+
 }

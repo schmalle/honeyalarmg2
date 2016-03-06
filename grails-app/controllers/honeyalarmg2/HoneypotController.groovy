@@ -3,6 +3,7 @@ package honeyalarmg2
 import org.springframework.security.access.annotation.Secured
 import honeyalarm.Helpers;
 import org.codehaus.groovy.grails.validation.routines.InetAddressValidator
+import org.apache.commons.codec.binary.Base64
 
 
 @Secured(["ROLE_ADMIN", "ROLE_USER", "ROLE_ANONYMOUS"])
@@ -138,13 +139,65 @@ class HoneypotController {
 
     }
 
+    /*
+        update or creates an analzer with ip adress and first seen and last seen dates
+     */
+    def updateCreateAnalyzer(analyzerID) {
+
+        def analyzer = Honeypot.findByName(analyzerID)
+        if (!analyzer)
+        {
+            UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "First call from honeypot " + analyzerID + "(creating honeypot)")
+            updateUIReport(newHoneypotUpdate)
+
+            analyzer = new Honeypot(ip: request.remoteAddr, added: new Date(), lastseen: new Date(), name: analyzerID)
+            analyzer.save(flush: true)
+
+        }
+        else {
+            analyzer.delete()
+            analyzer.properties['ip'] = request.remoteAddr
+            analyzer.properties['lastseen'] = new Date()
+            analyzer.save()
+        }
+
+    }
+
+
+    def retrieveAlertTypeURL(node, requestURL, alertType) {
+
+
+
+        node.Request.each { requestNode->
+
+            def type = requestNode.@type
+            print "Found type in alert: " + type
+
+            def test = type == 'url'
+
+            if (test)
+            {
+                requestURL = requestNode.text()
+                print "Found URL Type : " + type
+                alertType = "WEB"
+            }
+
+        }
+
+        return [requestURL, alertType]
+    }
+
+
     def report()
     {
+        def xmlText = request.reader.text
+        def xmlData = new XmlSlurper().parseText(xmlText)
+        def username = xmlData.Authentication.username
 
-        java.lang.String source
-        def contract = new XmlSlurper().parseText(request.reader.text)
-        def username = contract.Authentication.username
-        java.lang.String token = contract.Authentication.token
+        //byte[] encoded0 = xmlText.encodeBase64()
+        byte[] encoded = new org.apache.commons.codec.binary.Base64().encodeBase64(xmlText.bytes)
+
+        java.lang.String token = xmlData.Authentication.token
 
         User user = User.findByUsername(username)
         String tokenFromDatabase = user.pwbackup
@@ -159,85 +212,52 @@ class HoneypotController {
        if (!match)
            return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
 
-        contract.Alert.each() {
-            source = it.Source
 
-            def requestURL = "<UNDEFINED>"
-            def alertType = "BINARY"
+        xmlData.Alert.each { node->
 
+            java.lang.String requestURL = "<UNDEFINED>"
+            java.lang.String alertType = "BINARY"
+            java.lang.String attackSource = node.Source.text()
 
-            it.Request.each() {
+            java.lang.String analyzerID = node.Analyzer.@'id'
+            print "Data from analyzer id" + analyzerID
 
-                def type = it.@'type'.text()
-                def url = 'url'
+            updateCreateAnalyzer(analyzerID)
+            (requestURL, alertType) = retrieveAlertTypeURL(node, requestURL, alertType)
 
-                println "   Request Type: " + type + " Content: " + it
-
-                def test = type == url
-
-                if (test)
-                {
-                    requestURL = it
-                    print "Found URL Type : " + type
-                    alertType = "WEB"
-                }
-
-            }
-
-
-            String analyzerID = it.Analyzer.@'id'
-
-            def analyzer = Honeypot.findByName(analyzerID)
-            if (!analyzer)
-            {
-                UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "First call from honeypot " + analyzerID + "(creating honeypot)")
-                updateUIReport(newHoneypotUpdate)
-
-                analyzer = new Honeypot(ip: request.remoteAddr, added: new Date(), lastseen: new Date(), name: analyzerID)
-                analyzer.save(flush: true)
-
-            }
-            else {
-                analyzer.delete()
-                analyzer.properties['ip'] = request.remoteAddr
-                analyzer.properties['lastseen'] = new Date()
-                analyzer.save()
-            }
-
+            print "Data from alert" + requestURL + " " + alertType
 
             //
             // only show reports, which are not already in an ignored list
             //
-            if (InetAddressValidator.getInstance().isValid(source) && notIgnored(requestURL))
+            if (InetAddressValidator.getInstance().isValid(attackSource) && notIgnored(requestURL))
             {
 
                 ConfigHG config = ConfigHG.findAll().get(0)
                 List<User> userList = User.findAll()
 
-                if (config.useTwitter == "yes")
-                    twitterService.directMessageList(userList, "New alarm from Hp reporting UI")
+  //              if (config.useTwitter == "yes")
+  //                  twitterService.directMessageList(userList, "New alarm from Hp reporting UI")
 
-                if (config.useSicherheitstacho == "yes")
-                    eWSService.sendAlarm(new Date(), it.Source, requestURL, analyzerID)
-
+  //              if (config.useSicherheitstacho == "yes")
+  //                  eWSService.sendAlarm(new Date(), attackSource, requestURL, analyzerID)
 
 
                 //
                 // generate update entry for ui
                 //
-                Report newReport = new Report(type: alertType, time: new Date(), request: "" + requestURL, status: "OPEN", attacker: "" + it.Source)
+                Report newReport = new Report(encoded: encoded, type: alertType, time: new Date(), request: "" + requestURL, status: "OPEN", attacker: "" + attackSource)
                 newReport.save(flush: true)
 
                 UIReport newHoneypotUpdate = new UIReport(type: "ALARM", time: "" + new Date(), text: "Alarm call from honeypot " + analyzerID)
                 updateUIReport(newHoneypotUpdate)
 
-                ipUpdate(source)
-
+                ipUpdate(attackSource)
 
             }
 
-        }
 
+        }   // parsing each alert !!!
 
         return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>OK</StatusCode><Text></Text></Result>")
 

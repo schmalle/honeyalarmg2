@@ -16,7 +16,9 @@ class ReportController
     {
         def myReport = Report.findById(params.id)
 
-        Alarm myAlarm = new Alarm(time: myReport.time, type: myReport.type, request: myReport.request, attacker: myReport.attacker)
+
+
+        Alarm myAlarm = new Alarm(time: myReport.time, type: myReport.type, request: myReport.request, attacker: myReport.encoded)
         myAlarm.save()
         myReport.delete()
 
@@ -30,6 +32,7 @@ class ReportController
         def myReport = Report.findById(params.id)
 
         String checksum = org.apache.commons.codec.digest.DigestUtils.sha256Hex(myReport.request)
+
 
         def myIgnore = new IgnoredRequests(request: myReport.request, checksum: checksum)
         myIgnore.save()
@@ -54,9 +57,15 @@ class ReportController
         respond Report.list(params), model: [reportInstanceCount: Report.count()]
     }
 
-    def show(Report reportInstance)
+    def show()
     {
-        respond reportInstance
+        def myReport = Report.findById(params.id)
+        byte[] encoded = myReport.encoded
+        String alertText =  encoded.decodeBase64().toString()
+
+        redirect(controller: "Index", action: "index")
+
+        //redirect(controller: "HandleReports", action: "index", params: [alertText: alertText])
     }
 
     def create()

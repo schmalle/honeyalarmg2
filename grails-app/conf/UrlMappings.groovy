@@ -29,8 +29,6 @@ class UrlMappings {
         "/delUser"(controller: "User", action: "del")
         "/newUser"(controller: "User", action: "newUser")
 
-            "/mio"(controller: "Mio", action:"index")
-
         //
         // honeypot calls
         //
@@ -42,6 +40,7 @@ class UrlMappings {
         "/Report/confirm/$id"(controller: "Report", action: "moveToAlarm")
         "/Report/delete/$id"(controller: "Report", action: "remove")
         "/Report/ignore/$id"(controller: "Report", action: "ignore")
+        "/Report/show/$id"(controller: "HandleReports", action: "show")
 
 
 

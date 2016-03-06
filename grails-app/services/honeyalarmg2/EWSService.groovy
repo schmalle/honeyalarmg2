@@ -10,6 +10,38 @@ import org.apache.http.impl.client.HttpClients
 class EWSService {
 
 
+    def sendAlarmViaHoneyAlarm(java.lang.String request)
+    {
+
+        def userName = "<username>"
+        def userNameClose = "</username>"
+        def token = "<token>"
+        def tokenClose = "</token>"
+
+
+        ConfigHG config = ConfigHG.findAll().get(0)
+
+        def startUsername = request.indexOf(userName) + userName.length()
+        def closeUsername = request.indexOf(userNameClose)
+
+        java.lang.String finalRequest = request.substring(0, startUsername) + config.userNameTSecRadar + request.substring(closeUsername)
+
+
+        def startToken = request.indexOf(token) + token.length()
+        def closeToken = request.indexOf(tokenClose)
+
+        finalRequest += request.substring(0, startToken) + config.passwordTSecRadar + request.substring(closeToken)
+
+
+        // username
+        //    "<username>USER</username>" +
+        //"<token>PASSWORD</token>" +
+        // password
+
+        pushAlarm(finalRequest, config.serverTSecRadar)
+
+    }
+
     def sendAlarm(String time, String attackerIP, String request, String host)
     {
 
