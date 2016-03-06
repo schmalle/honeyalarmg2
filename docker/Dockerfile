@@ -10,7 +10,7 @@ RUN apt-get -y upgrade && apt-get -y update && apt-get -y install python-softwar
 
 RUN ln -snf /bin/bash /bin/sh && apt-get update && apt-get install -y supervisor git openssh-server && mkdir /data
 
-# COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 WORKDIR "/data/"
 
@@ -39,7 +39,9 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN ./grailsw war
 
-# CMD ["/usr/bin/supervisord"]
+RUN /data/honeyalarmg2/docker/configdb.sh
+
+CMD ["/usr/bin/supervisord"]
 
 
 
