@@ -1,5 +1,8 @@
 ToDos
 
+Handle X Forwarded For requests / (when reporting honeypots / alarms)
+
+
 Add Pushover client (idea by Andre)
 Optimize Twitter client
 Fix JSON parsing for Telegram

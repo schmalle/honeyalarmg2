@@ -227,7 +227,7 @@
       </column>
       <column id="56" parent="6" name="encoded">
         <mandatory>1</mandatory>
-        <data-type>varchar(255)</data-type>
+        <data-type>longblob</data-type>
       </column>
       <column id="57" parent="6" name="request">
         <mandatory>1</mandatory>

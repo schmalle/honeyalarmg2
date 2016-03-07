@@ -2,6 +2,8 @@ package honeyalarmg2
 
 import honeyalarmg2.Report
 import org.springframework.security.access.annotation.Secured
+import org.apache.commons.codec.binary.Base64;
+
 
 @Secured(["ROLE_ADMIN", "ROLE_USER"])
 class HandleReportsController
@@ -20,10 +22,13 @@ class HandleReportsController
     def show()
     {
         def myReport = Report.findById(params.id)
-        byte[] encoded = myReport.encoded
-        String alertText =  encoded.decodeBase64().toString()
-        def reports = Report.findAll("from Report as b where b.status='OPEN'")
 
+        String testString = new String(myReport.encoded)
+
+        byte[] decoded = Base64.decodeBase64(testString);
+        String alertText = new String(decoded, "UTF-8")
+
+        def reports = Report.findAll("from Report as b where b.status='OPEN'")
 
         [reports: reports, alertText: alertText]
 
