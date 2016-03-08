@@ -20,6 +20,11 @@ class ConfigHG  {
     String passwordTSecRadar
     String serverTSecRadar
 
+    String usePushover
+    String pushOverAppToken
+    String pushOverUserToken
+    String pushOverDeviceID
+
     static constraints = {
 
     }

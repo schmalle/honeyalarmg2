@@ -18,8 +18,6 @@ RUN git clone https://github.com/schmalle/honeyalarmg2.git
 
 WORKDIR "/data/honeyalarmg2"
 
-#ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
-
 # Install Java.
 RUN \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
@@ -34,7 +32,7 @@ RUN \
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 #
-# this is only needed to download all needed libraries for grails 2.5.4
+# this is only needed to download all needed libraries for grails 2.5.4 (or newer)
 #
 
 RUN ./grailsw war

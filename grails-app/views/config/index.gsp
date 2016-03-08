@@ -98,9 +98,11 @@
                             <tr><td>Created</td><td>${config.added}</td></tr>
                             <tr><td>Last changed</td><td>${config.lastChanged}</td></tr>
 
-                            <tr class="blank_row">
-                                <td colspan="3"></td>
-                            </tr>
+                        <tr class="blank_row">
+                            <td colspan="3"></td>
+                        </tr>                            <tr class="blank_row">
+                            <td colspan="3"></td>
+                        </tr>
                             <tr>
                                 <td><label>Use custom image</label></td>
                                 <td><g:select id="useImage" name="useImage"
@@ -162,9 +164,49 @@
 
 
 
+                        <tr>
+                            <td><label>Use Pushover</label></td>
+                            <td><g:select id="usePushover" name="usePushover"
+                                          from="${['no': 'No', 'yes': 'Yes']}"
+                                          optionKey="key" optionValue="value" value="${config.usePushover}"/></td>
+
                         </tr>
 
-<tr><td><label></label></td></tr>
+
+                        <tr>
+                            <td><label></label></td>
+                            <td><label></label></td>
+
+                            <td><label>Pushover Application Token</label></td>
+                            <td><g:textField name="pushoverAppToken"
+                                             value="${config.pushOverAppToken}"/><td>
+
+                        </tr>
+
+                        <tr>
+                            <td><label></label></td>
+                            <td><label></label></td>
+
+                            <td><label>Pushover User Token</label></td>
+                            <td><g:textField name="pushoverUserToken"
+                                             value="${config.pushOverUserToken}"/><td>
+
+                        </tr>
+
+                        <tr>
+                            <td><label></label></td>
+                            <td><label></label></td>
+
+                            <td><label>Pushover DeviceID</label></td>
+                            <td><g:textField name="pushoverDeviceID"
+                                             value="${config.pushOverDeviceID}"/><td>
+
+                        </tr>
+
+
+                    </tr>
+
+                        <tr><td><label></label></td></tr>
 
                         <tr>
                             <td><label>Use DTAG Early Warning</label></td>

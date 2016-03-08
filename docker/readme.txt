@@ -1,3 +1,6 @@
+Tested with docker 1.10 / docker-machine on MacOS X
+
+
 0. Start docker-machine
 
     docker-machine start dev

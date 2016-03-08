@@ -141,6 +141,7 @@ class HoneypotController {
 
     /*
         update or creates an analzer with ip adress and first seen and last seen dates
+        code checks for proxy / forwarded for requests
      */
     def updateCreateAnalyzer(analyzerID) {
 
@@ -150,7 +151,12 @@ class HoneypotController {
             UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "First call from honeypot " + analyzerID + "(creating honeypot)")
             updateUIReport(newHoneypotUpdate)
 
-            analyzer = new Honeypot(ip: request.remoteAddr, added: new Date(), lastseen: new Date(), name: analyzerID)
+            def requestViaProxy = request.getHeader("X-Forwarded-For")
+            if (!requestViaProxy) {
+                requestViaProxy = request.remoteAddr
+            }
+
+            analyzer = new Honeypot(ip: requestViaProxy, added: new Date(), lastseen: new Date(), name: analyzerID)
             analyzer.save(flush: true)
 
         }
@@ -165,7 +171,6 @@ class HoneypotController {
 
 
     def retrieveAlertTypeURL(node, requestURL, alertType) {
-
 
 
         node.Request.each { requestNode->

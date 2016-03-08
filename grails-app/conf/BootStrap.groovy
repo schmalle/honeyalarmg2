@@ -36,7 +36,12 @@ class BootStrap {
                                                     useSicherheitstacho: grailsApplication.config.useSicherheitstacho,
                                                     userNameTSecRadar: grailsApplication.config.userNameTSecRadar,
                                                     passwordTSecRadar: grailsApplication.config.passwordTSecRadar,
-                                                    serverTSecRadar: grailsApplication.config.serverTSecRadar
+                                                    serverTSecRadar: grailsApplication.config.serverTSecRadar,
+
+                                                    usePushover: grailsApplication.config.usePushover,
+                                                    pushOverAppToken: grailsApplication.config.pushOverAppToken,
+                                                    pushOverUserToken: grailsApplication.config.pushOverUserToken,
+                                                    pushOverDeviceID: grailsApplication.config.pushOverDeviceID
 
         )
 
