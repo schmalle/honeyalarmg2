@@ -96,7 +96,7 @@
 	</div>
 </div>
 <!-- jQuery -->
-<script src="${g.resource(dir: 'js', file:'jquery-2.1.4.min.js')}"></script>
+<script src="${g.resource(dir: 'js', file:'jquery.min.js')}"></script>
 <script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
 
 

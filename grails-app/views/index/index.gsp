@@ -13,7 +13,7 @@
 
     <title>Honeyalarm - Admin panel</title>
 
-    <script src="${g.resource(dir: 'js', file:'jquery-2.1.4.min.js')}"></script>
+    <script src="${g.resource(dir: 'js', file:'jquery.min.js')}"></script>
     <script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
     <script src="${g.resource(dir: 'js', file:'bootbox.min.js')}"></script>
 
@@ -76,8 +76,10 @@
 
     <div id="page-wrapper">
         <div class="row">
+
             <div class="col-lg-12">
                 <h1 class="page-header">Dashboard</h1>
+
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -106,6 +108,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-bell fa-fw"></i> Notifications Panel
+
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -123,7 +126,9 @@
 
                         </div>
 
-                    </div>
+
+
+                </div>
                     <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->

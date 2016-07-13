@@ -78,7 +78,6 @@
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="c3p0-0.9.1.1" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="grails-2.5.4" level="application" />
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (honeyalarmg2-grailsPlugins)">
         <CLASSES>

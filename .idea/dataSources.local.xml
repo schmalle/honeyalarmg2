@@ -4,14 +4,14 @@
     <data-source name="Mysql - honeyalarmdev@localhost" uuid="62ea5347-caaa-428b-a31f-e7454c325aad">
       <secret-storage>master_key</secret-storage>
       <user-name>honeyalarmdev</user-name>
-      <schema-pattern>honeyalarmdev.*</schema-pattern>
-      <default-schemas>honeyalarmdev.*</default-schemas>
+      <introspection-scope>honeyalarmdev:*</introspection-scope>
+      <resolve-scope>honeyalarmdev:*</resolve-scope>
     </data-source>
     <data-source name="honeyalarmg2 dev" uuid="03bf5ba0-e14e-4da8-bbb1-39ef5bb2031a">
       <user-name>honeyalarmdev</user-name>
       <user-password>dfc2dfc5dfc4dfcfdfd3dfcbdfc6dfcbdfd8dfc7dfdadfdd</user-password>
-      <schema-pattern>honeyalarmdev.*</schema-pattern>
-      <default-schemas>honeyalarmdev.*</default-schemas>
+      <introspection-scope>honeyalarmdev:*</introspection-scope>
+      <resolve-scope>honeyalarmdev:*</resolve-scope>
     </data-source>
   </component>
 </project>

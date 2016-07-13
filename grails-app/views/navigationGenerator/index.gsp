@@ -9,7 +9,6 @@
         </button>
         <a class="navbar-brand" href="index.html">HoneyAlarm - Admin Console
 
- <!--       <img src="${g.resource(dir: 'images', file:'dtag.png')}"></img> -->
 
         </a>
 
@@ -19,9 +18,15 @@
 
     <ul class="nav navbar-top-links navbar-right">
     <br>
+
+    <!--
     <g:if test="${role == 'ROLE_ANONYMOUS'}">
         <a href="/login_">_Login_
         </a>    </g:if>
+
+        -->
+
+
         <!-- /.dropdown -->
     </ul>
     <!-- /.navbar-top-links -->
@@ -54,10 +59,29 @@
                     <!-- /.nav-second-level -->
                 </li>
 
+                <br>
+                <br>
+                <br>    <br>
+                <br>    <br>
+                <br>
+                <br>
+                <br>
+                <br>    <br>
+                <br>    <br>
+                <br>    <br>
+                <br>    <br>
+                <br>    <br>
+                <br>    <br>
+                <br>    <br>
+                <br>    <br>
+                <br>
 
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
     </div>
     <!-- /.navbar-static-side -->
+
+
 </nav>
+
