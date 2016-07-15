@@ -174,5 +174,6 @@
     <orderEntry type="module" module-name="honeyalarmg2-grailsPlugins" />
     <orderEntry type="library" name="c3p0-0.9.1.1" level="project" />
     <orderEntry type="library" name="grails-2.5.5" level="application" />
+    <orderEntry type="library" name="grails-2.5.5" level="application" />
   </component>
 </module>
