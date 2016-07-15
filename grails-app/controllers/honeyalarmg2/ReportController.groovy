@@ -16,11 +16,9 @@ class ReportController
     {
         def myReport = Report.findById(params.id)
 
-
-
-        Alarm myAlarm = new Alarm(time: myReport.time, type: myReport.type, request: myReport.request, attacker: myReport.encoded)
+        Alarm myAlarm = new Alarm(time: myReport.time, type: myReport.type, request: myReport.request, attacker: " ")
         myAlarm.save()
-        myReport.delete()
+        myReport.delete(flush: true)
 
         redirect(controller: "Index", action: "index")
 
@@ -46,7 +44,7 @@ class ReportController
     def remove()
     {
         def myReport = Report.findById(params.id)
-        myReport.delete()
+        myReport.delete(flush: true)
         redirect(controller: "Index", action: "index")
     }
 

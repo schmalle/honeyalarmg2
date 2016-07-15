@@ -1,7 +1,6 @@
 package honeyalarmg2
 
 import org.springframework.security.access.annotation.Secured
-
 class AlarmController
 {
 

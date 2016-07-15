@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-xs-9 text-right">
                     <div class="huge">${numberOfReports}</div>
-                    <div>New alarms!</div>
+                    <div>New reports</div>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-xs-9 text-right">
                     <div class="huge">${numberOfAlarms}</div>
-                    <div>Total alarms!</div>
+                    <div>Confirmed alarms</div>
                 </div>
             </div>
         </div>

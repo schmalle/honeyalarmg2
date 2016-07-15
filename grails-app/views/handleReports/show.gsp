@@ -13,8 +13,8 @@
     <title>Honeyalarm - Admin console</title>
 
     <script src="${g.resource(dir: 'js', file:'jquery.min.js')}"></script>
-    <script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
-    <script src="${g.resource(dir: 'js', file:'bootbox.min.js')}"></script>
+    <script src="${g.resource(dir: 'js', file:'jquery-migrate.min.js')}"></script>
+
 
 
     <!-- Bootstrap Core CSS -->
@@ -32,7 +32,9 @@
     <!-- Custom Fonts -->
     <link href="${g.resource(dir: 'css', file:'font-awesome.min.css')}" rel="stylesheet" type="text/css">
 
+    <script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
 
+    <script src="${g.resource(dir: 'js', file:'bootbox.min.js')}"></script>
 
 </head>
 
@@ -48,6 +50,7 @@
     </script>
 
 </g:if>
+
 
 <div id="wrapper">
 

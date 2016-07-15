@@ -44,6 +44,7 @@
     <script>
 
         bootbox.alert("${alertText}");
+        bootbox.alert("Demo")
 
     </script>
 

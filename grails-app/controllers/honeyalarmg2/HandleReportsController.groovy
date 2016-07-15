@@ -22,11 +22,19 @@ class HandleReportsController
     def show()
     {
         def myReport = Report.findById(params.id)
+        String alertText = "No reports / alarms available"
 
-        String testString = new String(myReport.encoded)
 
-        byte[] decoded = Base64.decodeBase64(testString);
-        String alertText = new String(decoded, "UTF-8")
+        if (myReport)
+        {
+
+            String testString = new String(myReport.encoded)
+
+            byte[] decoded = Base64.decodeBase64(testString);
+            alertText = new String(decoded, "UTF-8")
+
+        }
+
 
         def reports = Report.findAll("from Report as b where b.status='OPEN'")
 

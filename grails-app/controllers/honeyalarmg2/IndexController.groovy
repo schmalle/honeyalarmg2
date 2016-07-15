@@ -26,6 +26,8 @@ class IndexController
 
         def numberOfIps = IP.all.size()
 
+        def numberOfAlarms = Alarm.all.size()
+
         String role = "ROLE_ANONYMOUS"
         String[] roles = springSecurityService.getPrincipal().getAuthorities()
 
@@ -33,6 +35,6 @@ class IndexController
             role = roles[0]
 
 
-        [honeypots:numberOfHoneypots, ips: numberOfIps, alertText: alertText, role:role]
+        [numberOfAlarms: numberOfAlarms, honeypots:numberOfHoneypots, ips: numberOfIps, alertText: alertText, role:role]
     }
 }

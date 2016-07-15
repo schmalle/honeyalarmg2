@@ -3,10 +3,10 @@ package honeyalarmg2
 class Alarm
 {
 
-    String time
-    String type
-    String request
-    String attacker;
+    def time;
+    def type;
+    def request;
+    def attacker;
 
     static constraints = {
     }
