@@ -8,7 +8,7 @@ Simplified UI for showing honeypot alarms
 Based on
 
 Bootstrap
-Grails 2.5.3
+Grails 2.5.5
 great SBADMIN-2 Theme !
 Spring Security Code
 

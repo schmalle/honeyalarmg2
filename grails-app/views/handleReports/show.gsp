@@ -12,8 +12,6 @@
 
     <title>Honeyalarm - Admin console</title>
 
-    <script src="${g.resource(dir: 'js', file:'jquery.min.js')}"></script>
-    <script src="${g.resource(dir: 'js', file:'jquery-migrate.min.js')}"></script>
 
 
 
@@ -31,32 +29,39 @@
 
     <!-- Custom Fonts -->
     <link href="${g.resource(dir: 'css', file:'font-awesome.min.css')}" rel="stylesheet" type="text/css">
-
+    <script src="${g.resource(dir: 'js', file:'jquery.min.js')}"></script>
     <script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
 
     <script src="${g.resource(dir: 'js', file:'bootbox.min.js')}"></script>
+
+
 
 </head>
 
 
 <body>
 
-<g:if test="${alertText}">
 
-    <script>
-
-        bootbox.alert("${alertText}");
-
-    </script>
-
-</g:if>
 
 
 <div id="wrapper">
 
+
     <g:include controller="navigationGenerator" action="index"></g:include>
 
     <div id="page-wrapper">
+
+
+    <g:if test="${alertText}">
+
+        <script language="JavaScript">
+
+            bootbox.alert("${alertText}");
+
+        </script>
+
+    </g:if>
+
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Reports</h1>
@@ -70,47 +75,7 @@
 
             <!-- /.col-lg-8 -->
             <div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i> Notifications Panel
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div >
-                        <table class="table table-striped table-bordered" id="dataTables-example">
-                            <thead>
-                            <tr>
-                                <th>Time</th>
-                                <th>Source</th>
-                                <th>Type</th>
-                                <th>Request</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-
-                            <g:each in="${reports}" var="alarm">
-
-                                <tr>
-
-                                    <td>${alarm.time}</td>
-                                    <td>${alarm.attacker}</td>
-                                    <td>${alarm.type}</td>
-                                    <td>${alarm.request}</td>
-
-                                    <td class="center"> <a href="/Report/show/${alarm.id}" class="btn btn-primary">View</a> <a href="/Report/confirm/${alarm.id}" class="btn btn-success">Confirm</a> <a href="/Report/delete/${alarm.id}" class="btn btn-danger">Delete</a> <a href="/Report/ignore/${alarm.id}" class="btn btn-success">Ignore</a>  </td>
-                                </tr>
-
-                            </g:each>
-
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- /.panel-body -->
-                </div>
                 <!-- /.panel -->
-
 
                 <a href="/" class="btn btn-primary" role="button">Main</a>
 

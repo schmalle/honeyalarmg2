@@ -1,8 +1,6 @@
 <!-- jQuery -->
 <script src="${g.resource(dir: 'js', file:'jquery.min.js')}"></script>
 
-<script src="${g.resource(dir: 'js', file:'jquery-migrate.min.js')}"></script>
-
 <script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
 
 <!-- Metis Menu Plugin JavaScript -->

@@ -22,7 +22,7 @@ class HandleReportsController
     def show()
     {
         def myReport = Report.findById(params.id)
-        String alertText = "No reports / alarms available"
+        def alertText = "No reports / alarms available"
 
 
         if (myReport)
@@ -35,10 +35,7 @@ class HandleReportsController
 
         }
 
-
-        def reports = Report.findAll("from Report as b where b.status='OPEN'")
-
-        [reports: reports, alertText: alertText]
+        [alertText: alertText]
 
     }
 
