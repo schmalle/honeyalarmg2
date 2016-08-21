@@ -59,17 +59,10 @@ class TwitterService
 
         for(user in recipients){
 
-
-                if (user.twitterName.contains("<none>")) {
-                }
-                else
-                {
+                if (!user.twitterName.contains("<none>")) {
                     directMessage(user.twitterName, text)
-
                 }
-
         }
-
 
     }
 
@@ -77,9 +70,7 @@ class TwitterService
     def directMessage(String recipient, String text)
     {
 
-
         ConfigurationBuilder cb = createConfigurationBuilder()
-
 
         if (cb)
         {
