@@ -4,12 +4,19 @@ import org.springframework.security.access.annotation.Secured
 import honeyalarm.Helpers;
 import org.codehaus.groovy.grails.validation.routines.InetAddressValidator
 import org.apache.commons.codec.binary.Base64
+import org.apache.http.HttpEntity
+import org.apache.http.HttpResponse
+import org.apache.http.client.HttpClient
+import org.apache.http.client.methods.HttpPost
+import org.apache.http.entity.StringEntity
+import org.apache.http.impl.client.DefaultHttpClient
 
 
 @Secured(["ROLE_ADMIN", "ROLE_USER", "ROLE_ANONYMOUS"])
 class HoneypotController {
 
     transient springSecurityService
+    transient grailsApplication
     transient twitterService
     transient eWSService
 
@@ -217,6 +224,10 @@ class HoneypotController {
        if (!match)
            return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
 
+        // ToDo add forward to DTAG community system here
+        // ToDo replace
+
+
 
         xmlData.Alert.each { node->
 
@@ -264,9 +275,38 @@ class HoneypotController {
 
         }   // parsing each alert !!!
 
-        return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>OK</StatusCode><Text></Text></Result>")
+
+            sendTacho(xmlText)
+
+
+            return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>OK</StatusCode><Text></Text></Result>")
 
     }
+
+
+    /**
+     * send data to tacho, if given in config
+     * @param xmlText
+     * @return
+     */
+    def sendTacho(xmlText) {
+        if (grailsApplication.config.useSicherheitstacho.contains("no")) {
+
+
+            int start = xmlText.indexOf("<Authentication>")
+            int end = xmlText.indexOf("</Authentication>")
+
+
+            String targetString = "<EWS-SimpleMessage version=\"2.0\"><Authentication><username>" + grailsApplication.config.userNameTSecRadar + "</username><token>" +  grailsApplication.config.passwordTSecRadar + "</token>"
+            String comText = targetString + xmlText.substring(end)
+
+
+            def returnText = sendHttps(grailsApplication.config.serverTSecRadar, comText)
+            print returnText
+
+        }
+    }   // sendTacho
+
 
 
     boolean notIgnored(requestURL) {
@@ -309,5 +349,45 @@ class HoneypotController {
 
         [role: role, Honeypots: Honeypots, dateAdded: dateAdded]
     }
+
+    def sendHttps(String httpUrl, String data) {
+        HttpClient httpClient = new DefaultHttpClient()
+        HttpResponse response
+        try {
+            HttpPost httpPost = new HttpPost(httpUrl)
+            httpPost.setHeader("Content-Type", "text/xml")
+
+            HttpEntity reqEntity = new StringEntity(data, "UTF-8")
+            reqEntity.setContentType("text/xml")
+            reqEntity.setChunked(true)
+
+            httpPost.setEntity(reqEntity)
+            log.info "executing request " + httpPost.getRequestLine()
+
+            response = httpClient.execute(httpPost)
+            HttpEntity resEntity = response.getEntity()
+
+            log.info response.getStatusLine()
+            if (resEntity != null) {
+                log.with {
+                    info "Response content length: " + resEntity.getContentLength()
+                    if (isDebugEnabled()) {
+                        debug "Response Chunked?: " + resEntity.isChunked()
+                        debug "Response Encoding: " + resEntity.contentEncoding
+                        debug "Response Content: " + resEntity.content.text
+                    }
+                }
+            }
+            // EntityUtils.consume(resEntity);
+        }
+        finally {
+            // When HttpClient instance is no longer needed,
+            // shut down the connection manager to ensure
+            // immediate deallocation of all system resources
+            httpClient.getConnectionManager().shutdown()
+        }
+        return response.getStatusLine()
+    }
+
 
 }
