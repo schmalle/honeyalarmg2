@@ -45,8 +45,6 @@ class TwitterService
             TwitterFactory tf = new TwitterFactory(config.build());
             Twitter twitter = tf.getInstance();
 
-            // The factory instance is re-useable and thread safe.
-            //Twitter twitter = TwitterFactory.getSingleton();
             Status status = twitter.updateStatus(latestStatus);
             System.out.println("Successfully updated the status to [" + status.getText() + "].");
         }

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
-<html lang="en" ng-app="honeyalarm">
+<html lang="en">
 
 <head>
 
@@ -38,7 +38,7 @@
 
 </head>
 
-<body ng-controller="AlarmController">
+<body>
 
 <div id="wrapper">
 
@@ -47,7 +47,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Attacks</h1>
+                <h1 class="page-header">Confirmed attacks</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -60,7 +60,7 @@
             <div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                        <i class="fa fa-bell fa-fw"></i> Overview panel
                     </div>
                     <!-- /.panel-heading -->
                     <div >
@@ -76,7 +76,8 @@
                             <tbody>
 
 
-                            <g:each in="${reports}" var="alarm">
+
+                    <g:each in="${alarms}" var="alarm">
 
                                 <tr>
 
@@ -87,7 +88,7 @@
 
                                 </tr>
 
-                            </g:each>
+                        </g:each>
 
                             </tbody>
                         </table>

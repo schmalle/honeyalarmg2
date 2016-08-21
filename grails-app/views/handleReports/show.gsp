@@ -12,9 +12,6 @@
 
     <title>Honeyalarm - Admin console</title>
 
-
-
-
     <!-- Bootstrap Core CSS -->
     <link href="${g.resource(dir: 'css', file:'bootstrap.min.css')}" rel="stylesheet">
 
@@ -33,8 +30,6 @@
     <script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
 
     <script src="${g.resource(dir: 'js', file:'bootbox.min.js')}"></script>
-
-
 
 </head>
 

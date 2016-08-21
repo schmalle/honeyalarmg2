@@ -12,7 +12,7 @@ class User implements Serializable {
 	String username
 	String password
 	String pwbackup
-	java.lang.String twitterName
+	String twitterName
 	String role
 	boolean enabled = true
 	boolean accountExpired

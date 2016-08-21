@@ -16,7 +16,7 @@ class ReportController
     {
         def myReport = Report.findById(params.id)
 
-        Alarm myAlarm = new Alarm(time: myReport.time, type: myReport.type, request: myReport.request, attacker: " ")
+        Alarm myAlarm = new Alarm(time: myReport.time, type: myReport.type, request: myReport.request, attacker: myReport.attacker)
         myAlarm.save()
         myReport.delete(flush: true)
 

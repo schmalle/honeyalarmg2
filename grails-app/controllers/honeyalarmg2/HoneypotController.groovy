@@ -1,9 +1,7 @@
 package honeyalarmg2
 
 import org.springframework.security.access.annotation.Secured
-import honeyalarm.Helpers;
 import org.codehaus.groovy.grails.validation.routines.InetAddressValidator
-import org.apache.commons.codec.binary.Base64
 import org.apache.http.HttpEntity
 import org.apache.http.HttpResponse
 import org.apache.http.client.HttpClient
@@ -35,7 +33,6 @@ class HoneypotController {
             redirect  (controller: "Index" , action:"index", params: [alertText: "Honeypot " + params.id + " not found"])
         }
     }
-
 
     //
     // update UI
@@ -218,16 +215,10 @@ class HoneypotController {
         if (!user)
             return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
 
-
         def match = token == tokenFromDatabase
 
        if (!match)
            return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
-
-        // ToDo add forward to DTAG community system here
-        // ToDo replace
-
-
 
         xmlData.Alert.each { node->
 
@@ -252,12 +243,8 @@ class HoneypotController {
                 ConfigHG config = ConfigHG.findAll().get(0)
                 List<User> userList = User.findAll()
 
-  //              if (config.useTwitter == "yes")
-  //                  twitterService.directMessageList(userList, "New alarm from Hp reporting UI")
-
-  //              if (config.useSicherheitstacho == "yes")
-  //                  eWSService.sendAlarm(new Date(), attackSource, requestURL, analyzerID)
-
+                if (config.useTwitter == "yes")
+                    twitterService.directMessageList(userList, "New alarm from Hp reporting UI")
 
                 //
                 // generate update entry for ui
@@ -276,10 +263,9 @@ class HoneypotController {
         }   // parsing each alert !!!
 
 
-            sendTacho(xmlText)
+        sendTacho(xmlText)
 
-
-            return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>OK</StatusCode><Text></Text></Result>")
+        return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>OK</StatusCode><Text></Text></Result>")
 
     }
 
