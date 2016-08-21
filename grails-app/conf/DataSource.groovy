@@ -16,6 +16,24 @@ environments {
             url = "jdbc:mysql://localhost/honeyalarmdev?useUnicode=yes&characterEncoding=UTF-8"
             username = "honeyalarmdev"
             password = "honeyalarmpw"
+
+            properties {
+                minIdle = 5
+                maxIdle = 25
+                maxWait = 10000
+                maxAge = 10 * 60000
+                timeBetweenEvictionRunsMillis = 5000
+                minEvictableIdleTimeMillis = 60000
+                validationQuery = "SELECT 1"
+                validationQueryTimeout = 3
+                validationInterval = 15000
+                testOnBorrow = true
+                testWhileIdle = true
+                testOnReturn = false
+                jdbcInterceptors = "ConnectionState;StatementCache(max=200)"
+                defaultTransactionIsolation = java.sql.Connection.TRANSACTION_READ_COMMITTED
+            }
+
         }
         hibernate {
             show_sql = true
@@ -35,6 +53,23 @@ environments {
             url = "jdbc:mysql://localhost/honeyalarmprod?useUnicode=yes&characterEncoding=UTF-8"
             username = "honeyalarmprod"
             password = "honeyalarmppw"
+
+            properties {
+                minIdle = 5
+                maxIdle = 25
+                maxWait = 10000
+                maxAge = 10 * 60000
+                timeBetweenEvictionRunsMillis = 5000
+                minEvictableIdleTimeMillis = 60000
+                validationQuery = "SELECT 1"
+                validationQueryTimeout = 3
+                validationInterval = 15000
+                testOnBorrow = true
+                testWhileIdle = true
+                testOnReturn = false
+                jdbcInterceptors = "ConnectionState;StatementCache(max=200)"
+                defaultTransactionIsolation = java.sql.Connection.TRANSACTION_READ_COMMITTED
+            }
         }
     }
 }
