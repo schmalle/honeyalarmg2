@@ -17,6 +17,7 @@ class HoneypotController {
     transient grailsApplication
     transient twitterService
     transient eWSService
+    transient slackService
 
     @Secured(["ROLE_ADMIN"])
     def delete() {
@@ -245,6 +246,10 @@ class HoneypotController {
 
                 if (config.useTwitter == "yes")
                     twitterService.directMessageList(userList, "New alarm from Hp reporting UI")
+
+                if (config.useSlack == "yes")
+                    slackService.send { text "New alarm from Hp reporting UI"}
+
 
                 //
                 // generate update entry for ui
