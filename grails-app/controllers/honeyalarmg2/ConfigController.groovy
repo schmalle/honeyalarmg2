@@ -17,7 +17,9 @@ class ConfigController
 
         def configList = ConfigHG.findAll()
         ConfigHG config = configList.get(0)
-        config.delete(flush: true)
+
+        if (!config)
+            config.delete(flush: true)
 
 
         // find old database entry
