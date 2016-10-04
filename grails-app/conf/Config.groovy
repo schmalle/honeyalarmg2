@@ -151,4 +151,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':  ['permitAll']
 ]
 
+
+slack {
+    webhook = "https://hooks.slack.com/services/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"
+}
+
 grails.config.locations = [ "file:/etc/honeyalarmg2.properties"]
+

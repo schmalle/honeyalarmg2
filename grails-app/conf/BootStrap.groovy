@@ -6,10 +6,14 @@ import honeyalarmg2.Role
 import honeyalarmg2.UserRole
 import honeyalarmg2.User
 
+import com.ullink.slack.simpleslackapi.*;
+import com.ullink.slack.simpleslackapi.replies.SlackChannelReply;
+import com.ullink.slack.simpleslackapi.impl.*;
 
 class BootStrap {
 
     def grailsApplication
+    def slackService
 
     def init = { servletContext ->
 
@@ -41,7 +45,11 @@ class BootStrap {
                                                     usePushover: grailsApplication.config.usePushover,
                                                     pushOverAppToken: grailsApplication.config.pushOverAppToken,
                                                     pushOverUserToken: grailsApplication.config.pushOverUserToken,
-                                                    pushOverDeviceID: grailsApplication.config.pushOverDeviceID
+                                                    pushOverDeviceID: grailsApplication.config.pushOverDeviceID,
+
+                                                    useSlack: grailsApplication.config.useSlack,
+                                                    slackIncomingWebHooks: grailsApplication.config.slackIncomingWebHooks,
+
 
         )
 

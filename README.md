@@ -11,6 +11,7 @@ Based on
 - Grails 2.5.5
 - great SBADMIN-2 Theme !
 - Spring Security Code
+- UlLink Slack client code (https://github.com/Ullink/simple-slack-api)
 
 
 Functions
@@ -40,6 +41,8 @@ Configfile (/etc/honeyalarmg2.properties)
 - pushOverAppToken=111
 - pushOverDeviceID=222
 - pushOverUserToken=333
+- useSlack
+- slackIncomingWebHooks
 
 
 

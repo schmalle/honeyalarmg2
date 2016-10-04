@@ -25,6 +25,9 @@ class ConfigHG  {
     String pushOverUserToken
     String pushOverDeviceID
 
+    String useSlack
+    String slackIncomingWebHooks
+
     static constraints = {
 
     }

@@ -23,7 +23,7 @@
       <configuration />
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/target/work/plugins/asset-pipeline-2.1.5">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/asset-pipeline-2.1.5/src/groovy" isTestSource="false" />
@@ -56,9 +56,14 @@
     <content url="file://$MODULE_DIR$/target/work/plugins/rest-0.8">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/rest-0.8/src/groovy" isTestSource="false" />
     </content>
+    <content url="file://$MODULE_DIR$/target/work/plugins/rest-client-builder-2.1.1" />
     <content url="file://$MODULE_DIR$/target/work/plugins/scaffolding-2.1.2">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/scaffolding-2.1.2/src/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/scaffolding-2.1.2/src/groovy" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/target/work/plugins/slack-1.2.1">
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/slack-1.2.1/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/slack-1.2.1/grails-app/services" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$/target/work/plugins/spring-security-core-2.0-RC5">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/spring-security-core-2.0-RC5/src/java" isTestSource="false" />
@@ -199,6 +204,7 @@
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/lib/org.apache.ant/ant-trax/jars/ant-trax-1.7.1.jar!/" />
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/lib/net.java.dev.jna/jna/jars/jna-4.0.0.jar!/" />
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/lib/org.apache.ant/ant-junit/jars/ant-junit-1.9.4.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/grails/grails-datastore-rest-client/3.1.4.RELEASE/grails-datastore-rest-client-3.1.4.RELEASE.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

@@ -9,7 +9,6 @@
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper" />
       <secret-storage>master_key</secret-storage>
       <user-name>honeyalarmdev</user-name>
-      <introspection-scope>honeyalarmdev:*</introspection-scope>
       <resolve-scope>honeyalarmdev:*</resolve-scope>
     </data-source>
     <data-source name="honeyalarmg2 dev" uuid="03bf5ba0-e14e-4da8-bbb1-39ef5bb2031a">
@@ -20,7 +19,6 @@
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper" />
       <user-name>honeyalarmdev</user-name>
       <user-password>dfc2dfc5dfc4dfcfdfd3dfcbdfc6dfcbdfd8dfc7dfdadfdd</user-password>
-      <introspection-scope>honeyalarmdev:*</introspection-scope>
       <resolve-scope>honeyalarmdev:*</resolve-scope>
     </data-source>
   </component>

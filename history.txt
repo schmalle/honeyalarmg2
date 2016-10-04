@@ -1,4 +1,10 @@
 
+03.10.2016  (Version 0.2)
+
+- added Slack support
+- some bug fixing
+
+
 21.08.2016  (Version 0.1)
 
 - Fixed twitter issues

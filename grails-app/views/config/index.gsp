@@ -241,6 +241,35 @@
 
                         </tr>
 
+
+                        <tr><td><label></label></td></tr>
+
+                        <br><br>
+
+                        <tr>
+                            <td><label>Use Slack</label></td>
+                            <td><g:select id="useSlack" name="useSlack"
+                                          from="${['no': 'No', 'yes': 'Yes']}"
+                                          optionKey="key" optionValue="value" value="${config.useSlack}"/></td>
+
+                            <td><label>Slack Web Token</label></td>
+                            <td><g:textField name="slackIncomingWebHooks"
+                                             value="${config.slackIncomingWebHooks}"/><td>
+
+                        </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
                             <tr>
                                 <td><input type="submit" class="btn btn-primary " value="Submit"></td>
                             </tr>

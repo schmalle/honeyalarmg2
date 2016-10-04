@@ -28,9 +28,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/target/work/resources" relative="/WEB-INF" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src" />
-        </sourceRoots>
+        <sourceRoots />
       </configuration>
     </facet>
     <facet type="web" name="GrailsWeb">
@@ -188,6 +186,7 @@
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/lib/org.apache.ant/ant-trax/jars/ant-trax-1.7.1.jar!/" />
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/lib/net.java.dev.jna/jna/jars/jna-4.0.0.jar!/" />
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/lib/org.apache.ant/ant-junit/jars/ant-junit-1.9.4.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/grails/grails-datastore-rest-client/3.1.4.RELEASE/grails-datastore-rest-client-3.1.4.RELEASE.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>

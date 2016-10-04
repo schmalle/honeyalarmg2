@@ -29,8 +29,6 @@ class UrlMappings {
         "/delUser"(controller: "User", action: "del")
         "/newUser"(controller: "User", action: "newUser")
 
-
-
         //
         // honeypot calls
         //

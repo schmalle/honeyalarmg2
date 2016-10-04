@@ -1,10 +1,12 @@
-FROM ubuntu:14.04.4
+FROM ubuntu:16.04
 
 #
 # expose the grails default port
 #
 
 EXPOSE 8080
+
+ARG DEBIAN_FRONTED=noninteractive
 
 RUN apt-get -y upgrade && apt-get -y update && apt-get -y install python-software-properties && apt-get -y install software-properties-common mysql-server
 

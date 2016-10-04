@@ -1,6 +1,10 @@
-Tested with docker 1.10 / docker-machine on MacOS X
+Tested with docker 1.12 / docker-machine on MacOS X (10.11)
 
 0. Start docker-machine
+
+    (If machine is not existing, create it first)
+
+    docker-machine create dev --driver virtualbox
 
     docker-machine start dev
 
