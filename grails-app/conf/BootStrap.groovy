@@ -6,10 +6,6 @@ import honeyalarmg2.Role
 import honeyalarmg2.UserRole
 import honeyalarmg2.User
 
-import com.ullink.slack.simpleslackapi.*;
-import com.ullink.slack.simpleslackapi.replies.SlackChannelReply;
-import com.ullink.slack.simpleslackapi.impl.*;
-
 class BootStrap {
 
     def grailsApplication

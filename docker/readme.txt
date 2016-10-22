@@ -4,7 +4,7 @@ Tested with docker 1.12 / docker-machine on MacOS X (10.11)
 
     (If machine is not existing, create it first)
 
-    docker-machine create dev --driver virtualbox
+    docker-machine create dev --driver virtualbox --virtualbox-memory=4096
 
     docker-machine start dev
 
