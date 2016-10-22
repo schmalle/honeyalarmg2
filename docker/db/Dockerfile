@@ -9,6 +9,9 @@ RUN mkdir /data
 WORKDIR "/data/"
 WORKDIR "/data/db"
 
+# add config file for database
 ADD ./configdb.sh /data/configdb.sh
 
 RUN /data/configdb.sh
+
+CMD ["service mysql start"]
