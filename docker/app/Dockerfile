@@ -14,9 +14,11 @@ RUN ln -snf /bin/bash /bin/sh && apt-get update && apt-get install -y supervisor
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-WORKDIR "/data/"
+# WORKDIR "/data/"
 
-RUN git clone https://github.com/schmalle/honeyalarmg2.git
+RUN git clone https://github.com/schmalle/honeyalarmg2.git /data/honeyalarmg2
+
+COPY DataSource.groovy /data/honeyalarmg2/grails-app/conf/DataSource.groovy
 
 WORKDIR "/data/honeyalarmg2"
 
@@ -29,6 +31,7 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
 
+RUN apt-get install oracle-java8-set-default
 
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
@@ -36,11 +39,10 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 #
 # this is only needed to download all needed libraries for grails 2.5.5 (or newer)
 #
-#RUN /data/honeyalarmg2/docker/configdb.sh
 
 RUN ./grailsw war
 
-#CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord"]
 
 
 
