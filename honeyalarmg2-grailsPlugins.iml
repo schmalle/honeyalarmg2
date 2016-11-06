@@ -82,10 +82,10 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="grails-2.5.5" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="grails-2.5.5" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="grails-2.5.5" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="c3p0-0.9.1.1" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="grails-2.5.5" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="grails-2.5.5" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="grails-2.5.5" level="application" />
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (honeyalarmg2-grailsPlugins)">
         <CLASSES>
@@ -205,6 +205,46 @@
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/lib/net.java.dev.jna/jna/jars/jna-4.0.0.jar!/" />
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/lib/org.apache.ant/ant-junit/jars/ant-junit-1.9.4.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/grails/grails-datastore-rest-client/3.1.4.RELEASE/grails-datastore-rest-client-3.1.4.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-domain-class-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-mimetypes-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-converters-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-async-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-async-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-validation-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-url-mappings-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-servlets-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-services-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-log4j-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-logging-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-encoder-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-codecs-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-web-gsp-taglib-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-gsp-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-filters-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-i18n-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-spring-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-bootstrap-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-core-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-databinding-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-validation-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-controllers-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-datasource-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-web-jsp-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-web-fileupload-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-web-common-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-databinding-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-web-databinding-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-web-url-mappings-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-web-sitemesh-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-web-mvc-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-web-gsp-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-web-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-rest-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-project-api-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-test-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-plugin-testing-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-docs-2.5.5.jar!/" />
+          <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.5/dist/grails-scripts-2.5.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

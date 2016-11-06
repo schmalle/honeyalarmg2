@@ -81,43 +81,54 @@ class HoneypotController {
     /*
         handle the periodical update request from the honeypots
      */
+
     def updateIP()
     {
 
-        try
-        {
 
-            def name = request.XML?.login?.name
-            def password = request.XML?.login?.password
 
-            def honeypot = Honeypot.findByName(name)
-            if (!honeypot)
-            {
-                UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from unknown honeypot " + name)
+            def xmlText = request.reader.text
+            def xmlData = new XmlSlurper().parseText(xmlText)
+            java.lang.String username = xmlData.Authentication.username
+            java.lang.String token = xmlData.Authentication.token
+            java.lang.String analyzerID = xmlData.Authentication.analyzername
+
+            User user = User.findByUsername(username)
+            String tokenFromDatabase = user.pwbackup
+            token = org.apache.commons.codec.digest.DigestUtils.sha256Hex(token);
+
+            if (!user)
+                return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
+
+            def match = token == tokenFromDatabase
+
+            if (!match)
+                return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
+
+
+
+                def honeypot = Honeypot.findByName(analyzerID)
+                if (!honeypot)
+                {
+                    UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from unknown honeypot " + name)
+                    updateUIReport(newHoneypotUpdate)
+
+                    return renderPlainText("not ok")
+                }
+
+                honeypot.delete()
+                honeypot.properties['ip'] = request.remoteAddr
+                honeypot.properties['lastseen'] = new Date()
+                honeypot.save()
+
+                //
+                // generate update entry for ui
+                //
+                UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from honeypot " + analyzerID)
                 updateUIReport(newHoneypotUpdate)
 
-                return renderPlainText("not ok")
-            }
+                return renderPlainText("ok")
 
-            honeypot.delete()
-            honeypot.properties['ip'] = request.remoteAddr
-            honeypot.properties['lastseen'] = new Date()
-            honeypot.save()
-
-
-            //
-            // generate update entry for ui
-            //
-            UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from honeypot " + name)
-            updateUIReport(newHoneypotUpdate)
-
-            return renderPlainText("ok")
-        }
-        catch (Exception e)
-        {
-            return renderPlainText("not ok, exception caught")
-        }
-        
     }   // updateIP
 
 

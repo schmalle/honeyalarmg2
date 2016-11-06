@@ -1,11 +1,11 @@
 version: '2'
 services:
   web:
-    image: honeyalarmg2-app
+    image: schmalle/honeyalarmg2-app
     ports:
      - "8080:8080"
   db:
-    image: honeyalarmg2-db
+    image: schmalle/honeyalarmg2-db
     ports:
      - "3306:3306"
 
