@@ -1,6 +1,7 @@
-<updateip>
-    <login>
-        <name>demohoneypot</name>
-        <password>test222222</password>
-    </login>
-</updateip>
+<EWS-SimpleMessage version="2.0">
+    <Authentication>
+        <username>me2222</username>
+        <token>password</token>
+        <analyzername>www.hewwise.de</analyzername>
+    </Authentication>
+</EWS-SimpleMessage>

@@ -1,6 +1,7 @@
-<updateip>
-    <login>
-        <name></name>
-        <password>test</password>
-    </login>
-</updateip>
+<EWS-SimpleMessage version="2.0">
+    <Authentication>
+        <username>me</username>
+        <token>password</token>
+        <analyzername>www.heise.de</analyzername>
+    </Authentication>
+</EWS-SimpleMessage>
