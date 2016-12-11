@@ -1,0 +1,18 @@
+---
+- hosts:
+  vars:
+  remote_user: flake
+  tasks:
+  - name: ensure tomcat is at the latest version
+    apt: name=tomcat state=latest
+  - name: ensure mysql is at the latest version
+    apt: name=mysql-server state=latest
+  - name: write the honeyalarm war file
+    template: src=/srv/httpd.j2 dest=/etc/httpd.conf
+    notify:
+    - restart tomcat
+  - name: ensure tomcat is running (and enable it at boot)
+    service: name=tomcat state=started enabled=yes
+  handlers:
+    - name: restart tomcat
+      service: name=tomcat state=restarted

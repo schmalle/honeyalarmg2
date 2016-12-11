@@ -13,6 +13,9 @@
 
     <title>Honeyalarm - Admin panel</title>
 
+    <img src="http://www.sicherheitstacho.eu/static/images/headline_en.png" class="logo" alt="DTAG Dataview">
+
+
     <script src="${g.resource(dir: 'js', file:'jquery.min.js')}"></script>
     <script src="${g.resource(dir: 'js', file:'bootstrap.min.js')}"></script>
     <script src="${g.resource(dir: 'js', file:'bootbox.min.js')}"></script>
