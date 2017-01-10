@@ -82,52 +82,59 @@ class HoneypotController {
         handle the periodical update request from the honeypots
      */
 
-    def updateIP()
-    {
+    def updateIP() {
 
 
+        def xmlText = request.reader.text
+        def xmlData = new XmlSlurper().parseText(xmlText)
+        java.lang.String username = xmlData.Authentication.username
+        java.lang.String token = xmlData.Authentication.token
+        java.lang.String analyzerID = xmlData.Authentication.analyzername
 
-            def xmlText = request.reader.text
-            def xmlData = new XmlSlurper().parseText(xmlText)
-            java.lang.String username = xmlData.Authentication.username
-            java.lang.String token = xmlData.Authentication.token
-            java.lang.String analyzerID = xmlData.Authentication.analyzername
+        User user = User.findByUsername(username)
+        String tokenFromDatabase = user.pwbackup
+        token = org.apache.commons.codec.digest.DigestUtils.sha256Hex(token);
 
-            User user = User.findByUsername(username)
-            String tokenFromDatabase = user.pwbackup
-            token = org.apache.commons.codec.digest.DigestUtils.sha256Hex(token);
+        if (!user)
+            return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
 
-            if (!user)
-                return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
+        def match = token == tokenFromDatabase
 
-            def match = token == tokenFromDatabase
-
-            if (!match)
-                return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
-
+        if (!match)
+            return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
 
 
-                def honeypot = Honeypot.findByName(analyzerID)
-                if (!honeypot)
-                {
-                    UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from unknown honeypot " + name)
-                    updateUIReport(newHoneypotUpdate)
+        def honeypot = Honeypot.findByName(analyzerID)
+        if (!honeypot) {
+            UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from unknown honeypot " + analyzerID)
+            updateUIReport(newHoneypotUpdate)
 
-                    return renderPlainText("not ok")
-                }
+            def requestViaProxy = request.getHeader("X-Forwarded-For")
+            if (!requestViaProxy) {
+                requestViaProxy = request.remoteAddr
+            }
 
-                honeypot.delete()
-                honeypot.properties['ip'] = request.remoteAddr
-                honeypot.properties['lastseen'] = new Date()
-                honeypot.save()
+            Honeypot analyzer = new Honeypot(ip: requestViaProxy, added: new Date(), lastseen: new Date(), name: analyzerID)
+            analyzer.save(flush: true)
 
-                //
-                // generate update entry for ui
-                //
-                UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from honeypot " + analyzerID)
-                updateUIReport(newHoneypotUpdate)
+            newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Created new honeypot " + analyzerID)
+            updateUIReport(newHoneypotUpdate)
 
-                return renderPlainText("ok")
+            return renderPlainText("not ok")
+        }
+
+        honeypot.delete()
+        honeypot.properties['ip'] = request.remoteAddr
+        honeypot.properties['lastseen'] = new Date()
+        honeypot.save()
+
+        //
+        // generate update entry for ui
+        //
+        UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from honeypot " + analyzerID)
+        updateUIReport(newHoneypotUpdate)
+
+        return renderPlainText("ok")
 
     }   // updateIP
 
