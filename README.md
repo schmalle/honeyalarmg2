@@ -45,6 +45,16 @@ Configfile (/etc/honeyalarmg2.properties)
 - slackIncomingWebHooks
 
 
+Note: If you use e.g. an nginx server in front of the grails application, please
+make sure, that the remote address is passed through
+
+location / {
+    proxy_pass       http://localhost:8080;
+    proxy_set_header Host      $host;
+    proxy_set_header X-Forwarded-For $remote_addr;
+}
+
+
 
 Thanks to
 
