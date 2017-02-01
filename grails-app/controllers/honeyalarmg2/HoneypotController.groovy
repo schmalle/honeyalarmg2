@@ -103,16 +103,17 @@ class HoneypotController {
         if (!match)
             return renderPlainText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Result><StatusCode>FAILED</StatusCode><Text></Text></Result>")
 
+        def requestViaProxy = request.getHeader("X-Forwarded-For")
 
+        if (!requestViaProxy) {
+            requestViaProxy = request.remoteAddr
+        }
         def honeypot = Honeypot.findByName(analyzerID)
         if (!honeypot) {
             UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "Keep alive call from unknown honeypot " + analyzerID)
             updateUIReport(newHoneypotUpdate)
 
-            def requestViaProxy = request.getHeader("X-Forwarded-For")
-            if (!requestViaProxy) {
-                requestViaProxy = request.remoteAddr
-            }
+
 
             Honeypot analyzer = new Honeypot(ip: requestViaProxy, added: new Date(), lastseen: new Date(), name: analyzerID)
             analyzer.save(flush: true)
@@ -124,7 +125,7 @@ class HoneypotController {
         }
 
         honeypot.delete()
-        honeypot.properties['ip'] = request.remoteAddr
+        honeypot.properties['ip'] = requestViaProxy
         honeypot.properties['lastseen'] = new Date()
         honeypot.save()
 
@@ -168,16 +169,16 @@ class HoneypotController {
      */
     def updateCreateAnalyzer(analyzerID) {
 
+        def requestViaProxy = request.getHeader("X-Forwarded-For")
+        if (!requestViaProxy) {
+            requestViaProxy = request.remoteAddr
+        }
+
         def analyzer = Honeypot.findByName(analyzerID)
         if (!analyzer)
         {
             UIReport newHoneypotUpdate = new UIReport(type: "INFO", time: new Date(), text: "First call from honeypot " + analyzerID + "(creating honeypot)")
             updateUIReport(newHoneypotUpdate)
-
-            def requestViaProxy = request.getHeader("X-Forwarded-For")
-            if (!requestViaProxy) {
-                requestViaProxy = request.remoteAddr
-            }
 
             analyzer = new Honeypot(ip: requestViaProxy, added: new Date(), lastseen: new Date(), name: analyzerID)
             analyzer.save(flush: true)
@@ -185,7 +186,7 @@ class HoneypotController {
         }
         else {
             analyzer.delete()
-            analyzer.properties['ip'] = request.remoteAddr
+            analyzer.properties['ip'] = requestViaProxy
             analyzer.properties['lastseen'] = new Date()
             analyzer.save()
         }
