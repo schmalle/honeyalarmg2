@@ -5,7 +5,7 @@
     </Authentication>
 
     <Alert>
-        <Analyzer id="4711"/>
+        <Analyzer id="MSTest3"/>
         <CreateTime tz="+0200">2015-09-09 16:39:21</CreateTime>
         <Source category="ipv4" port="" protocol="tcp">192.168.1.1</Source>
         <Target category="ipv4" port="80" protocol="tcp">1.2.3.4</Target>
@@ -23,7 +23,7 @@
     </Alert>
 
     <Alert>
-        <Analyzer id="www.heise.de"/>
+        <Analyzer id="4711"/>
         <CreateTime tz="+0200">2009-10-02 16:52:30</CreateTime>
         <Source category="ipv4" port="80" protocol="tcp">192.168.1.1</Source>
         <Target category="ipv4" port="80" protocol="tcp">1111</Target>

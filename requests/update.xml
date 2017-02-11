@@ -2,6 +2,6 @@
     <Authentication>
         <username>me</username>
         <token>password</token>
-        <analyzername>www.heise.de</analyzername>
+        <analyzername>www.heise.de2</analyzername>
     </Authentication>
 </EWS-SimpleMessage>
