@@ -5,7 +5,6 @@ class NavigationGeneratorController
 
     def springSecurityService
 
-
     def index()
     {
 
